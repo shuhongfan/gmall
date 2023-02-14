@@ -1,0 +1,2534 @@
+[
+  {
+    "index": 0,
+    "name": "优惠券管理",
+    "desc": "Coupon Info Controller",
+    "add_time": 1639119886,
+    "up_time": 1639119886,
+    "list": [
+      {
+        "query_path": {
+          "path": "/admin/activity/couponInfo/save",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [
+          "优惠券管理"
+        ],
+        "_id": 791,
+        "method": "POST",
+        "title": "保存",
+        "path": "/admin/activity/couponInfo/save",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "61540f9df1f1b52d05955815",
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "json",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"code\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\",\n      \"description\": \"返回码\"\n    },\n    \"data\": {\n      \"type\": \"object\",\n      \"description\": \"返回数据\"\n    },\n    \"message\": {\n      \"type\": \"string\",\n      \"description\": \"返回消息\"\n    },\n    \"ok\": {\n      \"type\": \"boolean\"\n    }\n  },\n  \"title\": \"全局统一返回结果\",\n  \"$$ref\": \"#/definitions/全局统一返回结果\"\n}",
+        "req_body_other": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"activityId\": {\n      \"type\": \"integer\",\n      \"format\": \"int64\",\n      \"description\": \"活动编号\"\n    },\n    \"benefitAmount\": {\n      \"type\": \"number\",\n      \"description\": \"减金额\"\n    },\n    \"benefitDiscount\": {\n      \"type\": \"number\",\n      \"description\": \"折扣\"\n    },\n    \"conditionAmount\": {\n      \"type\": \"number\",\n      \"description\": \"满额数\"\n    },\n    \"conditionNum\": {\n      \"type\": \"integer\",\n      \"format\": \"int64\",\n      \"description\": \"满件数\"\n    },\n    \"couponName\": {\n      \"type\": \"string\",\n      \"description\": \"购物券名称\"\n    },\n    \"couponStatus\": {\n      \"type\": \"string\",\n      \"description\": \"购物券状态（1：未使用 2：已使用）\"\n    },\n    \"couponType\": {\n      \"type\": \"string\",\n      \"description\": \"购物券类型\"\n    },\n    \"couponTypeString\": {\n      \"type\": \"string\"\n    },\n    \"createTime\": {\n      \"type\": \"string\",\n      \"format\": \"date-time\",\n      \"description\": \"创建时间\"\n    },\n    \"endTime\": {\n      \"type\": \"string\",\n      \"format\": \"date-time\",\n      \"description\": \"可以领取的结束日期\"\n    },\n    \"expireTime\": {\n      \"type\": \"string\",\n      \"format\": \"date-time\",\n      \"description\": \"过期时间\"\n    },\n    \"id\": {\n      \"type\": \"integer\",\n      \"format\": \"int64\",\n      \"description\": \"id\"\n    },\n    \"isChecked\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\",\n      \"description\": \"是否最优选项\"\n    },\n    \"isGet\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\",\n      \"description\": \"是否领取\"\n    },\n    \"isSelect\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\",\n      \"description\": \"是否可选\"\n    },\n    \"limitNum\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\",\n      \"description\": \"最多领用次数\"\n    },\n    \"operateTime\": {\n      \"type\": \"string\",\n      \"format\": \"date-time\",\n      \"description\": \"修改时间\"\n    },\n    \"rangeDesc\": {\n      \"type\": \"string\",\n      \"description\": \"优惠券范围描述\"\n    },\n    \"rangeId\": {\n      \"type\": \"integer\",\n      \"format\": \"int64\",\n      \"description\": \"范围类型id\"\n    },\n    \"rangeType\": {\n      \"type\": \"string\",\n      \"description\": \"范围类型\"\n    },\n    \"rangeTypeString\": {\n      \"type\": \"string\"\n    },\n    \"reduceAmount\": {\n      \"type\": \"number\",\n      \"description\": \"优惠后减少金额\"\n    },\n    \"skuIdList\": {\n      \"type\": \"array\",\n      \"description\": \"优惠券对应的skuId列表\",\n      \"items\": {\n        \"type\": \"integer\",\n        \"format\": \"int64\"\n      }\n    },\n    \"startTime\": {\n      \"type\": \"string\",\n      \"format\": \"date-time\",\n      \"description\": \"可以领取的开始日期\"\n    },\n    \"takenCount\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\",\n      \"description\": \"已领用次数\"\n    },\n    \"updateTime\": {\n      \"type\": \"string\",\n      \"format\": \"date-time\",\n      \"description\": \"更新时间\"\n    }\n  },\n  \"title\": \"CouponInfo\",\n  \"description\": \"CouponInfo\",\n  \"$$ref\": \"#/definitions/CouponInfo\"\n}",
+        "project_id": 203,
+        "catid": 207,
+        "uid": 44,
+        "add_time": 1639119888,
+        "up_time": 1639532194,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/admin/activity/couponInfo/saveCouponRule",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [
+          "优惠券管理"
+        ],
+        "_id": 797,
+        "method": "POST",
+        "title": "保存优惠券规则",
+        "path": "/admin/activity/couponInfo/saveCouponRule",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "61540f9df1f1b52d05955816",
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "json",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"code\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\",\n      \"description\": \"返回码\"\n    },\n    \"data\": {\n      \"type\": \"object\",\n      \"description\": \"返回数据\"\n    },\n    \"message\": {\n      \"type\": \"string\",\n      \"description\": \"返回消息\"\n    },\n    \"ok\": {\n      \"type\": \"boolean\"\n    }\n  },\n  \"title\": \"全局统一返回结果\",\n  \"$$ref\": \"#/definitions/全局统一返回结果\"\n}",
+        "req_body_other": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"benefitAmount\": {\n      \"type\": \"number\",\n      \"description\": \"减金额\"\n    },\n    \"benefitDiscount\": {\n      \"type\": \"number\",\n      \"description\": \"折扣\"\n    },\n    \"conditionAmount\": {\n      \"type\": \"number\",\n      \"description\": \"满额数\"\n    },\n    \"conditionNum\": {\n      \"type\": \"integer\",\n      \"format\": \"int64\",\n      \"description\": \"满件数\"\n    },\n    \"couponId\": {\n      \"type\": \"integer\",\n      \"format\": \"int64\",\n      \"description\": \"优惠券id\"\n    },\n    \"couponRangeList\": {\n      \"type\": \"array\",\n      \"description\": \"优惠券参与的商品list\",\n      \"items\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"couponId\": {\n            \"type\": \"integer\",\n            \"format\": \"int64\",\n            \"description\": \"优惠券id\"\n          },\n          \"createTime\": {\n            \"type\": \"string\",\n            \"format\": \"date-time\",\n            \"description\": \"创建时间\"\n          },\n          \"id\": {\n            \"type\": \"integer\",\n            \"format\": \"int64\",\n            \"description\": \"id\"\n          },\n          \"rangeId\": {\n            \"type\": \"integer\",\n            \"format\": \"int64\",\n            \"description\": \"rangeId\"\n          },\n          \"rangeType\": {\n            \"type\": \"string\",\n            \"description\": \"范围类型\"\n          },\n          \"updateTime\": {\n            \"type\": \"string\",\n            \"format\": \"date-time\",\n            \"description\": \"更新时间\"\n          }\n        },\n        \"title\": \"CouponRange\",\n        \"description\": \"CouponRange\",\n        \"$$ref\": \"#/definitions/CouponRange\"\n      }\n    },\n    \"rangeDesc\": {\n      \"type\": \"string\",\n      \"description\": \"优惠券范围描述\"\n    },\n    \"rangeType\": {\n      \"type\": \"string\",\n      \"description\": \"范围类型\",\n      \"enum\": [\n        \"SPU\",\n        \"CATAGORY\",\n        \"TRADEMARK\"\n      ]\n    }\n  },\n  \"title\": \"CouponRuleVo\",\n  \"description\": \"优惠券规则\",\n  \"$$ref\": \"#/definitions/CouponRuleVo\"\n}",
+        "project_id": 203,
+        "catid": 207,
+        "uid": 44,
+        "add_time": 1639119888,
+        "up_time": 1639119888,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/admin/activity/couponInfo/update",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [
+          "优惠券管理"
+        ],
+        "_id": 803,
+        "method": "PUT",
+        "title": "修改",
+        "path": "/admin/activity/couponInfo/update",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "61540f9df1f1b52d05955817",
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "json",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"code\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\",\n      \"description\": \"返回码\"\n    },\n    \"data\": {\n      \"type\": \"object\",\n      \"description\": \"返回数据\"\n    },\n    \"message\": {\n      \"type\": \"string\",\n      \"description\": \"返回消息\"\n    },\n    \"ok\": {\n      \"type\": \"boolean\"\n    }\n  },\n  \"title\": \"全局统一返回结果\",\n  \"$$ref\": \"#/definitions/全局统一返回结果\"\n}",
+        "req_body_other": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"activityId\": {\n      \"type\": \"integer\",\n      \"format\": \"int64\",\n      \"description\": \"活动编号\"\n    },\n    \"benefitAmount\": {\n      \"type\": \"number\",\n      \"description\": \"减金额\"\n    },\n    \"benefitDiscount\": {\n      \"type\": \"number\",\n      \"description\": \"折扣\"\n    },\n    \"conditionAmount\": {\n      \"type\": \"number\",\n      \"description\": \"满额数\"\n    },\n    \"conditionNum\": {\n      \"type\": \"integer\",\n      \"format\": \"int64\",\n      \"description\": \"满件数\"\n    },\n    \"couponName\": {\n      \"type\": \"string\",\n      \"description\": \"购物券名称\"\n    },\n    \"couponStatus\": {\n      \"type\": \"string\",\n      \"description\": \"购物券状态（1：未使用 2：已使用）\"\n    },\n    \"couponType\": {\n      \"type\": \"string\",\n      \"description\": \"购物券类型\"\n    },\n    \"couponTypeString\": {\n      \"type\": \"string\"\n    },\n    \"createTime\": {\n      \"type\": \"string\",\n      \"format\": \"date-time\",\n      \"description\": \"创建时间\"\n    },\n    \"endTime\": {\n      \"type\": \"string\",\n      \"format\": \"date-time\",\n      \"description\": \"可以领取的结束日期\"\n    },\n    \"expireTime\": {\n      \"type\": \"string\",\n      \"format\": \"date-time\",\n      \"description\": \"过期时间\"\n    },\n    \"id\": {\n      \"type\": \"integer\",\n      \"format\": \"int64\",\n      \"description\": \"id\"\n    },\n    \"isChecked\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\",\n      \"description\": \"是否最优选项\"\n    },\n    \"isGet\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\",\n      \"description\": \"是否领取\"\n    },\n    \"isSelect\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\",\n      \"description\": \"是否可选\"\n    },\n    \"limitNum\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\",\n      \"description\": \"最多领用次数\"\n    },\n    \"operateTime\": {\n      \"type\": \"string\",\n      \"format\": \"date-time\",\n      \"description\": \"修改时间\"\n    },\n    \"rangeDesc\": {\n      \"type\": \"string\",\n      \"description\": \"优惠券范围描述\"\n    },\n    \"rangeId\": {\n      \"type\": \"integer\",\n      \"format\": \"int64\",\n      \"description\": \"范围类型id\"\n    },\n    \"rangeType\": {\n      \"type\": \"string\",\n      \"description\": \"范围类型\"\n    },\n    \"rangeTypeString\": {\n      \"type\": \"string\"\n    },\n    \"reduceAmount\": {\n      \"type\": \"number\",\n      \"description\": \"优惠后减少金额\"\n    },\n    \"skuIdList\": {\n      \"type\": \"array\",\n      \"description\": \"优惠券对应的skuId列表\",\n      \"items\": {\n        \"type\": \"integer\",\n        \"format\": \"int64\"\n      }\n    },\n    \"startTime\": {\n      \"type\": \"string\",\n      \"format\": \"date-time\",\n      \"description\": \"可以领取的开始日期\"\n    },\n    \"takenCount\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\",\n      \"description\": \"已领用次数\"\n    },\n    \"updateTime\": {\n      \"type\": \"string\",\n      \"format\": \"date-time\",\n      \"description\": \"更新时间\"\n    }\n  },\n  \"title\": \"CouponInfo\",\n  \"description\": \"CouponInfo\",\n  \"$$ref\": \"#/definitions/CouponInfo\"\n}",
+        "project_id": 203,
+        "catid": 207,
+        "uid": 44,
+        "add_time": 1639119888,
+        "up_time": 1639119888,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/admin/activity/couponInfo/{page}/{limit}",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "var",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [
+          "优惠券管理"
+        ],
+        "_id": 809,
+        "method": "GET",
+        "title": "分页列表",
+        "path": "/admin/activity/couponInfo/{page}/{limit}",
+        "req_params": [
+          {
+            "_id": "61540f9df1f1b52d05955819",
+            "name": "limit",
+            "desc": "limit"
+          },
+          {
+            "_id": "61540f9df1f1b52d05955818",
+            "name": "page",
+            "desc": "page"
+          }
+        ],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "61540f9df1f1b52d0595581a",
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "json",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"code\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\",\n      \"description\": \"返回码\"\n    },\n    \"data\": {\n      \"type\": \"object\",\n      \"description\": \"返回数据\"\n    },\n    \"message\": {\n      \"type\": \"string\",\n      \"description\": \"返回消息\"\n    },\n    \"ok\": {\n      \"type\": \"boolean\"\n    }\n  },\n  \"title\": \"全局统一返回结果\",\n  \"$$ref\": \"#/definitions/全局统一返回结果\"\n}",
+        "req_body_other": "{\n  \"type\": \"string\",\n  \"format\": \"binary\"\n}",
+        "project_id": 203,
+        "catid": 207,
+        "uid": 44,
+        "add_time": 1639119888,
+        "up_time": 1639119888,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/admin/activity/couponInfo/remove/{id}",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "var",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [
+          "优惠券管理"
+        ],
+        "_id": 815,
+        "method": "DELETE",
+        "title": "删除",
+        "path": "/admin/activity/couponInfo/remove/{id}",
+        "req_params": [
+          {
+            "_id": "61540f9ef1f1b52d0595581b",
+            "name": "id",
+            "desc": "id"
+          }
+        ],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "61540f9ef1f1b52d0595581c",
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "json",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"code\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\",\n      \"description\": \"返回码\"\n    },\n    \"data\": {\n      \"type\": \"object\",\n      \"description\": \"返回数据\"\n    },\n    \"message\": {\n      \"type\": \"string\",\n      \"description\": \"返回消息\"\n    },\n    \"ok\": {\n      \"type\": \"boolean\"\n    }\n  },\n  \"title\": \"全局统一返回结果\",\n  \"$$ref\": \"#/definitions/全局统一返回结果\"\n}",
+        "req_body_other": "{\n  \"type\": \"string\",\n  \"format\": \"binary\"\n}",
+        "project_id": 203,
+        "catid": 207,
+        "uid": 44,
+        "add_time": 1639119889,
+        "up_time": 1639119889,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/admin/activity/couponInfo/batchRemove",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [
+          "优惠券管理"
+        ],
+        "_id": 821,
+        "method": "DELETE",
+        "title": "批量删除",
+        "path": "/admin/activity/couponInfo/batchRemove",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "61540f9ef1f1b52d0595581d",
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "json",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"code\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\",\n      \"description\": \"返回码\"\n    },\n    \"data\": {\n      \"type\": \"object\",\n      \"description\": \"返回数据\"\n    },\n    \"message\": {\n      \"type\": \"string\",\n      \"description\": \"返回消息\"\n    },\n    \"ok\": {\n      \"type\": \"boolean\"\n    }\n  },\n  \"title\": \"全局统一返回结果\",\n  \"$$ref\": \"#/definitions/全局统一返回结果\"\n}",
+        "req_body_other": "{\n  \"type\": \"array\",\n  \"items\": {\n    \"type\": \"integer\",\n    \"format\": \"int64\"\n  }\n}",
+        "project_id": 203,
+        "catid": 207,
+        "uid": 44,
+        "add_time": 1639119889,
+        "up_time": 1639119889,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/admin/activity/couponInfo/findCouponRuleList/{id}",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "var",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [
+          "优惠券管理"
+        ],
+        "_id": 827,
+        "method": "GET",
+        "title": "根据id获取优惠券规则",
+        "path": "/admin/activity/couponInfo/findCouponRuleList/{id}",
+        "req_params": [
+          {
+            "_id": "61540f9ef1f1b52d0595581e",
+            "name": "id",
+            "desc": "id"
+          }
+        ],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "61540f9ef1f1b52d0595581f",
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "json",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"code\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\",\n      \"description\": \"返回码\"\n    },\n    \"data\": {\n      \"type\": \"object\",\n      \"description\": \"返回数据\"\n    },\n    \"message\": {\n      \"type\": \"string\",\n      \"description\": \"返回消息\"\n    },\n    \"ok\": {\n      \"type\": \"boolean\"\n    }\n  },\n  \"title\": \"全局统一返回结果\",\n  \"$$ref\": \"#/definitions/全局统一返回结果\"\n}",
+        "req_body_other": "{\n  \"type\": \"string\",\n  \"format\": \"binary\"\n}",
+        "project_id": 203,
+        "catid": 207,
+        "uid": 44,
+        "add_time": 1639119889,
+        "up_time": 1639119889,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/admin/activity/couponInfo/get/{id}",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "var",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [
+          "优惠券管理"
+        ],
+        "_id": 833,
+        "method": "GET",
+        "title": "根据id获取详情",
+        "path": "/admin/activity/couponInfo/get/{id}",
+        "req_params": [
+          {
+            "_id": "61540f9ef1f1b52d05955820",
+            "name": "id",
+            "desc": "id"
+          }
+        ],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "61540f9ef1f1b52d05955821",
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "json",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"code\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\",\n      \"description\": \"返回码\"\n    },\n    \"data\": {\n      \"type\": \"object\",\n      \"description\": \"返回数据\"\n    },\n    \"message\": {\n      \"type\": \"string\",\n      \"description\": \"返回消息\"\n    },\n    \"ok\": {\n      \"type\": \"boolean\"\n    }\n  },\n  \"title\": \"全局统一返回结果\",\n  \"$$ref\": \"#/definitions/全局统一返回结果\"\n}",
+        "req_body_other": "{\n  \"type\": \"string\",\n  \"format\": \"binary\"\n}",
+        "project_id": 203,
+        "catid": 207,
+        "uid": 44,
+        "add_time": 1639119889,
+        "up_time": 1639119889,
+        "__v": 0
+      }
+    ]
+  },
+  {
+    "index": 2,
+    "name": "促销活动",
+    "desc": "Activity Info Controller",
+    "add_time": 1639119886,
+    "up_time": 1639119886,
+    "list": [
+      {
+        "query_path": {
+          "path": "/admin/activity/activityInfo/save",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [
+          "促销活动"
+        ],
+        "_id": 839,
+        "method": "POST",
+        "title": "保存",
+        "path": "/admin/activity/activityInfo/save",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "61540f9ef1f1b52d05955822",
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "json",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"code\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\",\n      \"description\": \"返回码\"\n    },\n    \"data\": {\n      \"type\": \"object\",\n      \"description\": \"返回数据\"\n    },\n    \"message\": {\n      \"type\": \"string\",\n      \"description\": \"返回消息\"\n    },\n    \"ok\": {\n      \"type\": \"boolean\"\n    }\n  },\n  \"title\": \"全局统一返回结果\",\n  \"$$ref\": \"#/definitions/全局统一返回结果\"\n}",
+        "req_body_other": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"activityDesc\": {\n      \"type\": \"string\",\n      \"description\": \"活动描述\",\n      \"refType\": null\n    },\n    \"activityName\": {\n      \"type\": \"string\",\n      \"description\": \"活动名称\",\n      \"refType\": null\n    },\n    \"activityType\": {\n      \"type\": \"string\",\n      \"description\": \"活动类型（满减、折扣）\",\n      \"refType\": null\n    },\n    \"activityTypeString\": {\n      \"type\": \"string\",\n      \"refType\": null\n    },\n    \"createTime\": {\n      \"type\": \"string\",\n      \"format\": \"date-time\",\n      \"description\": \"创建时间\",\n      \"refType\": null\n    },\n    \"endTime\": {\n      \"type\": \"string\",\n      \"format\": \"date-time\",\n      \"description\": \"结束时间\",\n      \"refType\": null\n    },\n    \"id\": {\n      \"type\": \"integer\",\n      \"format\": \"int64\",\n      \"description\": \"id\",\n      \"refType\": null\n    },\n    \"startTime\": {\n      \"type\": \"string\",\n      \"format\": \"date-time\",\n      \"description\": \"开始时间\",\n      \"refType\": null\n    },\n    \"updateTime\": {\n      \"type\": \"string\",\n      \"format\": \"date-time\",\n      \"description\": \"更新时间\",\n      \"refType\": null\n    }\n  },\n  \"title\": \"ActivityInfo\",\n  \"description\": \"活动信息\",\n  \"$$ref\": \"#/definitions/ActivityInfo\"\n}",
+        "project_id": 203,
+        "catid": 211,
+        "uid": 44,
+        "add_time": 1639119890,
+        "up_time": 1642407056,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/admin/activity/activityInfo/saveActivityRule",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [
+          "促销活动"
+        ],
+        "_id": 845,
+        "method": "POST",
+        "title": "保存活动规则",
+        "path": "/admin/activity/activityInfo/saveActivityRule",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "61540f9ef1f1b52d05955823",
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "json",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"code\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\",\n      \"description\": \"返回码\"\n    },\n    \"data\": {\n      \"type\": \"object\",\n      \"description\": \"返回数据\"\n    },\n    \"message\": {\n      \"type\": \"string\",\n      \"description\": \"返回消息\"\n    },\n    \"ok\": {\n      \"type\": \"boolean\"\n    }\n  },\n  \"title\": \"全局统一返回结果\",\n  \"$$ref\": \"#/definitions/全局统一返回结果\"\n}",
+        "req_body_other": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"activityId\": {\n      \"type\": \"integer\",\n      \"format\": \"int64\",\n      \"description\": \"活动id\"\n    },\n    \"activityRuleList\": {\n      \"type\": \"array\",\n      \"description\": \"活动规则list\",\n      \"items\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"activityId\": {\n            \"type\": \"integer\",\n            \"format\": \"int64\",\n            \"description\": \"类型\"\n          },\n          \"activityType\": {\n            \"type\": \"string\",\n            \"description\": \"活动类型（1：满减，2：折扣）\"\n          },\n          \"benefitAmount\": {\n            \"type\": \"number\",\n            \"description\": \"优惠金额\"\n          },\n          \"benefitDiscount\": {\n            \"type\": \"number\",\n            \"description\": \"优惠折扣\"\n          },\n          \"benefitLevel\": {\n            \"type\": \"integer\",\n            \"format\": \"int64\",\n            \"description\": \"优惠级别\"\n          },\n          \"conditionAmount\": {\n            \"type\": \"number\",\n            \"description\": \"满减金额\"\n          },\n          \"conditionNum\": {\n            \"type\": \"integer\",\n            \"format\": \"int64\",\n            \"description\": \"满减件数\"\n          },\n          \"createTime\": {\n            \"type\": \"string\",\n            \"format\": \"date-time\",\n            \"description\": \"创建时间\"\n          },\n          \"id\": {\n            \"type\": \"integer\",\n            \"format\": \"int64\",\n            \"description\": \"id\"\n          },\n          \"reduceAmount\": {\n            \"type\": \"number\",\n            \"description\": \"优惠后减少金额\"\n          },\n          \"skuId\": {\n            \"type\": \"integer\",\n            \"format\": \"int64\",\n            \"description\": \"活动skuId\"\n          },\n          \"skuIdList\": {\n            \"type\": \"array\",\n            \"description\": \"活动对应的skuId列表\",\n            \"items\": {\n              \"type\": \"integer\",\n              \"format\": \"int64\"\n            }\n          },\n          \"updateTime\": {\n            \"type\": \"string\",\n            \"format\": \"date-time\",\n            \"description\": \"更新时间\"\n          }\n        },\n        \"title\": \"ActivityRule\",\n        \"description\": \"活动规则\",\n        \"$$ref\": \"#/definitions/ActivityRule\"\n      }\n    },\n    \"activitySkuList\": {\n      \"type\": \"array\",\n      \"description\": \"活动参与商品list\",\n      \"items\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"activityId\": {\n            \"type\": \"integer\",\n            \"format\": \"int64\",\n            \"description\": \"活动id \"\n          },\n          \"createTime\": {\n            \"type\": \"string\",\n            \"format\": \"date-time\",\n            \"description\": \"创建时间\"\n          },\n          \"id\": {\n            \"type\": \"integer\",\n            \"format\": \"int64\",\n            \"description\": \"id\"\n          },\n          \"skuId\": {\n            \"type\": \"integer\",\n            \"format\": \"int64\",\n            \"description\": \"sku_id\"\n          },\n          \"updateTime\": {\n            \"type\": \"string\",\n            \"format\": \"date-time\",\n            \"description\": \"更新时间\"\n          }\n        },\n        \"title\": \"ActivitySku\",\n        \"description\": \"活动sku范围\",\n        \"$$ref\": \"#/definitions/ActivitySku\"\n      }\n    }\n  },\n  \"title\": \"ActivityRuleVo\",\n  \"description\": \"活动规则\",\n  \"$$ref\": \"#/definitions/ActivityRuleVo\"\n}",
+        "project_id": 203,
+        "catid": 211,
+        "uid": 44,
+        "add_time": 1639119890,
+        "up_time": 1639119890,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/admin/activity/activityInfo/update",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [
+          "促销活动"
+        ],
+        "_id": 851,
+        "method": "PUT",
+        "title": "修改",
+        "path": "/admin/activity/activityInfo/update",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "61540f9ef1f1b52d05955824",
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "json",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"code\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\",\n      \"description\": \"返回码\"\n    },\n    \"data\": {\n      \"type\": \"object\",\n      \"description\": \"返回数据\"\n    },\n    \"message\": {\n      \"type\": \"string\",\n      \"description\": \"返回消息\"\n    },\n    \"ok\": {\n      \"type\": \"boolean\"\n    }\n  },\n  \"title\": \"全局统一返回结果\",\n  \"$$ref\": \"#/definitions/全局统一返回结果\"\n}",
+        "req_body_other": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"activityDesc\": {\n      \"type\": \"string\",\n      \"description\": \"活动描述\",\n      \"refType\": null\n    },\n    \"activityName\": {\n      \"type\": \"string\",\n      \"description\": \"活动名称\",\n      \"refType\": null\n    },\n    \"activityType\": {\n      \"type\": \"string\",\n      \"description\": \"活动类型（满减、折扣）\",\n      \"refType\": null\n    },\n    \"activityTypeString\": {\n      \"type\": \"string\",\n      \"refType\": null\n    },\n    \"createTime\": {\n      \"type\": \"string\",\n      \"format\": \"date-time\",\n      \"description\": \"创建时间\",\n      \"refType\": null\n    },\n    \"endTime\": {\n      \"type\": \"string\",\n      \"format\": \"date-time\",\n      \"description\": \"结束时间\",\n      \"refType\": null\n    },\n    \"id\": {\n      \"type\": \"integer\",\n      \"format\": \"int64\",\n      \"description\": \"id\",\n      \"refType\": null\n    },\n    \"startTime\": {\n      \"type\": \"string\",\n      \"format\": \"date-time\",\n      \"description\": \"开始时间\",\n      \"refType\": null\n    },\n    \"updateTime\": {\n      \"type\": \"string\",\n      \"format\": \"date-time\",\n      \"description\": \"更新时间\",\n      \"refType\": null\n    }\n  },\n  \"title\": \"ActivityInfo\",\n  \"description\": \"活动信息\",\n  \"$$ref\": \"#/definitions/ActivityInfo\"\n}",
+        "project_id": 203,
+        "catid": 211,
+        "uid": 44,
+        "add_time": 1639119890,
+        "up_time": 1639119890,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/admin/activity/activityInfo/{page}/{limit}",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "var",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [
+          "促销活动"
+        ],
+        "_id": 857,
+        "method": "GET",
+        "title": "分页列表",
+        "path": "/admin/activity/activityInfo/{page}/{limit}",
+        "req_params": [
+          {
+            "_id": "61540f9ef1f1b52d05955826",
+            "name": "limit",
+            "desc": "limit"
+          },
+          {
+            "_id": "61540f9ef1f1b52d05955825",
+            "name": "page",
+            "desc": "page"
+          }
+        ],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "61540f9ef1f1b52d05955827",
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "json",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"code\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\",\n      \"description\": \"返回码\"\n    },\n    \"data\": {\n      \"type\": \"object\",\n      \"description\": \"返回数据\"\n    },\n    \"message\": {\n      \"type\": \"string\",\n      \"description\": \"返回消息\"\n    },\n    \"ok\": {\n      \"type\": \"boolean\"\n    }\n  },\n  \"title\": \"全局统一返回结果\",\n  \"$$ref\": \"#/definitions/全局统一返回结果\"\n}",
+        "req_body_other": "{\n  \"type\": \"string\",\n  \"format\": \"binary\"\n}",
+        "project_id": 203,
+        "catid": 211,
+        "uid": 44,
+        "add_time": 1639119890,
+        "up_time": 1639119890,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/admin/activity/activityInfo/remove/{id}",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "var",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [
+          "促销活动"
+        ],
+        "_id": 863,
+        "method": "DELETE",
+        "title": "删除",
+        "path": "/admin/activity/activityInfo/remove/{id}",
+        "req_params": [
+          {
+            "_id": "61540f9ef1f1b52d05955828",
+            "name": "id",
+            "desc": "id"
+          }
+        ],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "61540f9ef1f1b52d05955829",
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "json",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"code\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\",\n      \"description\": \"返回码\"\n    },\n    \"data\": {\n      \"type\": \"object\",\n      \"description\": \"返回数据\"\n    },\n    \"message\": {\n      \"type\": \"string\",\n      \"description\": \"返回消息\"\n    },\n    \"ok\": {\n      \"type\": \"boolean\"\n    }\n  },\n  \"title\": \"全局统一返回结果\",\n  \"$$ref\": \"#/definitions/全局统一返回结果\"\n}",
+        "req_body_other": "{\n  \"type\": \"string\",\n  \"format\": \"binary\"\n}",
+        "project_id": 203,
+        "catid": 211,
+        "uid": 44,
+        "add_time": 1639119891,
+        "up_time": 1639119891,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/admin/activity/activityInfo/batchRemove",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [
+          "促销活动"
+        ],
+        "_id": 869,
+        "method": "DELETE",
+        "title": "批量删除",
+        "path": "/admin/activity/activityInfo/batchRemove",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "61540f9ef1f1b52d0595582a",
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "json",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"code\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\",\n      \"description\": \"返回码\"\n    },\n    \"data\": {\n      \"type\": \"object\",\n      \"description\": \"返回数据\"\n    },\n    \"message\": {\n      \"type\": \"string\",\n      \"description\": \"返回消息\"\n    },\n    \"ok\": {\n      \"type\": \"boolean\"\n    }\n  },\n  \"title\": \"全局统一返回结果\",\n  \"$$ref\": \"#/definitions/全局统一返回结果\"\n}",
+        "req_body_other": "{\n  \"type\": \"array\",\n  \"items\": {\n    \"type\": \"integer\",\n    \"format\": \"int64\"\n  }\n}",
+        "project_id": 203,
+        "catid": 211,
+        "uid": 44,
+        "add_time": 1639119891,
+        "up_time": 1639119891,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/admin/activity/activityInfo/get/{id}",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "var",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [
+          "促销活动"
+        ],
+        "_id": 875,
+        "method": "GET",
+        "title": "根据id获取详情",
+        "path": "/admin/activity/activityInfo/get/{id}",
+        "req_params": [
+          {
+            "_id": "61540f9ff1f1b52d0595582b",
+            "name": "id",
+            "desc": "id"
+          }
+        ],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "61540f9ff1f1b52d0595582c",
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "json",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"code\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\",\n      \"description\": \"返回码\"\n    },\n    \"data\": {\n      \"type\": \"object\",\n      \"description\": \"返回数据\"\n    },\n    \"message\": {\n      \"type\": \"string\",\n      \"description\": \"返回消息\"\n    },\n    \"ok\": {\n      \"type\": \"boolean\"\n    }\n  },\n  \"title\": \"全局统一返回结果\",\n  \"$$ref\": \"#/definitions/全局统一返回结果\"\n}",
+        "req_body_other": "{\n  \"type\": \"string\",\n  \"format\": \"binary\"\n}",
+        "project_id": 203,
+        "catid": 211,
+        "uid": 44,
+        "add_time": 1639119891,
+        "up_time": 1639119891,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/admin/activity/activityInfo/findSkuInfoByKeyword/{keyword}",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "var",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [
+          "促销活动"
+        ],
+        "_id": 881,
+        "method": "GET",
+        "title": "根据关键字获取sku",
+        "path": "/admin/activity/activityInfo/findSkuInfoByKeyword/{keyword}",
+        "req_params": [
+          {
+            "_id": "61540f9ff1f1b52d0595582d",
+            "name": "keyword",
+            "desc": "keyword"
+          }
+        ],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "61540f9ff1f1b52d0595582e",
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "json",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"code\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\",\n      \"description\": \"返回码\"\n    },\n    \"data\": {\n      \"type\": \"object\",\n      \"description\": \"返回数据\"\n    },\n    \"message\": {\n      \"type\": \"string\",\n      \"description\": \"返回消息\"\n    },\n    \"ok\": {\n      \"type\": \"boolean\"\n    }\n  },\n  \"title\": \"全局统一返回结果\",\n  \"$$ref\": \"#/definitions/全局统一返回结果\"\n}",
+        "req_body_other": "{\n  \"type\": \"string\",\n  \"format\": \"binary\"\n}",
+        "project_id": 203,
+        "catid": 211,
+        "uid": 44,
+        "add_time": 1639119891,
+        "up_time": 1639119891,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/admin/activity/activityInfo/findActivityRuleList/{id}",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "var",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [
+          "促销活动"
+        ],
+        "_id": 887,
+        "method": "GET",
+        "title": "根据活动id获取活动规则",
+        "path": "/admin/activity/activityInfo/findActivityRuleList/{id}",
+        "req_params": [
+          {
+            "_id": "61540f9ff1f1b52d0595582f",
+            "name": "id",
+            "desc": "id"
+          }
+        ],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "61540f9ff1f1b52d05955830",
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "json",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"code\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\",\n      \"description\": \"返回码\"\n    },\n    \"data\": {\n      \"type\": \"object\",\n      \"description\": \"返回数据\"\n    },\n    \"message\": {\n      \"type\": \"string\",\n      \"description\": \"返回消息\"\n    },\n    \"ok\": {\n      \"type\": \"boolean\"\n    }\n  },\n  \"title\": \"全局统一返回结果\",\n  \"$$ref\": \"#/definitions/全局统一返回结果\"\n}",
+        "req_body_other": "{\n  \"type\": \"string\",\n  \"format\": \"binary\"\n}",
+        "project_id": 203,
+        "catid": 211,
+        "uid": 44,
+        "add_time": 1639119891,
+        "up_time": 1639119891,
+        "__v": 0
+      }
+    ]
+  },
+  {
+    "index": 3,
+    "name": "分类品牌管理",
+    "desc": "Base Category Trademark Controller",
+    "add_time": 1639119886,
+    "up_time": 1639119886,
+    "list": [
+      {
+        "query_path": {
+          "path": "/admin/product/baseCategoryTrademark/save",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [
+          "分类品牌管理"
+        ],
+        "_id": 893,
+        "method": "POST",
+        "title": "保存分类品牌关联",
+        "path": "/admin/product/baseCategoryTrademark/save",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "61540f9ff1f1b52d05955831",
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "json",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"code\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\",\n      \"description\": \"返回码\"\n    },\n    \"data\": {\n      \"type\": \"object\",\n      \"description\": \"返回数据\"\n    },\n    \"message\": {\n      \"type\": \"string\",\n      \"description\": \"返回消息\"\n    },\n    \"ok\": {\n      \"type\": \"boolean\"\n    }\n  },\n  \"title\": \"全局统一返回结果\",\n  \"$$ref\": \"#/definitions/全局统一返回结果\"\n}",
+        "req_body_other": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"category3Id\": {\n      \"type\": \"integer\",\n      \"format\": \"int64\",\n      \"description\": \"三级分类编号\"\n    },\n    \"trademarkIdList\": {\n      \"type\": \"array\",\n      \"description\": \"品牌id\",\n      \"items\": {\n        \"type\": \"integer\",\n        \"format\": \"int64\"\n      }\n    }\n  },\n  \"title\": \"CategoryTrademarkVo\",\n  \"$$ref\": \"#/definitions/CategoryTrademarkVo\"\n}",
+        "project_id": 203,
+        "catid": 215,
+        "uid": 44,
+        "add_time": 1639119891,
+        "up_time": 1642313731,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/admin/product/baseCategoryTrademark/remove/{category3Id}/{trademarkId}",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "var",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 1,
+        "tag": [
+          "分类品牌管理"
+        ],
+        "_id": 899,
+        "method": "DELETE",
+        "title": "删除分类品牌关联",
+        "path": "/admin/product/baseCategoryTrademark/remove/{category3Id}/{trademarkId}",
+        "req_params": [
+          {
+            "_id": "61540f9ff1f1b52d05955833",
+            "name": "category3Id",
+            "desc": "category3Id"
+          },
+          {
+            "_id": "61540f9ff1f1b52d05955832",
+            "name": "trademarkId",
+            "desc": "trademarkId"
+          }
+        ],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "61540f9ff1f1b52d05955834",
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "json",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"code\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\",\n      \"description\": \"返回码\"\n    },\n    \"data\": {\n      \"type\": \"object\",\n      \"description\": \"返回数据\"\n    },\n    \"message\": {\n      \"type\": \"string\",\n      \"description\": \"返回消息\"\n    },\n    \"ok\": {\n      \"type\": \"boolean\"\n    }\n  },\n  \"title\": \"全局统一返回结果\",\n  \"$$ref\": \"#/definitions/全局统一返回结果\"\n}",
+        "req_body_other": "{\n  \"type\": \"string\",\n  \"format\": \"binary\"\n}",
+        "project_id": 203,
+        "catid": 215,
+        "uid": 44,
+        "add_time": 1639119891,
+        "up_time": 1639660790,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/admin/product/baseCategoryTrademark/findCurrentTrademarkList/{category3Id}",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "var",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 2,
+        "tag": [
+          "分类品牌管理"
+        ],
+        "_id": 911,
+        "method": "GET",
+        "title": "根据category3Id获取可选品牌列表",
+        "path": "/admin/product/baseCategoryTrademark/findCurrentTrademarkList/{category3Id}",
+        "req_params": [
+          {
+            "_id": "61540f9ff1f1b52d05955838",
+            "name": "category3Id",
+            "desc": "category3Id"
+          }
+        ],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "61540f9ff1f1b52d05955839",
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "json",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"code\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\",\n      \"description\": \"返回码\"\n    },\n    \"data\": {\n      \"type\": \"array\",\n      \"description\": \"返回数据\",\n      \"items\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"createTime\": {\n            \"type\": \"string\",\n            \"format\": \"date-time\",\n            \"description\": \"创建时间\"\n          },\n          \"id\": {\n            \"type\": \"integer\",\n            \"format\": \"int64\",\n            \"description\": \"id\"\n          },\n          \"logoUrl\": {\n            \"type\": \"string\",\n            \"description\": \"品牌logo的图片路径\"\n          },\n          \"tmName\": {\n            \"type\": \"string\",\n            \"description\": \"属性值\"\n          },\n          \"updateTime\": {\n            \"type\": \"string\",\n            \"format\": \"date-time\",\n            \"description\": \"更新时间\"\n          }\n        },\n        \"title\": \"BaseTrademark\",\n        \"description\": \"商标品牌\",\n        \"$$ref\": \"#/definitions/BaseTrademark\"\n      }\n    },\n    \"message\": {\n      \"type\": \"string\",\n      \"description\": \"返回消息\"\n    },\n    \"ok\": {\n      \"type\": \"boolean\"\n    }\n  },\n  \"title\": \"全局统一返回结果«List«BaseTrademark»»\",\n  \"$$ref\": \"#/definitions/全局统一返回结果«List«BaseTrademark»»\"\n}",
+        "req_body_other": "{\n  \"type\": \"string\",\n  \"format\": \"binary\"\n}",
+        "project_id": 203,
+        "catid": 215,
+        "uid": 44,
+        "add_time": 1639119892,
+        "up_time": 1639660791,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/admin/product/baseCategoryTrademark/findTrademarkList/{category3Id}",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "var",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 3,
+        "tag": [
+          "分类品牌管理"
+        ],
+        "_id": 917,
+        "method": "GET",
+        "title": "根据category3Id获取品牌列表",
+        "path": "/admin/product/baseCategoryTrademark/findTrademarkList/{category3Id}",
+        "req_params": [
+          {
+            "_id": "61540f9ff1f1b52d0595583a",
+            "name": "category3Id",
+            "desc": "category3Id"
+          }
+        ],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "61540f9ff1f1b52d0595583b",
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "json",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"code\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\",\n      \"description\": \"返回码\"\n    },\n    \"data\": {\n      \"type\": \"array\",\n      \"description\": \"返回数据\",\n      \"items\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"createTime\": {\n            \"type\": \"string\",\n            \"format\": \"date-time\",\n            \"description\": \"创建时间\"\n          },\n          \"id\": {\n            \"type\": \"integer\",\n            \"format\": \"int64\",\n            \"description\": \"id\"\n          },\n          \"logoUrl\": {\n            \"type\": \"string\",\n            \"description\": \"品牌logo的图片路径\"\n          },\n          \"tmName\": {\n            \"type\": \"string\",\n            \"description\": \"属性值\"\n          },\n          \"updateTime\": {\n            \"type\": \"string\",\n            \"format\": \"date-time\",\n            \"description\": \"更新时间\"\n          }\n        },\n        \"title\": \"BaseTrademark\",\n        \"description\": \"商标品牌\",\n        \"$$ref\": \"#/definitions/BaseTrademark\"\n      }\n    },\n    \"message\": {\n      \"type\": \"string\",\n      \"description\": \"返回消息\"\n    },\n    \"ok\": {\n      \"type\": \"boolean\"\n    }\n  },\n  \"title\": \"全局统一返回结果«List«BaseTrademark»»\",\n  \"$$ref\": \"#/definitions/全局统一返回结果«List«BaseTrademark»»\"\n}",
+        "req_body_other": "{\n  \"type\": \"string\",\n  \"format\": \"binary\"\n}",
+        "project_id": 203,
+        "catid": 215,
+        "uid": 44,
+        "add_time": 1639119892,
+        "up_time": 1639660793,
+        "__v": 0
+      }
+    ]
+  },
+  {
+    "index": 4,
+    "name": "商品管理",
+    "desc": "Sku Manage Controller",
+    "add_time": 1639119887,
+    "up_time": 1639119887,
+    "list": [
+      {
+        "query_path": {
+          "path": "/admin/product/list/{page}/{limit}",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "var",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [
+          "商品管理"
+        ],
+        "_id": 923,
+        "method": "GET",
+        "title": "sku分页列表",
+        "path": "/admin/product/list/{page}/{limit}",
+        "req_params": [
+          {
+            "_id": "61e2e654cf78ea43d432d640",
+            "name": "limit",
+            "desc": "limit"
+          },
+          {
+            "_id": "61e2e654cf78ea43d432d63f",
+            "name": "page",
+            "desc": "page"
+          }
+        ],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "61e2e654cf78ea43d432d642",
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "req_query": [
+          {
+            "required": "1",
+            "_id": "61e2e654cf78ea43d432d641",
+            "name": "三级分类Id",
+            "example": "category3Id=61",
+            "desc": ""
+          }
+        ],
+        "req_body_type": "json",
+        "res_body_type": "json",
+        "res_body": "{\"type\":\"object\",\"properties\":{\"code\":{\"type\":\"integer\",\"format\":\"int32\",\"description\":\"返回码\"},\"data\":{\"type\":\"object\",\"properties\":{\"current\":{\"type\":\"integer\",\"format\":\"int64\"},\"hitCount\":{\"type\":\"boolean\"},\"pages\":{\"type\":\"integer\",\"format\":\"int64\"},\"records\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"category3Id\":{\"type\":\"integer\",\"format\":\"int64\",\"description\":\"三级分类id（冗余)\"},\"createTime\":{\"type\":\"string\",\"format\":\"date-time\",\"description\":\"创建时间\"},\"id\":{\"type\":\"integer\",\"format\":\"int64\",\"description\":\"id\"},\"isSale\":{\"type\":\"integer\",\"format\":\"int32\",\"description\":\"是否销售（1：是 0：否）\"},\"price\":{\"type\":\"number\",\"description\":\"价格\"},\"skuAttrValueList\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"attrId\":{\"type\":\"integer\",\"format\":\"int64\",\"description\":\"属性id（冗余)\"},\"createTime\":{\"type\":\"string\",\"format\":\"date-time\",\"description\":\"创建时间\"},\"id\":{\"type\":\"integer\",\"format\":\"int64\",\"description\":\"id\"},\"skuId\":{\"type\":\"integer\",\"format\":\"int64\",\"description\":\"skuid\"},\"updateTime\":{\"type\":\"string\",\"format\":\"date-time\",\"description\":\"更新时间\"},\"valueId\":{\"type\":\"integer\",\"format\":\"int64\",\"description\":\"属性值id\"}},\"title\":\"SkuAttrValue\",\"description\":\"Sku平台属性值\",\"$$ref\":\"#/definitions/SkuAttrValue\"}},\"skuDefaultImg\":{\"type\":\"string\",\"description\":\"默认显示图片(冗余)\"},\"skuDesc\":{\"type\":\"string\",\"description\":\"商品规格描述\"},\"skuImageList\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"createTime\":{\"type\":\"string\",\"format\":\"date-time\",\"description\":\"创建时间\"},\"id\":{\"type\":\"integer\",\"format\":\"int64\",\"description\":\"id\"},\"imgName\":{\"type\":\"string\",\"description\":\"图片名称（冗余）\"},\"imgUrl\":{\"type\":\"string\",\"description\":\"图片路径(冗余)\"},\"isDefault\":{\"type\":\"string\",\"description\":\"是否默认\"},\"skuId\":{\"type\":\"integer\",\"format\":\"int64\",\"description\":\"商品id\"},\"spuImgId\":{\"type\":\"integer\",\"format\":\"int64\",\"description\":\"商品图片id\"},\"updateTime\":{\"type\":\"string\",\"format\":\"date-time\",\"description\":\"更新时间\"}},\"title\":\"SkuImage\",\"description\":\"Sku图片\",\"$$ref\":\"#/definitions/SkuImage\"}},\"skuName\":{\"type\":\"string\",\"description\":\"sku名称\"},\"skuSaleAttrValueList\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"createTime\":{\"type\":\"string\",\"format\":\"date-time\",\"description\":\"创建时间\"},\"id\":{\"type\":\"integer\",\"format\":\"int64\",\"description\":\"id\"},\"saleAttrValueId\":{\"type\":\"integer\",\"format\":\"int64\",\"description\":\"销售属性值id\"},\"skuId\":{\"type\":\"integer\",\"format\":\"int64\",\"description\":\"库存单元id\"},\"spuId\":{\"type\":\"integer\",\"format\":\"int64\",\"description\":\"spu_id(冗余)\"},\"updateTime\":{\"type\":\"string\",\"format\":\"date-time\",\"description\":\"更新时间\"}},\"title\":\"SkuSaleAttrValue\",\"description\":\"Sku销售属性值\",\"$$ref\":\"#/definitions/SkuSaleAttrValue\"}},\"spuId\":{\"type\":\"integer\",\"format\":\"int64\",\"description\":\"商品id\"},\"tmId\":{\"type\":\"integer\",\"format\":\"int64\",\"description\":\"品牌(冗余)\"},\"updateTime\":{\"type\":\"string\",\"format\":\"date-time\",\"description\":\"更新时间\"},\"weight\":{\"type\":\"string\",\"description\":\"重量\"}},\"title\":\"SkuInfo\",\"description\":\"SkuInfo\",\"$$ref\":\"#/definitions/SkuInfo\"}},\"searchCount\":{\"type\":\"boolean\"},\"size\":{\"type\":\"integer\",\"format\":\"int64\"},\"total\":{\"type\":\"integer\",\"format\":\"int64\"}},\"title\":\"IPage«SkuInfo»\",\"$$ref\":\"#/definitions/IPage«SkuInfo»\"},\"message\":{\"type\":\"string\",\"description\":\"返回消息\"},\"ok\":{\"type\":\"boolean\"}},\"title\":\"全局统一返回结果«IPage«SkuInfo»»\",\"$$ref\":\"#/definitions/全局统一返回结果«IPage«SkuInfo»»\"}",
+        "req_body_other": "{\n  \"type\": \"string\",\n  \"format\": \"binary\"\n}",
+        "project_id": 203,
+        "catid": 219,
+        "uid": 44,
+        "add_time": 1639119893,
+        "up_time": 1642260052,
+        "__v": 0,
+        "desc": "",
+        "markdown": ""
+      },
+      {
+        "query_path": {
+          "path": "/admin/product/{page}/{limit}",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "var",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 1,
+        "tag": [
+          "商品管理"
+        ],
+        "_id": 929,
+        "method": "GET",
+        "title": "spu分页列表",
+        "desc": "",
+        "path": "/admin/product/{page}/{limit}",
+        "req_params": [
+          {
+            "_id": "61540fa2f1f1b52d0595585d",
+            "name": "limit",
+            "desc": "limit"
+          },
+          {
+            "_id": "61540fa2f1f1b52d0595585c",
+            "name": "page",
+            "desc": "page"
+          }
+        ],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "61540fa2f1f1b52d0595585e",
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "req_query": [
+          {
+            "required": "0",
+            "_id": "61540fa2f1f1b52d0595585f",
+            "name": "category3Id",
+            "desc": "三级分类id"
+          }
+        ],
+        "req_body_type": "json",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"code\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\",\n      \"description\": \"返回码\"\n    },\n    \"data\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"current\": {\n          \"type\": \"integer\",\n          \"format\": \"int64\"\n        },\n        \"hitCount\": {\n          \"type\": \"boolean\"\n        },\n        \"pages\": {\n          \"type\": \"integer\",\n          \"format\": \"int64\"\n        },\n        \"records\": {\n          \"type\": \"array\",\n          \"items\": {\n            \"type\": \"object\",\n            \"properties\": {\n              \"category3Id\": {\n                \"type\": \"integer\",\n                \"format\": \"int64\",\n                \"description\": \"三级分类id\"\n              },\n              \"createTime\": {\n                \"type\": \"string\",\n                \"format\": \"date-time\",\n                \"description\": \"创建时间\"\n              },\n              \"description\": {\n                \"type\": \"string\",\n                \"description\": \"商品描述(后台简述）\"\n              },\n              \"id\": {\n                \"type\": \"integer\",\n                \"format\": \"int64\",\n                \"description\": \"id\"\n              },\n              \"spuImageList\": {\n                \"type\": \"array\",\n                \"items\": {\n                  \"type\": \"object\",\n                  \"properties\": {\n                    \"createTime\": {\n                      \"type\": \"string\",\n                      \"format\": \"date-time\",\n                      \"description\": \"创建时间\"\n                    },\n                    \"id\": {\n                      \"type\": \"integer\",\n                      \"format\": \"int64\",\n                      \"description\": \"id\"\n                    },\n                    \"imgName\": {\n                      \"type\": \"string\",\n                      \"description\": \"图片名称\"\n                    },\n                    \"imgUrl\": {\n                      \"type\": \"string\",\n                      \"description\": \"图片路径\"\n                    },\n                    \"spuId\": {\n                      \"type\": \"integer\",\n                      \"format\": \"int64\",\n                      \"description\": \"商品id\"\n                    },\n                    \"updateTime\": {\n                      \"type\": \"string\",\n                      \"format\": \"date-time\",\n                      \"description\": \"更新时间\"\n                    }\n                  },\n                  \"title\": \"SpuImage\",\n                  \"description\": \"Spu图片\",\n                  \"$$ref\": \"#/definitions/SpuImage\"\n                }\n              },\n              \"spuName\": {\n                \"type\": \"string\",\n                \"description\": \"商品名称\"\n              },\n              \"spuPosterList\": {\n                \"type\": \"array\",\n                \"items\": {\n                  \"type\": \"object\",\n                  \"properties\": {\n                    \"createTime\": {\n                      \"type\": \"string\",\n                      \"format\": \"date-time\",\n                      \"description\": \"创建时间\"\n                    },\n                    \"id\": {\n                      \"type\": \"integer\",\n                      \"format\": \"int64\",\n                      \"description\": \"id\"\n                    },\n                    \"imgName\": {\n                      \"type\": \"string\",\n                      \"description\": \"文件名称\"\n                    },\n                    \"imgUrl\": {\n                      \"type\": \"string\",\n                      \"description\": \"文件路径\"\n                    },\n                    \"spuId\": {\n                      \"type\": \"integer\",\n                      \"format\": \"int64\",\n                      \"description\": \"商品id\"\n                    },\n                    \"updateTime\": {\n                      \"type\": \"string\",\n                      \"format\": \"date-time\",\n                      \"description\": \"更新时间\"\n                    }\n                  },\n                  \"title\": \"SpuPoster\",\n                  \"description\": \"SpuPoster\",\n                  \"$$ref\": \"#/definitions/SpuPoster\"\n                }\n              },\n              \"spuSaleAttrList\": {\n                \"type\": \"array\",\n                \"items\": {\n                  \"type\": \"object\",\n                  \"properties\": {\n                    \"baseSaleAttrId\": {\n                      \"type\": \"integer\",\n                      \"format\": \"int64\",\n                      \"description\": \"销售属性id\"\n                    },\n                    \"createTime\": {\n                      \"type\": \"string\",\n                      \"format\": \"date-time\",\n                      \"description\": \"创建时间\"\n                    },\n                    \"id\": {\n                      \"type\": \"integer\",\n                      \"format\": \"int64\",\n                      \"description\": \"id\"\n                    },\n                    \"saleAttrName\": {\n                      \"type\": \"string\",\n                      \"description\": \"销售属性名称(冗余)\"\n                    },\n                    \"spuId\": {\n                      \"type\": \"integer\",\n                      \"format\": \"int64\",\n                      \"description\": \"商品id\"\n                    },\n                    \"spuSaleAttrValueList\": {\n                      \"type\": \"array\",\n                      \"items\": {\n                        \"type\": \"object\",\n                        \"properties\": {\n                          \"baseSaleAttrId\": {\n                            \"type\": \"integer\",\n                            \"format\": \"int64\",\n                            \"description\": \"销售属性id\"\n                          },\n                          \"createTime\": {\n                            \"type\": \"string\",\n                            \"format\": \"date-time\",\n                            \"description\": \"创建时间\"\n                          },\n                          \"id\": {\n                            \"type\": \"integer\",\n                            \"format\": \"int64\",\n                            \"description\": \"id\"\n                          },\n                          \"isChecked\": {\n                            \"type\": \"string\"\n                          },\n                          \"saleAttrName\": {\n                            \"type\": \"string\",\n                            \"description\": \"销售属性名称(冗余)\"\n                          },\n                          \"saleAttrValueName\": {\n                            \"type\": \"string\",\n                            \"description\": \"销售属性值名称\"\n                          },\n                          \"spuId\": {\n                            \"type\": \"integer\",\n                            \"format\": \"int64\",\n                            \"description\": \"商品id\"\n                          },\n                          \"updateTime\": {\n                            \"type\": \"string\",\n                            \"format\": \"date-time\",\n                            \"description\": \"更新时间\"\n                          }\n                        },\n                        \"title\": \"SpuSaleAttrValue\",\n                        \"description\": \"销售属性值\",\n                        \"$$ref\": \"#/definitions/SpuSaleAttrValue\"\n                      }\n                    },\n                    \"updateTime\": {\n                      \"type\": \"string\",\n                      \"format\": \"date-time\",\n                      \"description\": \"更新时间\"\n                    }\n                  },\n                  \"title\": \"SpuSaleAttr\",\n                  \"description\": \"销售属性\",\n                  \"$$ref\": \"#/definitions/SpuSaleAttr\"\n                }\n              },\n              \"tmId\": {\n                \"type\": \"integer\",\n                \"format\": \"int64\",\n                \"description\": \"品牌id\"\n              },\n              \"updateTime\": {\n                \"type\": \"string\",\n                \"format\": \"date-time\",\n                \"description\": \"更新时间\"\n              }\n            },\n            \"title\": \"SpuInfo\",\n            \"description\": \"SpuInfo\",\n            \"$$ref\": \"#/definitions/SpuInfo\"\n          }\n        },\n        \"searchCount\": {\n          \"type\": \"boolean\"\n        },\n        \"size\": {\n          \"type\": \"integer\",\n          \"format\": \"int64\"\n        },\n        \"total\": {\n          \"type\": \"integer\",\n          \"format\": \"int64\"\n        }\n      },\n      \"title\": \"IPage«SpuInfo»\",\n      \"$$ref\": \"#/definitions/IPage«SpuInfo»\"\n    },\n    \"message\": {\n      \"type\": \"string\",\n      \"description\": \"返回消息\"\n    },\n    \"ok\": {\n      \"type\": \"boolean\"\n    }\n  },\n  \"title\": \"全局统一返回结果«IPage«SpuInfo»»\",\n  \"$$ref\": \"#/definitions/全局统一返回结果«IPage«SpuInfo»»\"\n}",
+        "req_body_other": "{\n  \"type\": \"string\",\n  \"format\": \"binary\"\n}",
+        "project_id": 203,
+        "catid": 219,
+        "uid": 44,
+        "add_time": 1639119893,
+        "up_time": 1642210826,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/admin/product/onSale/{skuId}",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "var",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 2,
+        "tag": [
+          "商品管理"
+        ],
+        "_id": 935,
+        "method": "GET",
+        "title": "上架",
+        "path": "/admin/product/onSale/{skuId}",
+        "req_params": [
+          {
+            "_id": "61540fa0f1f1b52d05955850",
+            "name": "skuId",
+            "desc": "skuId"
+          }
+        ],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "61540fa0f1f1b52d05955851",
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "json",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"code\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\",\n      \"description\": \"返回码\"\n    },\n    \"data\": {\n      \"type\": \"object\",\n      \"description\": \"返回数据\"\n    },\n    \"message\": {\n      \"type\": \"string\",\n      \"description\": \"返回消息\"\n    },\n    \"ok\": {\n      \"type\": \"boolean\"\n    }\n  },\n  \"title\": \"全局统一返回结果\",\n  \"$$ref\": \"#/definitions/全局统一返回结果\"\n}",
+        "req_body_other": "{\n  \"type\": \"string\",\n  \"format\": \"binary\"\n}",
+        "project_id": 203,
+        "catid": 219,
+        "uid": 44,
+        "add_time": 1639119893,
+        "up_time": 1642313698,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/admin/product/cancelSale/{skuId}",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "var",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 3,
+        "tag": [
+          "商品管理"
+        ],
+        "_id": 941,
+        "method": "GET",
+        "title": "下架",
+        "path": "/admin/product/cancelSale/{skuId}",
+        "req_params": [
+          {
+            "_id": "61540fa0f1f1b52d05955845",
+            "name": "skuId",
+            "desc": "skuId"
+          }
+        ],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "61540fa0f1f1b52d05955846",
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "json",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"code\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\",\n      \"description\": \"返回码\"\n    },\n    \"data\": {\n      \"type\": \"object\",\n      \"description\": \"返回数据\"\n    },\n    \"message\": {\n      \"type\": \"string\",\n      \"description\": \"返回消息\"\n    },\n    \"ok\": {\n      \"type\": \"boolean\"\n    }\n  },\n  \"title\": \"全局统一返回结果\",\n  \"$$ref\": \"#/definitions/全局统一返回结果\"\n}",
+        "req_body_other": "{\n  \"type\": \"string\",\n  \"format\": \"binary\"\n}",
+        "project_id": 203,
+        "catid": 219,
+        "uid": 44,
+        "add_time": 1639119893,
+        "up_time": 1642313699,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/admin/product/saveAttrInfo",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 4,
+        "tag": [
+          "商品管理"
+        ],
+        "_id": 947,
+        "method": "POST",
+        "title": "保存-修改平台属性",
+        "desc": "",
+        "path": "/admin/product/saveAttrInfo",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "61540fa1f1f1b52d05955855",
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "json",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"code\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\",\n      \"description\": \"返回码\"\n    },\n    \"data\": {\n      \"type\": \"object\",\n      \"description\": \"返回数据\"\n    },\n    \"message\": {\n      \"type\": \"string\",\n      \"description\": \"返回消息\"\n    },\n    \"ok\": {\n      \"type\": \"boolean\"\n    }\n  },\n  \"title\": \"全局统一返回结果\",\n  \"$$ref\": \"#/definitions/全局统一返回结果\"\n}",
+        "req_body_other": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"attrName\": {\n      \"type\": \"string\",\n      \"description\": \"属性名称\"\n    },\n    \"attrValueList\": {\n      \"type\": \"array\",\n      \"items\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"attrId\": {\n            \"type\": \"integer\",\n            \"format\": \"int64\",\n            \"description\": \"属性id\"\n          },\n          \"createTime\": {\n            \"type\": \"string\",\n            \"format\": \"date-time\",\n            \"description\": \"创建时间\"\n          },\n          \"id\": {\n            \"type\": \"integer\",\n            \"format\": \"int64\",\n            \"description\": \"id\"\n          },\n          \"updateTime\": {\n            \"type\": \"string\",\n            \"format\": \"date-time\",\n            \"description\": \"更新时间\"\n          },\n          \"valueName\": {\n            \"type\": \"string\",\n            \"description\": \"属性值名称\"\n          }\n        },\n        \"title\": \"BaseAttrValue\",\n        \"description\": \"平台属性值\",\n        \"$$ref\": \"#/definitions/BaseAttrValue\"\n      }\n    },\n    \"categoryId\": {\n      \"type\": \"integer\",\n      \"format\": \"int64\",\n      \"description\": \"分类id\"\n    },\n    \"categoryLevel\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\",\n      \"description\": \"分类层级\"\n    },\n    \"createTime\": {\n      \"type\": \"string\",\n      \"format\": \"date-time\",\n      \"description\": \"创建时间\"\n    },\n    \"id\": {\n      \"type\": \"integer\",\n      \"format\": \"int64\",\n      \"description\": \"保存id为null，修改不为null\"\n    },\n    \"updateTime\": {\n      \"type\": \"string\",\n      \"format\": \"date-time\",\n      \"description\": \"更新时间\"\n    }\n  },\n  \"title\": \"BaseAttrInfo\",\n  \"description\": \"平台属性\",\n  \"$$ref\": \"#/definitions/BaseAttrInfo\"\n}",
+        "project_id": 203,
+        "catid": 219,
+        "uid": 44,
+        "add_time": 1639119893,
+        "up_time": 1642313705,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/admin/product/saveSpuInfo",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 5,
+        "tag": [
+          "商品管理"
+        ],
+        "_id": 959,
+        "method": "POST",
+        "title": "保存spu",
+        "path": "/admin/product/saveSpuInfo",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "61540fa1f1f1b52d05955857",
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "json",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"code\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\",\n      \"description\": \"返回码\"\n    },\n    \"data\": {\n      \"type\": \"object\",\n      \"description\": \"返回数据\"\n    },\n    \"message\": {\n      \"type\": \"string\",\n      \"description\": \"返回消息\"\n    },\n    \"ok\": {\n      \"type\": \"boolean\"\n    }\n  },\n  \"title\": \"全局统一返回结果\",\n  \"$$ref\": \"#/definitions/全局统一返回结果\"\n}",
+        "req_body_other": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"category3Id\": {\n      \"type\": \"integer\",\n      \"format\": \"int64\",\n      \"description\": \"三级分类id\"\n    },\n    \"createTime\": {\n      \"type\": \"string\",\n      \"format\": \"date-time\",\n      \"description\": \"创建时间\"\n    },\n    \"description\": {\n      \"type\": \"string\",\n      \"description\": \"商品描述(后台简述）\"\n    },\n    \"id\": {\n      \"type\": \"integer\",\n      \"format\": \"int64\",\n      \"description\": \"id\"\n    },\n    \"spuImageList\": {\n      \"type\": \"array\",\n      \"items\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"createTime\": {\n            \"type\": \"string\",\n            \"format\": \"date-time\",\n            \"description\": \"创建时间\"\n          },\n          \"id\": {\n            \"type\": \"integer\",\n            \"format\": \"int64\",\n            \"description\": \"id\"\n          },\n          \"imgName\": {\n            \"type\": \"string\",\n            \"description\": \"图片名称\"\n          },\n          \"imgUrl\": {\n            \"type\": \"string\",\n            \"description\": \"图片路径\"\n          },\n          \"spuId\": {\n            \"type\": \"integer\",\n            \"format\": \"int64\",\n            \"description\": \"商品id\"\n          },\n          \"updateTime\": {\n            \"type\": \"string\",\n            \"format\": \"date-time\",\n            \"description\": \"更新时间\"\n          }\n        },\n        \"title\": \"SpuImage\",\n        \"description\": \"Spu图片\",\n        \"$$ref\": \"#/definitions/SpuImage\"\n      }\n    },\n    \"spuName\": {\n      \"type\": \"string\",\n      \"description\": \"商品名称\"\n    },\n    \"spuPosterList\": {\n      \"type\": \"array\",\n      \"items\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"createTime\": {\n            \"type\": \"string\",\n            \"format\": \"date-time\",\n            \"description\": \"创建时间\"\n          },\n          \"id\": {\n            \"type\": \"integer\",\n            \"format\": \"int64\",\n            \"description\": \"id\"\n          },\n          \"imgName\": {\n            \"type\": \"string\",\n            \"description\": \"文件名称\"\n          },\n          \"imgUrl\": {\n            \"type\": \"string\",\n            \"description\": \"文件路径\"\n          },\n          \"spuId\": {\n            \"type\": \"integer\",\n            \"format\": \"int64\",\n            \"description\": \"商品id\"\n          },\n          \"updateTime\": {\n            \"type\": \"string\",\n            \"format\": \"date-time\",\n            \"description\": \"更新时间\"\n          }\n        },\n        \"title\": \"SpuPoster\",\n        \"description\": \"SpuPoster\",\n        \"$$ref\": \"#/definitions/SpuPoster\"\n      }\n    },\n    \"spuSaleAttrList\": {\n      \"type\": \"array\",\n      \"items\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"baseSaleAttrId\": {\n            \"type\": \"integer\",\n            \"format\": \"int64\",\n            \"description\": \"销售属性id\"\n          },\n          \"createTime\": {\n            \"type\": \"string\",\n            \"format\": \"date-time\",\n            \"description\": \"创建时间\"\n          },\n          \"id\": {\n            \"type\": \"integer\",\n            \"format\": \"int64\",\n            \"description\": \"id\"\n          },\n          \"saleAttrName\": {\n            \"type\": \"string\",\n            \"description\": \"销售属性名称(冗余)\"\n          },\n          \"spuId\": {\n            \"type\": \"integer\",\n            \"format\": \"int64\",\n            \"description\": \"商品id\"\n          },\n          \"spuSaleAttrValueList\": {\n            \"type\": \"array\",\n            \"items\": {\n              \"type\": \"object\",\n              \"properties\": {\n                \"baseSaleAttrId\": {\n                  \"type\": \"integer\",\n                  \"format\": \"int64\",\n                  \"description\": \"销售属性id\"\n                },\n                \"createTime\": {\n                  \"type\": \"string\",\n                  \"format\": \"date-time\",\n                  \"description\": \"创建时间\"\n                },\n                \"id\": {\n                  \"type\": \"integer\",\n                  \"format\": \"int64\",\n                  \"description\": \"id\"\n                },\n                \"isChecked\": {\n                  \"type\": \"string\"\n                },\n                \"saleAttrName\": {\n                  \"type\": \"string\",\n                  \"description\": \"销售属性名称(冗余)\"\n                },\n                \"saleAttrValueName\": {\n                  \"type\": \"string\",\n                  \"description\": \"销售属性值名称\"\n                },\n                \"spuId\": {\n                  \"type\": \"integer\",\n                  \"format\": \"int64\",\n                  \"description\": \"商品id\"\n                },\n                \"updateTime\": {\n                  \"type\": \"string\",\n                  \"format\": \"date-time\",\n                  \"description\": \"更新时间\"\n                }\n              },\n              \"title\": \"SpuSaleAttrValue\",\n              \"description\": \"销售属性值\",\n              \"$$ref\": \"#/definitions/SpuSaleAttrValue\"\n            }\n          },\n          \"updateTime\": {\n            \"type\": \"string\",\n            \"format\": \"date-time\",\n            \"description\": \"更新时间\"\n          }\n        },\n        \"title\": \"SpuSaleAttr\",\n        \"description\": \"销售属性\",\n        \"$$ref\": \"#/definitions/SpuSaleAttr\"\n      }\n    },\n    \"tmId\": {\n      \"type\": \"integer\",\n      \"format\": \"int64\",\n      \"description\": \"品牌id\"\n    },\n    \"updateTime\": {\n      \"type\": \"string\",\n      \"format\": \"date-time\",\n      \"description\": \"更新时间\"\n    }\n  },\n  \"title\": \"SpuInfo\",\n  \"description\": \"SpuInfo\",\n  \"$$ref\": \"#/definitions/SpuInfo\"\n}",
+        "project_id": 203,
+        "catid": 219,
+        "uid": 44,
+        "add_time": 1639119894,
+        "up_time": 1642313708,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/admin/product/saveSkuInfo",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 6,
+        "tag": [
+          "商品管理"
+        ],
+        "_id": 953,
+        "method": "POST",
+        "title": "保存SkuInfo",
+        "path": "/admin/product/saveSkuInfo",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "61540fa1f1f1b52d05955856",
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "json",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"code\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\",\n      \"description\": \"返回码\"\n    },\n    \"data\": {\n      \"type\": \"object\",\n      \"description\": \"返回数据\"\n    },\n    \"message\": {\n      \"type\": \"string\",\n      \"description\": \"返回消息\"\n    },\n    \"ok\": {\n      \"type\": \"boolean\"\n    }\n  },\n  \"title\": \"全局统一返回结果\",\n  \"$$ref\": \"#/definitions/全局统一返回结果\"\n}",
+        "req_body_other": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"category3Id\": {\n      \"type\": \"integer\",\n      \"format\": \"int64\",\n      \"description\": \"三级分类id（冗余)\"\n    },\n    \"createTime\": {\n      \"type\": \"string\",\n      \"format\": \"date-time\",\n      \"description\": \"创建时间\"\n    },\n    \"id\": {\n      \"type\": \"integer\",\n      \"format\": \"int64\",\n      \"description\": \"id\"\n    },\n    \"isSale\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\",\n      \"description\": \"是否销售（1：是 0：否）\"\n    },\n    \"price\": {\n      \"type\": \"number\",\n      \"description\": \"价格\"\n    },\n    \"skuAttrValueList\": {\n      \"type\": \"array\",\n      \"items\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"attrId\": {\n            \"type\": \"integer\",\n            \"format\": \"int64\",\n            \"description\": \"属性id（冗余)\"\n          },\n          \"createTime\": {\n            \"type\": \"string\",\n            \"format\": \"date-time\",\n            \"description\": \"创建时间\"\n          },\n          \"id\": {\n            \"type\": \"integer\",\n            \"format\": \"int64\",\n            \"description\": \"id\"\n          },\n          \"skuId\": {\n            \"type\": \"integer\",\n            \"format\": \"int64\",\n            \"description\": \"skuid\"\n          },\n          \"updateTime\": {\n            \"type\": \"string\",\n            \"format\": \"date-time\",\n            \"description\": \"更新时间\"\n          },\n          \"valueId\": {\n            \"type\": \"integer\",\n            \"format\": \"int64\",\n            \"description\": \"属性值id\"\n          }\n        },\n        \"title\": \"SkuAttrValue\",\n        \"description\": \"Sku平台属性值\",\n        \"$$ref\": \"#/definitions/SkuAttrValue\"\n      }\n    },\n    \"skuDefaultImg\": {\n      \"type\": \"string\",\n      \"description\": \"默认显示图片(冗余)\"\n    },\n    \"skuDesc\": {\n      \"type\": \"string\",\n      \"description\": \"商品规格描述\"\n    },\n    \"skuImageList\": {\n      \"type\": \"array\",\n      \"items\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"createTime\": {\n            \"type\": \"string\",\n            \"format\": \"date-time\",\n            \"description\": \"创建时间\"\n          },\n          \"id\": {\n            \"type\": \"integer\",\n            \"format\": \"int64\",\n            \"description\": \"id\"\n          },\n          \"imgName\": {\n            \"type\": \"string\",\n            \"description\": \"图片名称（冗余）\"\n          },\n          \"imgUrl\": {\n            \"type\": \"string\",\n            \"description\": \"图片路径(冗余)\"\n          },\n          \"isDefault\": {\n            \"type\": \"string\",\n            \"description\": \"是否默认\"\n          },\n          \"skuId\": {\n            \"type\": \"integer\",\n            \"format\": \"int64\",\n            \"description\": \"商品id\"\n          },\n          \"spuImgId\": {\n            \"type\": \"integer\",\n            \"format\": \"int64\",\n            \"description\": \"商品图片id\"\n          },\n          \"updateTime\": {\n            \"type\": \"string\",\n            \"format\": \"date-time\",\n            \"description\": \"更新时间\"\n          }\n        },\n        \"title\": \"SkuImage\",\n        \"description\": \"Sku图片\",\n        \"$$ref\": \"#/definitions/SkuImage\"\n      }\n    },\n    \"skuName\": {\n      \"type\": \"string\",\n      \"description\": \"sku名称\"\n    },\n    \"skuSaleAttrValueList\": {\n      \"type\": \"array\",\n      \"items\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"createTime\": {\n            \"type\": \"string\",\n            \"format\": \"date-time\",\n            \"description\": \"创建时间\"\n          },\n          \"id\": {\n            \"type\": \"integer\",\n            \"format\": \"int64\",\n            \"description\": \"id\"\n          },\n          \"saleAttrValueId\": {\n            \"type\": \"integer\",\n            \"format\": \"int64\",\n            \"description\": \"销售属性值id\"\n          },\n          \"skuId\": {\n            \"type\": \"integer\",\n            \"format\": \"int64\",\n            \"description\": \"库存单元id\"\n          },\n          \"spuId\": {\n            \"type\": \"integer\",\n            \"format\": \"int64\",\n            \"description\": \"spu_id(冗余)\"\n          },\n          \"updateTime\": {\n            \"type\": \"string\",\n            \"format\": \"date-time\",\n            \"description\": \"更新时间\"\n          }\n        },\n        \"title\": \"SkuSaleAttrValue\",\n        \"description\": \"Sku销售属性值\",\n        \"$$ref\": \"#/definitions/SkuSaleAttrValue\"\n      }\n    },\n    \"spuId\": {\n      \"type\": \"integer\",\n      \"format\": \"int64\",\n      \"description\": \"商品id\"\n    },\n    \"tmId\": {\n      \"type\": \"integer\",\n      \"format\": \"int64\",\n      \"description\": \"品牌(冗余)\"\n    },\n    \"updateTime\": {\n      \"type\": \"string\",\n      \"format\": \"date-time\",\n      \"description\": \"更新时间\"\n    },\n    \"weight\": {\n      \"type\": \"string\",\n      \"description\": \"重量\"\n    }\n  },\n  \"title\": \"SkuInfo\",\n  \"description\": \"SkuInfo\",\n  \"$$ref\": \"#/definitions/SkuInfo\"\n}",
+        "project_id": 203,
+        "catid": 219,
+        "uid": 44,
+        "add_time": 1639119893,
+        "up_time": 1642214752,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/admin/product/spuSaleAttrList/{spuId}",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "var",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 7,
+        "tag": [
+          "商品管理"
+        ],
+        "_id": 965,
+        "method": "GET",
+        "title": "根据spuId 查询销售属性",
+        "path": "/admin/product/spuSaleAttrList/{spuId}",
+        "req_params": [
+          {
+            "_id": "61540fa2f1f1b52d0595585a",
+            "name": "spuId",
+            "desc": "spuId"
+          }
+        ],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "61540fa2f1f1b52d0595585b",
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "json",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"code\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\",\n      \"description\": \"返回码\"\n    },\n    \"data\": {\n      \"type\": \"array\",\n      \"description\": \"返回数据\",\n      \"items\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"baseSaleAttrId\": {\n            \"type\": \"integer\",\n            \"format\": \"int64\",\n            \"description\": \"销售属性id\"\n          },\n          \"createTime\": {\n            \"type\": \"string\",\n            \"format\": \"date-time\",\n            \"description\": \"创建时间\"\n          },\n          \"id\": {\n            \"type\": \"integer\",\n            \"format\": \"int64\",\n            \"description\": \"id\"\n          },\n          \"saleAttrName\": {\n            \"type\": \"string\",\n            \"description\": \"销售属性名称(冗余)\"\n          },\n          \"spuId\": {\n            \"type\": \"integer\",\n            \"format\": \"int64\",\n            \"description\": \"商品id\"\n          },\n          \"spuSaleAttrValueList\": {\n            \"type\": \"array\",\n            \"items\": {\n              \"type\": \"object\",\n              \"properties\": {\n                \"baseSaleAttrId\": {\n                  \"type\": \"integer\",\n                  \"format\": \"int64\",\n                  \"description\": \"销售属性id\"\n                },\n                \"createTime\": {\n                  \"type\": \"string\",\n                  \"format\": \"date-time\",\n                  \"description\": \"创建时间\"\n                },\n                \"id\": {\n                  \"type\": \"integer\",\n                  \"format\": \"int64\",\n                  \"description\": \"id\"\n                },\n                \"isChecked\": {\n                  \"type\": \"string\"\n                },\n                \"saleAttrName\": {\n                  \"type\": \"string\",\n                  \"description\": \"销售属性名称(冗余)\"\n                },\n                \"saleAttrValueName\": {\n                  \"type\": \"string\",\n                  \"description\": \"销售属性值名称\"\n                },\n                \"spuId\": {\n                  \"type\": \"integer\",\n                  \"format\": \"int64\",\n                  \"description\": \"商品id\"\n                },\n                \"updateTime\": {\n                  \"type\": \"string\",\n                  \"format\": \"date-time\",\n                  \"description\": \"更新时间\"\n                }\n              },\n              \"title\": \"SpuSaleAttrValue\",\n              \"description\": \"销售属性值\",\n              \"$$ref\": \"#/definitions/SpuSaleAttrValue\"\n            }\n          },\n          \"updateTime\": {\n            \"type\": \"string\",\n            \"format\": \"date-time\",\n            \"description\": \"更新时间\"\n          }\n        },\n        \"title\": \"SpuSaleAttr\",\n        \"description\": \"销售属性\",\n        \"$$ref\": \"#/definitions/SpuSaleAttr\"\n      }\n    },\n    \"message\": {\n      \"type\": \"string\",\n      \"description\": \"返回消息\"\n    },\n    \"ok\": {\n      \"type\": \"boolean\"\n    }\n  },\n  \"title\": \"全局统一返回结果«List«SpuSaleAttr»»\",\n  \"$$ref\": \"#/definitions/全局统一返回结果«List«SpuSaleAttr»»\"\n}",
+        "req_body_other": "{\n  \"type\": \"string\",\n  \"format\": \"binary\"\n}",
+        "project_id": 203,
+        "catid": 219,
+        "uid": 44,
+        "add_time": 1639119895,
+        "up_time": 1642303455,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/admin/product/spuImageList/{spuId}",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "var",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 8,
+        "tag": [
+          "商品管理"
+        ],
+        "_id": 977,
+        "method": "GET",
+        "title": "根据spuId 获取spuImage 集合",
+        "path": "/admin/product/spuImageList/{spuId}",
+        "req_params": [
+          {
+            "_id": "61540fa2f1f1b52d05955858",
+            "name": "spuId",
+            "desc": "spuId"
+          }
+        ],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "61540fa2f1f1b52d05955859",
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "json",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"code\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\",\n      \"description\": \"返回码\"\n    },\n    \"data\": {\n      \"type\": \"array\",\n      \"description\": \"返回数据\",\n      \"items\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"createTime\": {\n            \"type\": \"string\",\n            \"format\": \"date-time\",\n            \"description\": \"创建时间\"\n          },\n          \"id\": {\n            \"type\": \"integer\",\n            \"format\": \"int64\",\n            \"description\": \"id\"\n          },\n          \"imgName\": {\n            \"type\": \"string\",\n            \"description\": \"图片名称\"\n          },\n          \"imgUrl\": {\n            \"type\": \"string\",\n            \"description\": \"图片路径\"\n          },\n          \"spuId\": {\n            \"type\": \"integer\",\n            \"format\": \"int64\",\n            \"description\": \"商品id\"\n          },\n          \"updateTime\": {\n            \"type\": \"string\",\n            \"format\": \"date-time\",\n            \"description\": \"更新时间\"\n          }\n        },\n        \"title\": \"SpuImage\",\n        \"description\": \"Spu图片\",\n        \"$$ref\": \"#/definitions/SpuImage\"\n      }\n    },\n    \"message\": {\n      \"type\": \"string\",\n      \"description\": \"返回消息\"\n    },\n    \"ok\": {\n      \"type\": \"boolean\"\n    }\n  },\n  \"title\": \"全局统一返回结果«List«SpuImage»»\",\n  \"$$ref\": \"#/definitions/全局统一返回结果«List«SpuImage»»\"\n}",
+        "req_body_other": "{\n  \"type\": \"string\",\n  \"format\": \"binary\"\n}",
+        "project_id": 203,
+        "catid": 219,
+        "uid": 44,
+        "add_time": 1639119895,
+        "up_time": 1642303459,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/admin/product/findSpuInfoByKeyword/{keyword}",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "var",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 9,
+        "tag": [
+          "商品管理"
+        ],
+        "_id": 983,
+        "method": "GET",
+        "title": "根据关键字获取到对应的spuInfo 数据列表",
+        "path": "/admin/product/findSpuInfoByKeyword/{keyword}",
+        "req_params": [
+          {
+            "_id": "61540fa0f1f1b52d05955847",
+            "name": "keyword",
+            "desc": "keyword"
+          }
+        ],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "61540fa0f1f1b52d05955848",
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "json",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"code\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\",\n      \"description\": \"返回码\"\n    },\n    \"data\": {\n      \"type\": \"array\",\n      \"description\": \"返回数据\",\n      \"items\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"category3Id\": {\n            \"type\": \"integer\",\n            \"format\": \"int64\",\n            \"description\": \"三级分类id\"\n          },\n          \"createTime\": {\n            \"type\": \"string\",\n            \"format\": \"date-time\",\n            \"description\": \"创建时间\"\n          },\n          \"description\": {\n            \"type\": \"string\",\n            \"description\": \"商品描述(后台简述）\"\n          },\n          \"id\": {\n            \"type\": \"integer\",\n            \"format\": \"int64\",\n            \"description\": \"id\"\n          },\n          \"spuImageList\": {\n            \"type\": \"array\",\n            \"items\": {\n              \"type\": \"object\",\n              \"properties\": {\n                \"createTime\": {\n                  \"type\": \"string\",\n                  \"format\": \"date-time\",\n                  \"description\": \"创建时间\"\n                },\n                \"id\": {\n                  \"type\": \"integer\",\n                  \"format\": \"int64\",\n                  \"description\": \"id\"\n                },\n                \"imgName\": {\n                  \"type\": \"string\",\n                  \"description\": \"图片名称\"\n                },\n                \"imgUrl\": {\n                  \"type\": \"string\",\n                  \"description\": \"图片路径\"\n                },\n                \"spuId\": {\n                  \"type\": \"integer\",\n                  \"format\": \"int64\",\n                  \"description\": \"商品id\"\n                },\n                \"updateTime\": {\n                  \"type\": \"string\",\n                  \"format\": \"date-time\",\n                  \"description\": \"更新时间\"\n                }\n              },\n              \"title\": \"SpuImage\",\n              \"description\": \"Spu图片\",\n              \"$$ref\": \"#/definitions/SpuImage\"\n            }\n          },\n          \"spuName\": {\n            \"type\": \"string\",\n            \"description\": \"商品名称\"\n          },\n          \"spuPosterList\": {\n            \"type\": \"array\",\n            \"items\": {\n              \"type\": \"object\",\n              \"properties\": {\n                \"createTime\": {\n                  \"type\": \"string\",\n                  \"format\": \"date-time\",\n                  \"description\": \"创建时间\"\n                },\n                \"id\": {\n                  \"type\": \"integer\",\n                  \"format\": \"int64\",\n                  \"description\": \"id\"\n                },\n                \"imgName\": {\n                  \"type\": \"string\",\n                  \"description\": \"文件名称\"\n                },\n                \"imgUrl\": {\n                  \"type\": \"string\",\n                  \"description\": \"文件路径\"\n                },\n                \"spuId\": {\n                  \"type\": \"integer\",\n                  \"format\": \"int64\",\n                  \"description\": \"商品id\"\n                },\n                \"updateTime\": {\n                  \"type\": \"string\",\n                  \"format\": \"date-time\",\n                  \"description\": \"更新时间\"\n                }\n              },\n              \"title\": \"SpuPoster\",\n              \"description\": \"SpuPoster\",\n              \"$$ref\": \"#/definitions/SpuPoster\"\n            }\n          },\n          \"spuSaleAttrList\": {\n            \"type\": \"array\",\n            \"items\": {\n              \"type\": \"object\",\n              \"properties\": {\n                \"baseSaleAttrId\": {\n                  \"type\": \"integer\",\n                  \"format\": \"int64\",\n                  \"description\": \"销售属性id\"\n                },\n                \"createTime\": {\n                  \"type\": \"string\",\n                  \"format\": \"date-time\",\n                  \"description\": \"创建时间\"\n                },\n                \"id\": {\n                  \"type\": \"integer\",\n                  \"format\": \"int64\",\n                  \"description\": \"id\"\n                },\n                \"saleAttrName\": {\n                  \"type\": \"string\",\n                  \"description\": \"销售属性名称(冗余)\"\n                },\n                \"spuId\": {\n                  \"type\": \"integer\",\n                  \"format\": \"int64\",\n                  \"description\": \"商品id\"\n                },\n                \"spuSaleAttrValueList\": {\n                  \"type\": \"array\",\n                  \"items\": {\n                    \"type\": \"object\",\n                    \"properties\": {\n                      \"baseSaleAttrId\": {\n                        \"type\": \"integer\",\n                        \"format\": \"int64\",\n                        \"description\": \"销售属性id\"\n                      },\n                      \"createTime\": {\n                        \"type\": \"string\",\n                        \"format\": \"date-time\",\n                        \"description\": \"创建时间\"\n                      },\n                      \"id\": {\n                        \"type\": \"integer\",\n                        \"format\": \"int64\",\n                        \"description\": \"id\"\n                      },\n                      \"isChecked\": {\n                        \"type\": \"string\"\n                      },\n                      \"saleAttrName\": {\n                        \"type\": \"string\",\n                        \"description\": \"销售属性名称(冗余)\"\n                      },\n                      \"saleAttrValueName\": {\n                        \"type\": \"string\",\n                        \"description\": \"销售属性值名称\"\n                      },\n                      \"spuId\": {\n                        \"type\": \"integer\",\n                        \"format\": \"int64\",\n                        \"description\": \"商品id\"\n                      },\n                      \"updateTime\": {\n                        \"type\": \"string\",\n                        \"format\": \"date-time\",\n                        \"description\": \"更新时间\"\n                      }\n                    },\n                    \"title\": \"SpuSaleAttrValue\",\n                    \"description\": \"销售属性值\",\n                    \"$$ref\": \"#/definitions/SpuSaleAttrValue\"\n                  }\n                },\n                \"updateTime\": {\n                  \"type\": \"string\",\n                  \"format\": \"date-time\",\n                  \"description\": \"更新时间\"\n                }\n              },\n              \"title\": \"SpuSaleAttr\",\n              \"description\": \"销售属性\",\n              \"$$ref\": \"#/definitions/SpuSaleAttr\"\n            }\n          },\n          \"tmId\": {\n            \"type\": \"integer\",\n            \"format\": \"int64\",\n            \"description\": \"品牌id\"\n          },\n          \"updateTime\": {\n            \"type\": \"string\",\n            \"format\": \"date-time\",\n            \"description\": \"更新时间\"\n          }\n        },\n        \"title\": \"SpuInfo\",\n        \"description\": \"SpuInfo\",\n        \"$$ref\": \"#/definitions/SpuInfo\"\n      }\n    },\n    \"message\": {\n      \"type\": \"string\",\n      \"description\": \"返回消息\"\n    },\n    \"ok\": {\n      \"type\": \"boolean\"\n    }\n  },\n  \"title\": \"全局统一返回结果«List«SpuInfo»»\",\n  \"$$ref\": \"#/definitions/全局统一返回结果«List«SpuInfo»»\"\n}",
+        "req_body_other": "{\n  \"type\": \"string\",\n  \"format\": \"binary\"\n}",
+        "project_id": 203,
+        "catid": 219,
+        "uid": 44,
+        "add_time": 1639119895,
+        "up_time": 1644642868,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/admin/product/findSpuInfoByKeyword/{keyword}_1631179468039",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "var",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 10,
+        "tag": [
+          "商品管理"
+        ],
+        "_id": 989,
+        "method": "GET",
+        "title": "根据关键字获取到对应的spuInfo 数据列表_copy",
+        "path": "/admin/product/findSpuInfoByKeyword/{keyword}_1631179468039",
+        "req_params": [
+          {
+            "_id": "61540f9ff1f1b52d0595583c",
+            "name": "keyword",
+            "desc": "keyword"
+          }
+        ],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "61540f9ff1f1b52d0595583d",
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "json",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"code\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\",\n      \"description\": \"返回码\"\n    },\n    \"data\": {\n      \"type\": \"array\",\n      \"description\": \"返回数据\",\n      \"items\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"category3Id\": {\n            \"type\": \"integer\",\n            \"format\": \"int64\",\n            \"description\": \"三级分类id\"\n          },\n          \"createTime\": {\n            \"type\": \"string\",\n            \"format\": \"date-time\",\n            \"description\": \"创建时间\"\n          },\n          \"description\": {\n            \"type\": \"string\",\n            \"description\": \"商品描述(后台简述）\"\n          },\n          \"id\": {\n            \"type\": \"integer\",\n            \"format\": \"int64\",\n            \"description\": \"id\"\n          },\n          \"spuImageList\": {\n            \"type\": \"array\",\n            \"items\": {\n              \"type\": \"object\",\n              \"properties\": {\n                \"createTime\": {\n                  \"type\": \"string\",\n                  \"format\": \"date-time\",\n                  \"description\": \"创建时间\"\n                },\n                \"id\": {\n                  \"type\": \"integer\",\n                  \"format\": \"int64\",\n                  \"description\": \"id\"\n                },\n                \"imgName\": {\n                  \"type\": \"string\",\n                  \"description\": \"图片名称\"\n                },\n                \"imgUrl\": {\n                  \"type\": \"string\",\n                  \"description\": \"图片路径\"\n                },\n                \"spuId\": {\n                  \"type\": \"integer\",\n                  \"format\": \"int64\",\n                  \"description\": \"商品id\"\n                },\n                \"updateTime\": {\n                  \"type\": \"string\",\n                  \"format\": \"date-time\",\n                  \"description\": \"更新时间\"\n                }\n              },\n              \"title\": \"SpuImage\",\n              \"description\": \"Spu图片\",\n              \"$$ref\": \"#/definitions/SpuImage\"\n            }\n          },\n          \"spuName\": {\n            \"type\": \"string\",\n            \"description\": \"商品名称\"\n          },\n          \"spuPosterList\": {\n            \"type\": \"array\",\n            \"items\": {\n              \"type\": \"object\",\n              \"properties\": {\n                \"createTime\": {\n                  \"type\": \"string\",\n                  \"format\": \"date-time\",\n                  \"description\": \"创建时间\"\n                },\n                \"id\": {\n                  \"type\": \"integer\",\n                  \"format\": \"int64\",\n                  \"description\": \"id\"\n                },\n                \"imgName\": {\n                  \"type\": \"string\",\n                  \"description\": \"文件名称\"\n                },\n                \"imgUrl\": {\n                  \"type\": \"string\",\n                  \"description\": \"文件路径\"\n                },\n                \"spuId\": {\n                  \"type\": \"integer\",\n                  \"format\": \"int64\",\n                  \"description\": \"商品id\"\n                },\n                \"updateTime\": {\n                  \"type\": \"string\",\n                  \"format\": \"date-time\",\n                  \"description\": \"更新时间\"\n                }\n              },\n              \"title\": \"SpuPoster\",\n              \"description\": \"SpuPoster\",\n              \"$$ref\": \"#/definitions/SpuPoster\"\n            }\n          },\n          \"spuSaleAttrList\": {\n            \"type\": \"array\",\n            \"items\": {\n              \"type\": \"object\",\n              \"properties\": {\n                \"baseSaleAttrId\": {\n                  \"type\": \"integer\",\n                  \"format\": \"int64\",\n                  \"description\": \"销售属性id\"\n                },\n                \"createTime\": {\n                  \"type\": \"string\",\n                  \"format\": \"date-time\",\n                  \"description\": \"创建时间\"\n                },\n                \"id\": {\n                  \"type\": \"integer\",\n                  \"format\": \"int64\",\n                  \"description\": \"id\"\n                },\n                \"saleAttrName\": {\n                  \"type\": \"string\",\n                  \"description\": \"销售属性名称(冗余)\"\n                },\n                \"spuId\": {\n                  \"type\": \"integer\",\n                  \"format\": \"int64\",\n                  \"description\": \"商品id\"\n                },\n                \"spuSaleAttrValueList\": {\n                  \"type\": \"array\",\n                  \"items\": {\n                    \"type\": \"object\",\n                    \"properties\": {\n                      \"baseSaleAttrId\": {\n                        \"type\": \"integer\",\n                        \"format\": \"int64\",\n                        \"description\": \"销售属性id\"\n                      },\n                      \"createTime\": {\n                        \"type\": \"string\",\n                        \"format\": \"date-time\",\n                        \"description\": \"创建时间\"\n                      },\n                      \"id\": {\n                        \"type\": \"integer\",\n                        \"format\": \"int64\",\n                        \"description\": \"id\"\n                      },\n                      \"isChecked\": {\n                        \"type\": \"string\"\n                      },\n                      \"saleAttrName\": {\n                        \"type\": \"string\",\n                        \"description\": \"销售属性名称(冗余)\"\n                      },\n                      \"saleAttrValueName\": {\n                        \"type\": \"string\",\n                        \"description\": \"销售属性值名称\"\n                      },\n                      \"spuId\": {\n                        \"type\": \"integer\",\n                        \"format\": \"int64\",\n                        \"description\": \"商品id\"\n                      },\n                      \"updateTime\": {\n                        \"type\": \"string\",\n                        \"format\": \"date-time\",\n                        \"description\": \"更新时间\"\n                      }\n                    },\n                    \"title\": \"SpuSaleAttrValue\",\n                    \"description\": \"销售属性值\",\n                    \"$$ref\": \"#/definitions/SpuSaleAttrValue\"\n                  }\n                },\n                \"updateTime\": {\n                  \"type\": \"string\",\n                  \"format\": \"date-time\",\n                  \"description\": \"更新时间\"\n                }\n              },\n              \"title\": \"SpuSaleAttr\",\n              \"description\": \"销售属性\",\n              \"$$ref\": \"#/definitions/SpuSaleAttr\"\n            }\n          },\n          \"tmId\": {\n            \"type\": \"integer\",\n            \"format\": \"int64\",\n            \"description\": \"品牌id\"\n          },\n          \"updateTime\": {\n            \"type\": \"string\",\n            \"format\": \"date-time\",\n            \"description\": \"更新时间\"\n          }\n        },\n        \"title\": \"SpuInfo\",\n        \"description\": \"SpuInfo\",\n        \"$$ref\": \"#/definitions/SpuInfo\"\n      }\n    },\n    \"message\": {\n      \"type\": \"string\",\n      \"description\": \"返回消息\"\n    },\n    \"ok\": {\n      \"type\": \"boolean\"\n    }\n  },\n  \"title\": \"全局统一返回结果«List«SpuInfo»»\",\n  \"$$ref\": \"#/definitions/全局统一返回结果«List«SpuInfo»»\"\n}",
+        "req_body_other": "{\n  \"type\": \"string\",\n  \"format\": \"binary\"\n}",
+        "project_id": 203,
+        "catid": 219,
+        "uid": 44,
+        "add_time": 1639119895,
+        "up_time": 1639119895,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/admin/product/attrInfoList/{category1Id}/{category2Id}/{category3Id}",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "var",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 11,
+        "tag": [
+          "商品管理"
+        ],
+        "_id": 995,
+        "method": "GET",
+        "title": "根据分类Id 获取平台属性集合",
+        "path": "/admin/product/attrInfoList/{category1Id}/{category2Id}/{category3Id}",
+        "req_params": [
+          {
+            "_id": "61540f9ff1f1b52d05955840",
+            "name": "category1Id",
+            "desc": "category1Id"
+          },
+          {
+            "_id": "61540f9ff1f1b52d0595583f",
+            "name": "category2Id",
+            "desc": "category2Id"
+          },
+          {
+            "_id": "61540f9ff1f1b52d0595583e",
+            "name": "category3Id",
+            "desc": "category3Id"
+          }
+        ],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "61540f9ff1f1b52d05955841",
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "json",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"code\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\",\n      \"description\": \"返回码\"\n    },\n    \"data\": {\n      \"type\": \"array\",\n      \"description\": \"返回数据\",\n      \"items\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"attrName\": {\n            \"type\": \"string\",\n            \"description\": \"属性名称\"\n          },\n          \"attrValueList\": {\n            \"type\": \"array\",\n            \"items\": {\n              \"type\": \"object\",\n              \"properties\": {\n                \"attrId\": {\n                  \"type\": \"integer\",\n                  \"format\": \"int64\",\n                  \"description\": \"属性id\"\n                },\n                \"createTime\": {\n                  \"type\": \"string\",\n                  \"format\": \"date-time\",\n                  \"description\": \"创建时间\"\n                },\n                \"id\": {\n                  \"type\": \"integer\",\n                  \"format\": \"int64\",\n                  \"description\": \"id\"\n                },\n                \"updateTime\": {\n                  \"type\": \"string\",\n                  \"format\": \"date-time\",\n                  \"description\": \"更新时间\"\n                },\n                \"valueName\": {\n                  \"type\": \"string\",\n                  \"description\": \"属性值名称\"\n                }\n              },\n              \"title\": \"BaseAttrValue\",\n              \"description\": \"平台属性值\",\n              \"$$ref\": \"#/definitions/BaseAttrValue\"\n            }\n          },\n          \"categoryId\": {\n            \"type\": \"integer\",\n            \"format\": \"int64\",\n            \"description\": \"分类id\"\n          },\n          \"categoryLevel\": {\n            \"type\": \"integer\",\n            \"format\": \"int32\",\n            \"description\": \"分类层级\"\n          },\n          \"createTime\": {\n            \"type\": \"string\",\n            \"format\": \"date-time\",\n            \"description\": \"创建时间\"\n          },\n          \"id\": {\n            \"type\": \"integer\",\n            \"format\": \"int64\",\n            \"description\": \"id\"\n          },\n          \"updateTime\": {\n            \"type\": \"string\",\n            \"format\": \"date-time\",\n            \"description\": \"更新时间\"\n          }\n        },\n        \"title\": \"BaseAttrInfo\",\n        \"description\": \"平台属性\",\n        \"$$ref\": \"#/definitions/BaseAttrInfo\"\n      }\n    },\n    \"message\": {\n      \"type\": \"string\",\n      \"description\": \"返回消息\"\n    },\n    \"ok\": {\n      \"type\": \"boolean\"\n    }\n  },\n  \"title\": \"全局统一返回结果«List«BaseAttrInfo»»\",\n  \"$$ref\": \"#/definitions/全局统一返回结果«List«BaseAttrInfo»»\"\n}",
+        "req_body_other": "{\n  \"type\": \"string\",\n  \"format\": \"binary\"\n}",
+        "project_id": 203,
+        "catid": 219,
+        "uid": 44,
+        "add_time": 1639119895,
+        "up_time": 1639660493,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/admin/product/getAttrValueList/{attrId}",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "var",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 12,
+        "tag": [
+          "商品管理"
+        ],
+        "_id": 1001,
+        "method": "GET",
+        "title": "根据平台属性Id 获取到平台属性值集合",
+        "path": "/admin/product/getAttrValueList/{attrId}",
+        "req_params": [
+          {
+            "_id": "61540fa0f1f1b52d05955849",
+            "name": "attrId",
+            "desc": "attrId"
+          }
+        ],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "61540fa0f1f1b52d0595584a",
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "json",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"code\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\",\n      \"description\": \"返回码\"\n    },\n    \"data\": {\n      \"type\": \"array\",\n      \"description\": \"返回数据\",\n      \"items\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"attrId\": {\n            \"type\": \"integer\",\n            \"format\": \"int64\",\n            \"description\": \"属性id\"\n          },\n          \"createTime\": {\n            \"type\": \"string\",\n            \"format\": \"date-time\",\n            \"description\": \"创建时间\"\n          },\n          \"id\": {\n            \"type\": \"integer\",\n            \"format\": \"int64\",\n            \"description\": \"id\"\n          },\n          \"updateTime\": {\n            \"type\": \"string\",\n            \"format\": \"date-time\",\n            \"description\": \"更新时间\"\n          },\n          \"valueName\": {\n            \"type\": \"string\",\n            \"description\": \"属性值名称\"\n          }\n        },\n        \"title\": \"BaseAttrValue\",\n        \"description\": \"平台属性值\",\n        \"$$ref\": \"#/definitions/BaseAttrValue\"\n      }\n    },\n    \"message\": {\n      \"type\": \"string\",\n      \"description\": \"返回消息\"\n    },\n    \"ok\": {\n      \"type\": \"boolean\"\n    }\n  },\n  \"title\": \"全局统一返回结果«List«BaseAttrValue»»\",\n  \"$$ref\": \"#/definitions/全局统一返回结果«List«BaseAttrValue»»\"\n}",
+        "req_body_other": "{\n  \"type\": \"string\",\n  \"format\": \"binary\"\n}",
+        "project_id": 203,
+        "catid": 219,
+        "uid": 44,
+        "add_time": 1639119896,
+        "up_time": 1639660496,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/admin/product/getCategory1",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 13,
+        "tag": [
+          "商品管理"
+        ],
+        "_id": 1007,
+        "method": "GET",
+        "title": "获取一级分类数据",
+        "desc": "",
+        "path": "/admin/product/getCategory1",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "61dd57fdcf78ea43d432d59f",
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "json",
+        "res_body_type": "json",
+        "res_body": "{\"type\":\"object\",\"properties\":{\"code\":{\"type\":\"integer\",\"format\":\"int32\",\"description\":\"返回码\"},\"data\":{\"type\":\"array\",\"description\":\"返回数据\",\"items\":{\"type\":\"object\",\"properties\":{\"createTime\":{\"type\":\"string\",\"format\":\"date-time\",\"description\":\"创建时间\"},\"id\":{\"type\":\"integer\",\"format\":\"int64\",\"description\":\"id\"},\"name\":{\"type\":\"string\",\"description\":\"分类名称\"},\"updateTime\":{\"type\":\"string\",\"format\":\"date-time\",\"description\":\"更新时间\"}},\"title\":\"BaseCategory1\",\"description\":\"商品一级分类\",\"$$ref\":\"#/definitions/BaseCategory1\"}},\"message\":{\"type\":\"string\",\"description\":\"返回消息\"},\"ok\":{\"type\":\"boolean\"}},\"title\":\"全局统一返回结果«List«BaseCategory1»»\",\"$$ref\":\"#/definitions/全局统一返回结果«List«BaseCategory1»»\"}",
+        "req_body_other": "{\n  \"type\": \"string\",\n  \"format\": \"binary\"\n}",
+        "project_id": 203,
+        "catid": 219,
+        "uid": 44,
+        "add_time": 1639119896,
+        "up_time": 1641895933,
+        "__v": 0,
+        "markdown": ""
+      },
+      {
+        "query_path": {
+          "path": "/admin/product/getCategory3/{category2Id}",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "var",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 14,
+        "tag": [
+          "商品管理"
+        ],
+        "_id": 1013,
+        "method": "GET",
+        "title": "获取三级分类数据",
+        "path": "/admin/product/getCategory3/{category2Id}",
+        "req_params": [
+          {
+            "_id": "61540fa0f1f1b52d0595584e",
+            "name": "category2Id",
+            "desc": "category2Id"
+          }
+        ],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "61540fa0f1f1b52d0595584f",
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "json",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"code\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\",\n      \"description\": \"返回码\"\n    },\n    \"data\": {\n      \"type\": \"array\",\n      \"description\": \"返回数据\",\n      \"items\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"category2Id\": {\n            \"type\": \"integer\",\n            \"format\": \"int64\",\n            \"description\": \"二级分类编号\"\n          },\n          \"createTime\": {\n            \"type\": \"string\",\n            \"format\": \"date-time\",\n            \"description\": \"创建时间\"\n          },\n          \"id\": {\n            \"type\": \"integer\",\n            \"format\": \"int64\",\n            \"description\": \"id\"\n          },\n          \"name\": {\n            \"type\": \"string\",\n            \"description\": \"三级分类名称\"\n          },\n          \"updateTime\": {\n            \"type\": \"string\",\n            \"format\": \"date-time\",\n            \"description\": \"更新时间\"\n          }\n        },\n        \"title\": \"BaseCategory3\",\n        \"description\": \"商品三级分类\",\n        \"$$ref\": \"#/definitions/BaseCategory3\"\n      }\n    },\n    \"message\": {\n      \"type\": \"string\",\n      \"description\": \"返回消息\"\n    },\n    \"ok\": {\n      \"type\": \"boolean\"\n    }\n  },\n  \"title\": \"全局统一返回结果«List«BaseCategory3»»\",\n  \"$$ref\": \"#/definitions/全局统一返回结果«List«BaseCategory3»»\"\n}",
+        "req_body_other": "{\n  \"type\": \"string\",\n  \"format\": \"binary\"\n}",
+        "project_id": 203,
+        "catid": 219,
+        "uid": 44,
+        "add_time": 1639119896,
+        "up_time": 1639660503,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/admin/product/getCategory2/{category1Id}",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "var",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 15,
+        "tag": [
+          "商品管理"
+        ],
+        "_id": 1019,
+        "method": "GET",
+        "title": "获取二级分类数据",
+        "path": "/admin/product/getCategory2/{category1Id}",
+        "req_params": [
+          {
+            "_id": "61540fa0f1f1b52d0595584c",
+            "name": "category1Id",
+            "desc": "category1Id"
+          }
+        ],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "61540fa0f1f1b52d0595584d",
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "json",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"code\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\",\n      \"description\": \"返回码\"\n    },\n    \"data\": {\n      \"type\": \"array\",\n      \"description\": \"返回数据\",\n      \"items\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"category1Id\": {\n            \"type\": \"integer\",\n            \"format\": \"int64\",\n            \"description\": \"一级分类编号\"\n          },\n          \"createTime\": {\n            \"type\": \"string\",\n            \"format\": \"date-time\",\n            \"description\": \"创建时间\"\n          },\n          \"id\": {\n            \"type\": \"integer\",\n            \"format\": \"int64\",\n            \"description\": \"id\"\n          },\n          \"name\": {\n            \"type\": \"string\",\n            \"description\": \"二级分类名称\"\n          },\n          \"updateTime\": {\n            \"type\": \"string\",\n            \"format\": \"date-time\",\n            \"description\": \"更新时间\"\n          }\n        },\n        \"title\": \"BaseCategory2\",\n        \"description\": \"商品二级分类\",\n        \"$$ref\": \"#/definitions/BaseCategory2\"\n      }\n    },\n    \"message\": {\n      \"type\": \"string\",\n      \"description\": \"返回消息\"\n    },\n    \"ok\": {\n      \"type\": \"boolean\"\n    }\n  },\n  \"title\": \"全局统一返回结果«List«BaseCategory2»»\",\n  \"$$ref\": \"#/definitions/全局统一返回结果«List«BaseCategory2»»\"\n}",
+        "req_body_other": "{\n  \"type\": \"string\",\n  \"format\": \"binary\"\n}",
+        "project_id": 203,
+        "catid": 219,
+        "uid": 44,
+        "add_time": 1639119896,
+        "up_time": 1639660504,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/admin/product/baseSaleAttrList",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 16,
+        "tag": [
+          "商品管理"
+        ],
+        "_id": 1025,
+        "method": "GET",
+        "title": "获取销售属性数据",
+        "path": "/admin/product/baseSaleAttrList",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "61540f9ff1f1b52d05955844",
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "json",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"code\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\",\n      \"description\": \"返回码\"\n    },\n    \"data\": {\n      \"type\": \"array\",\n      \"description\": \"返回数据\",\n      \"items\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"createTime\": {\n            \"type\": \"string\",\n            \"format\": \"date-time\",\n            \"description\": \"创建时间\"\n          },\n          \"id\": {\n            \"type\": \"integer\",\n            \"format\": \"int64\",\n            \"description\": \"id\"\n          },\n          \"name\": {\n            \"type\": \"string\",\n            \"description\": \"销售属性名称\"\n          },\n          \"updateTime\": {\n            \"type\": \"string\",\n            \"format\": \"date-time\",\n            \"description\": \"更新时间\"\n          }\n        },\n        \"title\": \"BaseSaleAttr\",\n        \"description\": \"销售属性\",\n        \"$$ref\": \"#/definitions/BaseSaleAttr\"\n      }\n    },\n    \"message\": {\n      \"type\": \"string\",\n      \"description\": \"返回消息\"\n    },\n    \"ok\": {\n      \"type\": \"boolean\"\n    }\n  },\n  \"title\": \"全局统一返回结果«List«BaseSaleAttr»»\",\n  \"$$ref\": \"#/definitions/全局统一返回结果«List«BaseSaleAttr»»\"\n}",
+        "req_body_other": "{\n  \"type\": \"string\",\n  \"format\": \"binary\"\n}",
+        "project_id": 203,
+        "catid": 219,
+        "uid": 44,
+        "add_time": 1639119896,
+        "up_time": 1642380545,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/admin/product/saveSpuInfo_1639562067882",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 17,
+        "tag": [
+          "商品管理"
+        ],
+        "_id": 3023,
+        "method": "POST",
+        "title": "保存spu_copy",
+        "path": "/admin/product/saveSpuInfo_1639562067882",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "61540fa1f1f1b52d05955857",
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "json",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"code\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\",\n      \"description\": \"返回码\"\n    },\n    \"data\": {\n      \"type\": \"object\",\n      \"description\": \"返回数据\"\n    },\n    \"message\": {\n      \"type\": \"string\",\n      \"description\": \"返回消息\"\n    },\n    \"ok\": {\n      \"type\": \"boolean\"\n    }\n  },\n  \"title\": \"全局统一返回结果\",\n  \"$$ref\": \"#/definitions/全局统一返回结果\"\n}",
+        "req_body_other": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"category3Id\": {\n      \"type\": \"integer\",\n      \"format\": \"int64\",\n      \"description\": \"三级分类id\"\n    },\n    \"createTime\": {\n      \"type\": \"string\",\n      \"format\": \"date-time\",\n      \"description\": \"创建时间\"\n    },\n    \"description\": {\n      \"type\": \"string\",\n      \"description\": \"商品描述(后台简述）\"\n    },\n    \"id\": {\n      \"type\": \"integer\",\n      \"format\": \"int64\",\n      \"description\": \"id\"\n    },\n    \"spuImageList\": {\n      \"type\": \"array\",\n      \"items\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"createTime\": {\n            \"type\": \"string\",\n            \"format\": \"date-time\",\n            \"description\": \"创建时间\"\n          },\n          \"id\": {\n            \"type\": \"integer\",\n            \"format\": \"int64\",\n            \"description\": \"id\"\n          },\n          \"imgName\": {\n            \"type\": \"string\",\n            \"description\": \"图片名称\"\n          },\n          \"imgUrl\": {\n            \"type\": \"string\",\n            \"description\": \"图片路径\"\n          },\n          \"spuId\": {\n            \"type\": \"integer\",\n            \"format\": \"int64\",\n            \"description\": \"商品id\"\n          },\n          \"updateTime\": {\n            \"type\": \"string\",\n            \"format\": \"date-time\",\n            \"description\": \"更新时间\"\n          }\n        },\n        \"title\": \"SpuImage\",\n        \"description\": \"Spu图片\",\n        \"$$ref\": \"#/definitions/SpuImage\"\n      }\n    },\n    \"spuName\": {\n      \"type\": \"string\",\n      \"description\": \"商品名称\"\n    },\n    \"spuPosterList\": {\n      \"type\": \"array\",\n      \"items\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"createTime\": {\n            \"type\": \"string\",\n            \"format\": \"date-time\",\n            \"description\": \"创建时间\"\n          },\n          \"id\": {\n            \"type\": \"integer\",\n            \"format\": \"int64\",\n            \"description\": \"id\"\n          },\n          \"imgName\": {\n            \"type\": \"string\",\n            \"description\": \"文件名称\"\n          },\n          \"imgUrl\": {\n            \"type\": \"string\",\n            \"description\": \"文件路径\"\n          },\n          \"spuId\": {\n            \"type\": \"integer\",\n            \"format\": \"int64\",\n            \"description\": \"商品id\"\n          },\n          \"updateTime\": {\n            \"type\": \"string\",\n            \"format\": \"date-time\",\n            \"description\": \"更新时间\"\n          }\n        },\n        \"title\": \"SpuPoster\",\n        \"description\": \"SpuPoster\",\n        \"$$ref\": \"#/definitions/SpuPoster\"\n      }\n    },\n    \"spuSaleAttrList\": {\n      \"type\": \"array\",\n      \"items\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"baseSaleAttrId\": {\n            \"type\": \"integer\",\n            \"format\": \"int64\",\n            \"description\": \"销售属性id\"\n          },\n          \"createTime\": {\n            \"type\": \"string\",\n            \"format\": \"date-time\",\n            \"description\": \"创建时间\"\n          },\n          \"id\": {\n            \"type\": \"integer\",\n            \"format\": \"int64\",\n            \"description\": \"id\"\n          },\n          \"saleAttrName\": {\n            \"type\": \"string\",\n            \"description\": \"销售属性名称(冗余)\"\n          },\n          \"spuId\": {\n            \"type\": \"integer\",\n            \"format\": \"int64\",\n            \"description\": \"商品id\"\n          },\n          \"spuSaleAttrValueList\": {\n            \"type\": \"array\",\n            \"items\": {\n              \"type\": \"object\",\n              \"properties\": {\n                \"baseSaleAttrId\": {\n                  \"type\": \"integer\",\n                  \"format\": \"int64\",\n                  \"description\": \"销售属性id\"\n                },\n                \"createTime\": {\n                  \"type\": \"string\",\n                  \"format\": \"date-time\",\n                  \"description\": \"创建时间\"\n                },\n                \"id\": {\n                  \"type\": \"integer\",\n                  \"format\": \"int64\",\n                  \"description\": \"id\"\n                },\n                \"isChecked\": {\n                  \"type\": \"string\"\n                },\n                \"saleAttrName\": {\n                  \"type\": \"string\",\n                  \"description\": \"销售属性名称(冗余)\"\n                },\n                \"saleAttrValueName\": {\n                  \"type\": \"string\",\n                  \"description\": \"销售属性值名称\"\n                },\n                \"spuId\": {\n                  \"type\": \"integer\",\n                  \"format\": \"int64\",\n                  \"description\": \"商品id\"\n                },\n                \"updateTime\": {\n                  \"type\": \"string\",\n                  \"format\": \"date-time\",\n                  \"description\": \"更新时间\"\n                }\n              },\n              \"title\": \"SpuSaleAttrValue\",\n              \"description\": \"销售属性值\",\n              \"$$ref\": \"#/definitions/SpuSaleAttrValue\"\n            }\n          },\n          \"updateTime\": {\n            \"type\": \"string\",\n            \"format\": \"date-time\",\n            \"description\": \"更新时间\"\n          }\n        },\n        \"title\": \"SpuSaleAttr\",\n        \"description\": \"销售属性\",\n        \"$$ref\": \"#/definitions/SpuSaleAttr\"\n      }\n    },\n    \"tmId\": {\n      \"type\": \"integer\",\n      \"format\": \"int64\",\n      \"description\": \"品牌id\"\n    },\n    \"updateTime\": {\n      \"type\": \"string\",\n      \"format\": \"date-time\",\n      \"description\": \"更新时间\"\n    }\n  },\n  \"title\": \"SpuInfo\",\n  \"description\": \"SpuInfo\",\n  \"$$ref\": \"#/definitions/SpuInfo\"\n}",
+        "project_id": 203,
+        "catid": 219,
+        "uid": 44,
+        "add_time": 1639562066,
+        "up_time": 1639562066,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/admin/product/getCategory3/{category2Id}_1642046334296",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "var",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 19,
+        "tag": [
+          "商品管理"
+        ],
+        "_id": 5207,
+        "method": "GET",
+        "title": "获取三级分类数据_copy",
+        "path": "/admin/product/getCategory3/{category2Id}_1642046334296",
+        "req_params": [
+          {
+            "_id": "61540fa0f1f1b52d0595584e",
+            "name": "category2Id",
+            "desc": "category2Id"
+          }
+        ],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "61540fa0f1f1b52d0595584f",
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "json",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"code\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\",\n      \"description\": \"返回码\"\n    },\n    \"data\": {\n      \"type\": \"array\",\n      \"description\": \"返回数据\",\n      \"items\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"category2Id\": {\n            \"type\": \"integer\",\n            \"format\": \"int64\",\n            \"description\": \"二级分类编号\"\n          },\n          \"createTime\": {\n            \"type\": \"string\",\n            \"format\": \"date-time\",\n            \"description\": \"创建时间\"\n          },\n          \"id\": {\n            \"type\": \"integer\",\n            \"format\": \"int64\",\n            \"description\": \"id\"\n          },\n          \"name\": {\n            \"type\": \"string\",\n            \"description\": \"三级分类名称\"\n          },\n          \"updateTime\": {\n            \"type\": \"string\",\n            \"format\": \"date-time\",\n            \"description\": \"更新时间\"\n          }\n        },\n        \"title\": \"BaseCategory3\",\n        \"description\": \"商品三级分类\",\n        \"$$ref\": \"#/definitions/BaseCategory3\"\n      }\n    },\n    \"message\": {\n      \"type\": \"string\",\n      \"description\": \"返回消息\"\n    },\n    \"ok\": {\n      \"type\": \"boolean\"\n    }\n  },\n  \"title\": \"全局统一返回结果«List«BaseCategory3»»\",\n  \"$$ref\": \"#/definitions/全局统一返回结果«List«BaseCategory3»»\"\n}",
+        "req_body_other": "{\n  \"type\": \"string\",\n  \"format\": \"binary\"\n}",
+        "project_id": 203,
+        "catid": 219,
+        "uid": 44,
+        "add_time": 1642046334,
+        "up_time": 1642046334,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/admin/product/getAttrValueList/{attrId}_1642055787482",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "var",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 20,
+        "tag": [
+          "商品管理"
+        ],
+        "_id": 5213,
+        "method": "GET",
+        "title": "根据平台属性Id 获取到平台属性值集合_copy",
+        "path": "/admin/product/getAttrValueList/{attrId}_1642055787482",
+        "req_params": [
+          {
+            "_id": "61540fa0f1f1b52d05955849",
+            "name": "attrId",
+            "desc": "attrId"
+          }
+        ],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "61540fa0f1f1b52d0595584a",
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "json",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"code\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\",\n      \"description\": \"返回码\"\n    },\n    \"data\": {\n      \"type\": \"array\",\n      \"description\": \"返回数据\",\n      \"items\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"attrId\": {\n            \"type\": \"integer\",\n            \"format\": \"int64\",\n            \"description\": \"属性id\"\n          },\n          \"createTime\": {\n            \"type\": \"string\",\n            \"format\": \"date-time\",\n            \"description\": \"创建时间\"\n          },\n          \"id\": {\n            \"type\": \"integer\",\n            \"format\": \"int64\",\n            \"description\": \"id\"\n          },\n          \"updateTime\": {\n            \"type\": \"string\",\n            \"format\": \"date-time\",\n            \"description\": \"更新时间\"\n          },\n          \"valueName\": {\n            \"type\": \"string\",\n            \"description\": \"属性值名称\"\n          }\n        },\n        \"title\": \"BaseAttrValue\",\n        \"description\": \"平台属性值\",\n        \"$$ref\": \"#/definitions/BaseAttrValue\"\n      }\n    },\n    \"message\": {\n      \"type\": \"string\",\n      \"description\": \"返回消息\"\n    },\n    \"ok\": {\n      \"type\": \"boolean\"\n    }\n  },\n  \"title\": \"全局统一返回结果«List«BaseAttrValue»»\",\n  \"$$ref\": \"#/definitions/全局统一返回结果«List«BaseAttrValue»»\"\n}",
+        "req_body_other": "{\n  \"type\": \"string\",\n  \"format\": \"binary\"\n}",
+        "project_id": 203,
+        "catid": 219,
+        "uid": 44,
+        "add_time": 1642055787,
+        "up_time": 1642055787,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/admin/product/findSpuInfoByKeyword/{keyword}_1642150244155",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "var",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 21,
+        "tag": [
+          "商品管理"
+        ],
+        "_id": 5249,
+        "method": "GET",
+        "title": "根据关键字获取到对应的spuInfo 数据列表_copy",
+        "path": "/admin/product/findSpuInfoByKeyword/{keyword}_1642150244155",
+        "req_params": [
+          {
+            "_id": "61540fa0f1f1b52d05955847",
+            "name": "keyword",
+            "desc": "keyword"
+          }
+        ],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "61540fa0f1f1b52d05955848",
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "json",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"code\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\",\n      \"description\": \"返回码\"\n    },\n    \"data\": {\n      \"type\": \"array\",\n      \"description\": \"返回数据\",\n      \"items\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"category3Id\": {\n            \"type\": \"integer\",\n            \"format\": \"int64\",\n            \"description\": \"三级分类id\"\n          },\n          \"createTime\": {\n            \"type\": \"string\",\n            \"format\": \"date-time\",\n            \"description\": \"创建时间\"\n          },\n          \"description\": {\n            \"type\": \"string\",\n            \"description\": \"商品描述(后台简述）\"\n          },\n          \"id\": {\n            \"type\": \"integer\",\n            \"format\": \"int64\",\n            \"description\": \"id\"\n          },\n          \"spuImageList\": {\n            \"type\": \"array\",\n            \"items\": {\n              \"type\": \"object\",\n              \"properties\": {\n                \"createTime\": {\n                  \"type\": \"string\",\n                  \"format\": \"date-time\",\n                  \"description\": \"创建时间\"\n                },\n                \"id\": {\n                  \"type\": \"integer\",\n                  \"format\": \"int64\",\n                  \"description\": \"id\"\n                },\n                \"imgName\": {\n                  \"type\": \"string\",\n                  \"description\": \"图片名称\"\n                },\n                \"imgUrl\": {\n                  \"type\": \"string\",\n                  \"description\": \"图片路径\"\n                },\n                \"spuId\": {\n                  \"type\": \"integer\",\n                  \"format\": \"int64\",\n                  \"description\": \"商品id\"\n                },\n                \"updateTime\": {\n                  \"type\": \"string\",\n                  \"format\": \"date-time\",\n                  \"description\": \"更新时间\"\n                }\n              },\n              \"title\": \"SpuImage\",\n              \"description\": \"Spu图片\",\n              \"$$ref\": \"#/definitions/SpuImage\"\n            }\n          },\n          \"spuName\": {\n            \"type\": \"string\",\n            \"description\": \"商品名称\"\n          },\n          \"spuPosterList\": {\n            \"type\": \"array\",\n            \"items\": {\n              \"type\": \"object\",\n              \"properties\": {\n                \"createTime\": {\n                  \"type\": \"string\",\n                  \"format\": \"date-time\",\n                  \"description\": \"创建时间\"\n                },\n                \"id\": {\n                  \"type\": \"integer\",\n                  \"format\": \"int64\",\n                  \"description\": \"id\"\n                },\n                \"imgName\": {\n                  \"type\": \"string\",\n                  \"description\": \"文件名称\"\n                },\n                \"imgUrl\": {\n                  \"type\": \"string\",\n                  \"description\": \"文件路径\"\n                },\n                \"spuId\": {\n                  \"type\": \"integer\",\n                  \"format\": \"int64\",\n                  \"description\": \"商品id\"\n                },\n                \"updateTime\": {\n                  \"type\": \"string\",\n                  \"format\": \"date-time\",\n                  \"description\": \"更新时间\"\n                }\n              },\n              \"title\": \"SpuPoster\",\n              \"description\": \"SpuPoster\",\n              \"$$ref\": \"#/definitions/SpuPoster\"\n            }\n          },\n          \"spuSaleAttrList\": {\n            \"type\": \"array\",\n            \"items\": {\n              \"type\": \"object\",\n              \"properties\": {\n                \"baseSaleAttrId\": {\n                  \"type\": \"integer\",\n                  \"format\": \"int64\",\n                  \"description\": \"销售属性id\"\n                },\n                \"createTime\": {\n                  \"type\": \"string\",\n                  \"format\": \"date-time\",\n                  \"description\": \"创建时间\"\n                },\n                \"id\": {\n                  \"type\": \"integer\",\n                  \"format\": \"int64\",\n                  \"description\": \"id\"\n                },\n                \"saleAttrName\": {\n                  \"type\": \"string\",\n                  \"description\": \"销售属性名称(冗余)\"\n                },\n                \"spuId\": {\n                  \"type\": \"integer\",\n                  \"format\": \"int64\",\n                  \"description\": \"商品id\"\n                },\n                \"spuSaleAttrValueList\": {\n                  \"type\": \"array\",\n                  \"items\": {\n                    \"type\": \"object\",\n                    \"properties\": {\n                      \"baseSaleAttrId\": {\n                        \"type\": \"integer\",\n                        \"format\": \"int64\",\n                        \"description\": \"销售属性id\"\n                      },\n                      \"createTime\": {\n                        \"type\": \"string\",\n                        \"format\": \"date-time\",\n                        \"description\": \"创建时间\"\n                      },\n                      \"id\": {\n                        \"type\": \"integer\",\n                        \"format\": \"int64\",\n                        \"description\": \"id\"\n                      },\n                      \"isChecked\": {\n                        \"type\": \"string\"\n                      },\n                      \"saleAttrName\": {\n                        \"type\": \"string\",\n                        \"description\": \"销售属性名称(冗余)\"\n                      },\n                      \"saleAttrValueName\": {\n                        \"type\": \"string\",\n                        \"description\": \"销售属性值名称\"\n                      },\n                      \"spuId\": {\n                        \"type\": \"integer\",\n                        \"format\": \"int64\",\n                        \"description\": \"商品id\"\n                      },\n                      \"updateTime\": {\n                        \"type\": \"string\",\n                        \"format\": \"date-time\",\n                        \"description\": \"更新时间\"\n                      }\n                    },\n                    \"title\": \"SpuSaleAttrValue\",\n                    \"description\": \"销售属性值\",\n                    \"$$ref\": \"#/definitions/SpuSaleAttrValue\"\n                  }\n                },\n                \"updateTime\": {\n                  \"type\": \"string\",\n                  \"format\": \"date-time\",\n                  \"description\": \"更新时间\"\n                }\n              },\n              \"title\": \"SpuSaleAttr\",\n              \"description\": \"销售属性\",\n              \"$$ref\": \"#/definitions/SpuSaleAttr\"\n            }\n          },\n          \"tmId\": {\n            \"type\": \"integer\",\n            \"format\": \"int64\",\n            \"description\": \"品牌id\"\n          },\n          \"updateTime\": {\n            \"type\": \"string\",\n            \"format\": \"date-time\",\n            \"description\": \"更新时间\"\n          }\n        },\n        \"title\": \"SpuInfo\",\n        \"description\": \"SpuInfo\",\n        \"$$ref\": \"#/definitions/SpuInfo\"\n      }\n    },\n    \"message\": {\n      \"type\": \"string\",\n      \"description\": \"返回消息\"\n    },\n    \"ok\": {\n      \"type\": \"boolean\"\n    }\n  },\n  \"title\": \"全局统一返回结果«List«SpuInfo»»\",\n  \"$$ref\": \"#/definitions/全局统一返回结果«List«SpuInfo»»\"\n}",
+        "req_body_other": "{\n  \"type\": \"string\",\n  \"format\": \"binary\"\n}",
+        "project_id": 203,
+        "catid": 219,
+        "uid": 44,
+        "add_time": 1642150244,
+        "up_time": 1642150244,
+        "__v": 0
+      }
+    ]
+  },
+  {
+    "index": 5,
+    "name": "品牌管理",
+    "desc": "Base Trademark Controller",
+    "add_time": 1639119887,
+    "up_time": 1639119887,
+    "list": [
+      {
+        "query_path": {
+          "path": "/admin/product/baseTrademark/save",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [
+          "品牌管理"
+        ],
+        "_id": 1031,
+        "method": "POST",
+        "title": "保存",
+        "path": "/admin/product/baseTrademark/save",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "61540fa2f1f1b52d05955860",
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "json",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"code\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\",\n      \"description\": \"返回码\"\n    },\n    \"data\": {\n      \"type\": \"object\",\n      \"description\": \"返回数据\"\n    },\n    \"message\": {\n      \"type\": \"string\",\n      \"description\": \"返回消息\"\n    },\n    \"ok\": {\n      \"type\": \"boolean\"\n    }\n  },\n  \"title\": \"全局统一返回结果\",\n  \"$$ref\": \"#/definitions/全局统一返回结果\"\n}",
+        "req_body_other": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"createTime\": {\n      \"type\": \"string\",\n      \"format\": \"date-time\",\n      \"description\": \"创建时间\"\n    },\n    \"id\": {\n      \"type\": \"integer\",\n      \"format\": \"int64\",\n      \"description\": \"id\"\n    },\n    \"logoUrl\": {\n      \"type\": \"string\",\n      \"description\": \"品牌logo的图片路径\"\n    },\n    \"tmName\": {\n      \"type\": \"string\",\n      \"description\": \"属性值\"\n    },\n    \"updateTime\": {\n      \"type\": \"string\",\n      \"format\": \"date-time\",\n      \"description\": \"更新时间\"\n    }\n  },\n  \"title\": \"BaseTrademark\",\n  \"description\": \"商标品牌\",\n  \"$$ref\": \"#/definitions/BaseTrademark\"\n}",
+        "project_id": 203,
+        "catid": 223,
+        "uid": 44,
+        "add_time": 1639119896,
+        "up_time": 1639660561,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/admin/product/baseTrademark/inner/findBaseTrademarkByTrademarkIdList_1631454534005_1641992168342",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [
+          "品牌管理"
+        ],
+        "_id": 5171,
+        "method": "POST",
+        "title": "根据品牌Id 集合获取对应的品牌集合数据_copy_copy",
+        "path": "/admin/product/baseTrademark/inner/findBaseTrademarkByTrademarkIdList_1631454534005_1641992168342",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "61540fa3f1f1b52d0595586a",
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "json",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"array\",\n  \"items\": {\n    \"type\": \"object\",\n    \"properties\": {\n      \"createTime\": {\n        \"type\": \"string\",\n        \"format\": \"date-time\",\n        \"description\": \"创建时间\"\n      },\n      \"id\": {\n        \"type\": \"integer\",\n        \"format\": \"int64\",\n        \"description\": \"id\"\n      },\n      \"logoUrl\": {\n        \"type\": \"string\",\n        \"description\": \"品牌logo的图片路径\"\n      },\n      \"tmName\": {\n        \"type\": \"string\",\n        \"description\": \"属性值\"\n      },\n      \"updateTime\": {\n        \"type\": \"string\",\n        \"format\": \"date-time\",\n        \"description\": \"更新时间\"\n      }\n    },\n    \"title\": \"BaseTrademark\",\n    \"description\": \"商标品牌\",\n    \"$$ref\": \"#/definitions/BaseTrademark\"\n  }\n}",
+        "req_body_other": "{\n  \"type\": \"array\",\n  \"items\": {\n    \"type\": \"integer\",\n    \"format\": \"int64\"\n  }\n}",
+        "project_id": 203,
+        "catid": 223,
+        "uid": 44,
+        "add_time": 1641992168,
+        "up_time": 1644804909,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/admin/product/baseTrademark/update",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 1,
+        "tag": [
+          "品牌管理"
+        ],
+        "_id": 1037,
+        "method": "PUT",
+        "title": "修改",
+        "path": "/admin/product/baseTrademark/update",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "61540fa2f1f1b52d05955861",
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "json",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"code\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\",\n      \"description\": \"返回码\"\n    },\n    \"data\": {\n      \"type\": \"object\",\n      \"description\": \"返回数据\"\n    },\n    \"message\": {\n      \"type\": \"string\",\n      \"description\": \"返回消息\"\n    },\n    \"ok\": {\n      \"type\": \"boolean\"\n    }\n  },\n  \"title\": \"全局统一返回结果\",\n  \"$$ref\": \"#/definitions/全局统一返回结果\"\n}",
+        "req_body_other": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"createTime\": {\n      \"type\": \"string\",\n      \"format\": \"date-time\",\n      \"description\": \"创建时间\"\n    },\n    \"id\": {\n      \"type\": \"integer\",\n      \"format\": \"int64\",\n      \"description\": \"id\"\n    },\n    \"logoUrl\": {\n      \"type\": \"string\",\n      \"description\": \"品牌logo的图片路径\"\n    },\n    \"tmName\": {\n      \"type\": \"string\",\n      \"description\": \"属性值\"\n    },\n    \"updateTime\": {\n      \"type\": \"string\",\n      \"format\": \"date-time\",\n      \"description\": \"更新时间\"\n    }\n  },\n  \"title\": \"BaseTrademark\",\n  \"description\": \"商标品牌\",\n  \"$$ref\": \"#/definitions/BaseTrademark\"\n}",
+        "project_id": 203,
+        "catid": 223,
+        "uid": 44,
+        "add_time": 1639119896,
+        "up_time": 1639660563,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/admin/product/baseTrademark/{page}/{limit}",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "var",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 2,
+        "tag": [
+          "品牌管理"
+        ],
+        "_id": 1043,
+        "method": "GET",
+        "title": "分页列表",
+        "path": "/admin/product/baseTrademark/{page}/{limit}",
+        "req_params": [
+          {
+            "_id": "61540fa3f1f1b52d05955863",
+            "name": "limit",
+            "desc": "limit"
+          },
+          {
+            "_id": "61540fa3f1f1b52d05955862",
+            "name": "page",
+            "desc": "page"
+          }
+        ],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "61540fa3f1f1b52d05955864",
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "json",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"code\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\",\n      \"description\": \"返回码\"\n    },\n    \"data\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"current\": {\n          \"type\": \"integer\",\n          \"format\": \"int64\",\n          \"refType\": null\n        },\n        \"hitCount\": {\n          \"type\": \"boolean\",\n          \"refType\": null\n        },\n        \"pages\": {\n          \"type\": \"integer\",\n          \"format\": \"int64\",\n          \"refType\": null\n        },\n        \"records\": {\n          \"type\": \"array\",\n          \"items\": {\n            \"type\": \"object\",\n            \"properties\": {\n              \"createTime\": {\n                \"type\": \"string\",\n                \"format\": \"date-time\",\n                \"description\": \"创建时间\",\n                \"refType\": null\n              },\n              \"id\": {\n                \"type\": \"integer\",\n                \"format\": \"int64\",\n                \"description\": \"id\",\n                \"refType\": null\n              },\n              \"logoUrl\": {\n                \"type\": \"string\",\n                \"description\": \"品牌logo的图片路径\",\n                \"refType\": null\n              },\n              \"tmName\": {\n                \"type\": \"string\",\n                \"description\": \"属性值\",\n                \"refType\": null\n              },\n              \"updateTime\": {\n                \"type\": \"string\",\n                \"format\": \"date-time\",\n                \"description\": \"更新时间\",\n                \"refType\": null\n              }\n            },\n            \"title\": \"BaseTrademark\",\n            \"description\": \"商标品牌\",\n            \"$$ref\": \"#/definitions/BaseTrademark\"\n          },\n          \"refType\": \"BaseTrademark\"\n        },\n        \"searchCount\": {\n          \"type\": \"boolean\",\n          \"refType\": null\n        },\n        \"size\": {\n          \"type\": \"integer\",\n          \"format\": \"int64\",\n          \"refType\": null\n        },\n        \"total\": {\n          \"type\": \"integer\",\n          \"format\": \"int64\",\n          \"refType\": null\n        }\n      },\n      \"title\": \"IPage«BaseTrademark»\",\n      \"$$ref\": \"#/definitions/IPage«BaseTrademark»\"\n    },\n    \"message\": {\n      \"type\": \"string\",\n      \"description\": \"返回消息\"\n    },\n    \"ok\": {\n      \"type\": \"boolean\"\n    }\n  },\n  \"title\": \"全局统一返回结果«IPage«BaseTrademark»»\",\n  \"$$ref\": \"#/definitions/全局统一返回结果«IPage«BaseTrademark»»\"\n}",
+        "req_body_other": "{\n  \"type\": \"string\",\n  \"format\": \"binary\"\n}",
+        "project_id": 203,
+        "catid": 223,
+        "uid": 44,
+        "add_time": 1639119896,
+        "up_time": 1639660564,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/admin/product/baseTrademark/remove/{id}",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "var",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 3,
+        "tag": [
+          "品牌管理"
+        ],
+        "_id": 1049,
+        "method": "DELETE",
+        "title": "删除",
+        "path": "/admin/product/baseTrademark/remove/{id}",
+        "req_params": [
+          {
+            "_id": "61540fa3f1f1b52d05955865",
+            "name": "id",
+            "desc": "id"
+          }
+        ],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "61540fa3f1f1b52d05955866",
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "json",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"code\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\",\n      \"description\": \"返回码\"\n    },\n    \"data\": {\n      \"type\": \"object\",\n      \"description\": \"返回数据\"\n    },\n    \"message\": {\n      \"type\": \"string\",\n      \"description\": \"返回消息\"\n    },\n    \"ok\": {\n      \"type\": \"boolean\"\n    }\n  },\n  \"title\": \"全局统一返回结果\",\n  \"$$ref\": \"#/definitions/全局统一返回结果\"\n}",
+        "req_body_other": "{\n  \"type\": \"string\",\n  \"format\": \"binary\"\n}",
+        "project_id": 203,
+        "catid": 223,
+        "uid": 44,
+        "add_time": 1639119896,
+        "up_time": 1639660566,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/admin/product/baseTrademark/get/{id}",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "var",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 4,
+        "tag": [
+          "品牌管理"
+        ],
+        "_id": 1055,
+        "method": "GET",
+        "title": "根据品牌Id 获取品牌对象",
+        "desc": "",
+        "path": "/admin/product/baseTrademark/get/{id}",
+        "req_params": [
+          {
+            "_id": "61540fa3f1f1b52d05955867",
+            "name": "id",
+            "desc": "id"
+          }
+        ],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "61540fa3f1f1b52d05955868",
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "json",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"code\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\",\n      \"description\": \"返回码\"\n    },\n    \"data\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"createTime\": {\n          \"type\": \"string\",\n          \"format\": \"date-time\",\n          \"description\": \"创建时间\"\n        },\n        \"id\": {\n          \"type\": \"integer\",\n          \"format\": \"int64\",\n          \"description\": \"id\"\n        },\n        \"logoUrl\": {\n          \"type\": \"string\",\n          \"description\": \"品牌logo的图片路径\"\n        },\n        \"tmName\": {\n          \"type\": \"string\",\n          \"description\": \"属性值\"\n        },\n        \"updateTime\": {\n          \"type\": \"string\",\n          \"format\": \"date-time\",\n          \"description\": \"更新时间\"\n        }\n      },\n      \"title\": \"BaseTrademark\",\n      \"description\": \"商标品牌\",\n      \"$$ref\": \"#/definitions/BaseTrademark\"\n    },\n    \"message\": {\n      \"type\": \"string\",\n      \"description\": \"返回消息\"\n    },\n    \"ok\": {\n      \"type\": \"boolean\"\n    }\n  },\n  \"title\": \"全局统一返回结果«BaseTrademark»\",\n  \"$$ref\": \"#/definitions/全局统一返回结果«BaseTrademark»\"\n}",
+        "req_body_other": "{\n  \"type\": \"string\",\n  \"format\": \"binary\"\n}",
+        "project_id": 203,
+        "catid": 223,
+        "uid": 44,
+        "add_time": 1639119897,
+        "up_time": 1642038484,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/admin/product/baseTrademark/inner/findBaseTrademarkByTrademarkIdList_1631454534005",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 5,
+        "tag": [
+          "品牌管理"
+        ],
+        "_id": 1067,
+        "method": "POST",
+        "title": "根据品牌Id 集合获取对应的品牌集合数据_copy",
+        "path": "/admin/product/baseTrademark/inner/findBaseTrademarkByTrademarkIdList_1631454534005",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "61540fa3f1f1b52d0595586a",
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "json",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"array\",\n  \"items\": {\n    \"type\": \"object\",\n    \"properties\": {\n      \"createTime\": {\n        \"type\": \"string\",\n        \"format\": \"date-time\",\n        \"description\": \"创建时间\"\n      },\n      \"id\": {\n        \"type\": \"integer\",\n        \"format\": \"int64\",\n        \"description\": \"id\"\n      },\n      \"logoUrl\": {\n        \"type\": \"string\",\n        \"description\": \"品牌logo的图片路径\"\n      },\n      \"tmName\": {\n        \"type\": \"string\",\n        \"description\": \"属性值\"\n      },\n      \"updateTime\": {\n        \"type\": \"string\",\n        \"format\": \"date-time\",\n        \"description\": \"更新时间\"\n      }\n    },\n    \"title\": \"BaseTrademark\",\n    \"description\": \"商标品牌\",\n    \"$$ref\": \"#/definitions/BaseTrademark\"\n  }\n}",
+        "req_body_other": "{\n  \"type\": \"array\",\n  \"items\": {\n    \"type\": \"integer\",\n    \"format\": \"int64\"\n  }\n}",
+        "project_id": 203,
+        "catid": 223,
+        "uid": 44,
+        "add_time": 1639119897,
+        "up_time": 1639119897,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/admin/product/baseTrademark/inner/findBaseTrademarkByTrademarkIdList",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 6,
+        "tag": [
+          "品牌管理"
+        ],
+        "_id": 1061,
+        "method": "POST",
+        "title": "根据品牌Id 集合获取对应的品牌集合数据",
+        "path": "/admin/product/baseTrademark/inner/findBaseTrademarkByTrademarkIdList",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "61540fa3f1f1b52d05955869",
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "json",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"array\",\n  \"items\": {\n    \"type\": \"object\",\n    \"properties\": {\n      \"createTime\": {\n        \"type\": \"string\",\n        \"format\": \"date-time\",\n        \"description\": \"创建时间\"\n      },\n      \"id\": {\n        \"type\": \"integer\",\n        \"format\": \"int64\",\n        \"description\": \"id\"\n      },\n      \"logoUrl\": {\n        \"type\": \"string\",\n        \"description\": \"品牌logo的图片路径\"\n      },\n      \"tmName\": {\n        \"type\": \"string\",\n        \"description\": \"属性值\"\n      },\n      \"updateTime\": {\n        \"type\": \"string\",\n        \"format\": \"date-time\",\n        \"description\": \"更新时间\"\n      }\n    },\n    \"title\": \"BaseTrademark\",\n    \"description\": \"商标品牌\",\n    \"$$ref\": \"#/definitions/BaseTrademark\"\n  }\n}",
+        "req_body_other": "{\n  \"type\": \"array\",\n  \"items\": {\n    \"type\": \"integer\",\n    \"format\": \"int64\"\n  }\n}",
+        "project_id": 203,
+        "catid": 223,
+        "uid": 44,
+        "add_time": 1639119897,
+        "up_time": 1642380504,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/admin/product/baseTrademark/findBaseTrademarkByKeyword/{keyword}",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "var",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 7,
+        "tag": [
+          "品牌管理"
+        ],
+        "_id": 1073,
+        "method": "GET",
+        "title": "根据品牌的关键字检索品牌列表",
+        "path": "/admin/product/baseTrademark/findBaseTrademarkByKeyword/{keyword}",
+        "req_params": [
+          {
+            "_id": "61540fa3f1f1b52d0595586b",
+            "name": "keyword",
+            "desc": "keyword"
+          }
+        ],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "61540fa3f1f1b52d0595586c",
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "json",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"code\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\",\n      \"description\": \"返回码\"\n    },\n    \"data\": {\n      \"type\": \"array\",\n      \"description\": \"返回数据\",\n      \"items\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"createTime\": {\n            \"type\": \"string\",\n            \"format\": \"date-time\",\n            \"description\": \"创建时间\"\n          },\n          \"id\": {\n            \"type\": \"integer\",\n            \"format\": \"int64\",\n            \"description\": \"id\"\n          },\n          \"logoUrl\": {\n            \"type\": \"string\",\n            \"description\": \"品牌logo的图片路径\"\n          },\n          \"tmName\": {\n            \"type\": \"string\",\n            \"description\": \"属性值\"\n          },\n          \"updateTime\": {\n            \"type\": \"string\",\n            \"format\": \"date-time\",\n            \"description\": \"更新时间\"\n          }\n        },\n        \"title\": \"BaseTrademark\",\n        \"description\": \"商标品牌\",\n        \"$$ref\": \"#/definitions/BaseTrademark\"\n      }\n    },\n    \"message\": {\n      \"type\": \"string\",\n      \"description\": \"返回消息\"\n    },\n    \"ok\": {\n      \"type\": \"boolean\"\n    }\n  },\n  \"title\": \"全局统一返回结果«List«BaseTrademark»»\",\n  \"$$ref\": \"#/definitions/全局统一返回结果«List«BaseTrademark»»\"\n}",
+        "req_body_other": "{\n  \"type\": \"string\",\n  \"format\": \"binary\"\n}",
+        "project_id": 203,
+        "catid": 223,
+        "uid": 44,
+        "add_time": 1639119897,
+        "up_time": 1639119897,
+        "__v": 0
+      },
+      {
+        "query_path": {
+          "path": "/admin/product/baseTrademark/getTrademarkList",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 8,
+        "tag": [
+          "品牌管理"
+        ],
+        "_id": 1079,
+        "method": "GET",
+        "title": "获取全部品牌",
+        "path": "/admin/product/baseTrademark/getTrademarkList",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "61540fa3f1f1b52d0595586d",
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "json",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"code\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\",\n      \"description\": \"返回码\"\n    },\n    \"data\": {\n      \"type\": \"array\",\n      \"description\": \"返回数据\",\n      \"items\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"createTime\": {\n            \"type\": \"string\",\n            \"format\": \"date-time\",\n            \"description\": \"创建时间\"\n          },\n          \"id\": {\n            \"type\": \"integer\",\n            \"format\": \"int64\",\n            \"description\": \"id\"\n          },\n          \"logoUrl\": {\n            \"type\": \"string\",\n            \"description\": \"品牌logo的图片路径\"\n          },\n          \"tmName\": {\n            \"type\": \"string\",\n            \"description\": \"属性值\"\n          },\n          \"updateTime\": {\n            \"type\": \"string\",\n            \"format\": \"date-time\",\n            \"description\": \"更新时间\"\n          }\n        },\n        \"title\": \"BaseTrademark\",\n        \"description\": \"商标品牌\",\n        \"$$ref\": \"#/definitions/BaseTrademark\"\n      }\n    },\n    \"message\": {\n      \"type\": \"string\",\n      \"description\": \"返回消息\"\n    },\n    \"ok\": {\n      \"type\": \"boolean\"\n    }\n  },\n  \"title\": \"全局统一返回结果«List«BaseTrademark»»\",\n  \"$$ref\": \"#/definitions/全局统一返回结果«List«BaseTrademark»»\"\n}",
+        "req_body_other": "{\n  \"type\": \"string\",\n  \"format\": \"binary\"\n}",
+        "project_id": 203,
+        "catid": 223,
+        "uid": 44,
+        "add_time": 1639119897,
+        "up_time": 1642038630,
+        "__v": 0
+      }
+    ]
+  },
+  {
+    "index": 6,
+    "name": "文件上传管理",
+    "desc": "File Upload Controller",
+    "add_time": 1639119887,
+    "up_time": 1639119887,
+    "list": [
+      {
+        "query_path": {
+          "path": "/admin/product/fileUpload",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "done",
+        "type": "static",
+        "req_body_is_json_schema": false,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [
+          "文件上传管理"
+        ],
+        "_id": 1085,
+        "method": "POST",
+        "title": "上传",
+        "path": "/admin/product/fileUpload",
+        "req_params": [],
+        "req_body_form": [
+          {
+            "required": "0",
+            "_id": "61540fa4f1f1b52d0595586e",
+            "name": "file",
+            "desc": "file",
+            "type": "file"
+          }
+        ],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "61540fa4f1f1b52d0595586f",
+            "name": "Content-Type",
+            "value": "multipart/form-data"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "form",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"code\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\",\n      \"description\": \"返回码\"\n    },\n    \"data\": {\n      \"type\": \"object\",\n      \"description\": \"返回数据\"\n    },\n    \"message\": {\n      \"type\": \"string\",\n      \"description\": \"返回消息\"\n    },\n    \"ok\": {\n      \"type\": \"boolean\"\n    }\n  },\n  \"title\": \"全局统一返回结果\",\n  \"$$ref\": \"#/definitions/全局统一返回结果\"\n}",
+        "project_id": 203,
+        "catid": 227,
+        "uid": 44,
+        "add_time": 1639119897,
+        "up_time": 1639660778,
+        "__v": 0
+      }
+    ]
+  },
+  {
+    "index": 7,
+    "name": "test-controller",
+    "desc": "Test Controller",
+    "add_time": 1639119887,
+    "up_time": 1639119887,
+    "list": [
+      {
+        "query_path": {
+          "path": "/admin/product/test/write",
+          "params": []
+        },
+        "edit_uid": 0,
+        "status": "undone",
+        "type": "static",
+        "req_body_is_json_schema": true,
+        "res_body_is_json_schema": true,
+        "api_opened": false,
+        "index": 0,
+        "tag": [
+          "test-controller"
+        ],
+        "_id": 1103,
+        "method": "GET",
+        "title": "write",
+        "path": "/admin/product/test/write",
+        "req_params": [],
+        "req_body_form": [],
+        "req_headers": [
+          {
+            "required": "1",
+            "_id": "61540fa4f1f1b52d05955872",
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "req_query": [],
+        "req_body_type": "json",
+        "res_body_type": "json",
+        "res_body": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"code\": {\n      \"type\": \"integer\",\n      \"format\": \"int32\",\n      \"description\": \"返回码\"\n    },\n    \"data\": {\n      \"type\": \"object\",\n      \"description\": \"返回数据\"\n    },\n    \"message\": {\n      \"type\": \"string\",\n      \"description\": \"返回消息\"\n    },\n    \"ok\": {\n      \"type\": \"boolean\"\n    }\n  },\n  \"title\": \"全局统一返回结果\",\n  \"$$ref\": \"#/definitions/全局统一返回结果\"\n}",
+        "req_body_other": "{\n  \"type\": \"string\",\n  \"format\": \"binary\"\n}",
+        "project_id": 203,
+        "catid": 231,
+        "uid": 44,
+        "add_time": 1639119897,
+        "up_time": 1639119897,
+        "__v": 0
+      }
+    ]
+  }
+]

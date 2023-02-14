@@ -1,0 +1,173 @@
+redis持久化有两种
+    RDB：RDB 持久化机制，是对 Redis 中的数据执行周期性的持久化。
+    AOF：AOF 机制对每条写入命令作为日志，以 append-only 的模式写入一个日志文件中，因为这个模式是只追加的方式。
+RDB更适合做冷备
+AOF更适合做热备
+Redis在重启的时候会默认使用AOF去重新构建数据，因为AOF的数据是比RDB更完整的。
+
+RDB优点：适合做冷备份，可以根据时间回复数据
+   缺点：有可能会丢失数据
+AOF优点：以append-only方式追加的，写入速度很快。数据性完整
+   缺点：数据量比RDB大
+
+
+
+
+阿里巴巴Java开发手册 不推荐使用Executors 去创建  通过ThreadPoolExecutor的方式 创建
+这样的处理方式让写的同学更加明确线程池的运行规则，规避资源耗尽的风险
+
+Executors 类 我们可以创建三种类型的ThreadPoolExecutor：
+FixedThreadPool：返回一个固定长度的线程池，线程数量不变，有空闲线程直接执行，满了的话就等待暂存在一个任务队列中 待有线程空闲时，便处理在任务队列中的任务。
+SingleThreadExecutor：方法返回一个只有一个线程的线程池，若多余一个任务被提交到该线程池，任务会被保存在一个任务队列中，待线程空闲，按先入先出的顺序执行队列中的任务。
+CachedThreadPool：可以根据实际情况调整线程池现成的数量，有空闲的线程可以复用，有新的任务提交，可以创建线程池。
+
+ThreadPoolExecutor 类：
+corePoolSize : 核心线程数线程数定义了最小可以同时运行的线程数量。
+maximumPoolSize : 当队列中存放的任务达到队列容量的时候，当前可以同时运行的线程数量变为最大线程数。
+keepAliveTime：线程如果大于corePoolSize，没有新的任务。根据这个时间进行销毁
+unit：keepAliveTime 参数的时间单位。
+workQueue: 当新任务来的时候会先判断当前运行的线程数量是否达到核心线程数，如果达到的话，线程就会被存放在队列中。
+threadFactory ：executor 创建新线程的时候会用到。
+handler：饱和策略
+
+饱和策略
+1.可以直接抛出异常，来拒接新的任务
+2.增加队列的容量，新任务的速度就慢了
+3.不处理新任务，直接丢弃掉。
+4.此策略将丢弃最早的未处理的任务请求
+
+
+面试官你好。有年4多的java后端开发经验。那我先简单的介绍一下我近期做过的项目吧。我这边近期主要是做的项目报备系统。这个系统是北信源综合业务管理平台的数据源头。
+可以说是销售产生的项目都会在这个系统中留痕。系统中下面的业务操作也是根据项目展开的。项目报备主要是为了把控销售给客户之间的报价。其中有一个圈地功能，
+可以根据不同的部门划分圈地区域。销售在提交项目的时候会经过圈地模块判断是否冲突。如果冲突则需要相应的领导进行审批。审批流用的是activiti。
+同时系统也会判断客户是否重复。防止出现重复的立项。这个功能主要是为了防止销售恶意压价。导致公司的产品利益受损。用的技术是springboot  redis 和 shiro 控制权限。
+
+
+
+1) REQUIRED（默认属性）
+如果存在一个事务，则支持当前事务。如果没有事务则开启一个新的事务。 
+被设置成这个级别时，会为每一个被调用的方法创建一个逻辑事务域。如果前面的方法已经创建了事务，那么后面的方法支持当前的事务，如果当前没有事务会重新建立事务。 
+
+2) MANDATORY 
+支持当前事务，如果当前没有事务，就抛出异常。 
+
+3) NEVER 
+以非事务方式执行，如果当前存在事务，则抛出异常。 
+
+4) NOT_SUPPORTED 
+以非事务方式执行操作，如果当前存在事务，就把当前事务挂起。 
+
+5) REQUIRES_NEW 
+新建事务，如果当前存在事务，把当前事务挂起。 
+
+6) SUPPORTS 
+支持当前事务，如果当前没有事务，就以非事务方式执行。 
+
+7) NESTED 
+支持当前事务，新增Savepoint点，与当前事务同步提交或回滚。 
+嵌套事务一个非常重要的概念就是内层事务依赖于外层事务。外层事务失败时，会回滚内层事务所做的动作。而内层事务操作失败并不会引起外层事务的回滚。 
+
+PROPAGATION_NESTED 与PROPAGATION_REQUIRES_NEW的区别：
+它们非常类似，都像一个嵌套事务，如果不存在一个活动的事务，都会开启一个新的事务。
+
+如果有事物，会支持当前事物。如果没有就回创建（默认）
+支持当前事物，没有就抛出异常
+非事物的方式执行，有事物抛出异常
+非事物的方式执行，有的话就挂起当前事物。
+新建事务，有的话就挂起当前事物。
+支持当前事物，如果没有的话就非实物执行
+内层和外层，外层异常就回全部回滚，内层异常不会回滚外层
+
+2.隔离级别：
+ 
+1) DEFAULT （默认） 
+这是一个PlatfromTransactionManager默认的隔离级别，使用数据库默认的事务隔离级别。另外四个与JDBC的隔离级别相对应。
+
+2) READ_UNCOMMITTED （读未提交） 
+这是事务最低的隔离级别，它允许另外一个事务可以看到这个事务未提交的数据。这种隔离级别会产生脏读，不可重复读和幻像读。 
+
+3) READ_COMMITTED （读已提交） 
+保证一个事务修改的数据提交后才能被另外一个事务读取，另外一个事务不能读取该事务未提交的数据。这种事务隔离级别可以避免脏读出现，但是可能会出现不可重复读和幻像读。 
+
+4) REPEATABLE_READ （可重复读） 
+这种事务隔离级别可以防止脏读、不可重复读，但是可能出现幻像读。它除了保证一个事务不能读取另一个事务未提交的数据外，还保证了不可重复读。
+
+5) SERIALIZABLE（串行化） 
+这是花费最高代价但是最可靠的事务隔离级别，事务被处理为顺序执行。除了防止脏读、不可重复读外，还避免了幻像读。 
+
+
+1、实例化一个Bean－－也就是我们常说的new；
+
+2、按照Spring上下文对实例化的Bean进行配置－－也就是IOC注入；
+
+3、如果这个Bean已经实现了BeanNameAware接口，会调用它实现的setBeanName(String)方法，此处传递的就是Spring配置文件中Bean的id值
+
+4、如果这个Bean已经实现了BeanFactoryAware接口，会调用它实现的setBeanFactory(setBeanFactory(BeanFactory)传递的是Spring工厂自身（可以用这个方式来获取其它Bean，只需在Spring配置文件中配置一个普通的Bean就可以）；
+
+5、如果这个Bean已经实现了ApplicationContextAware接口，会调用setApplicationContext(ApplicationContext)方法，传入Spring上下文（同样这个方式也可以实现步骤4的内容，但比4更好，因为ApplicationContext是BeanFactory的子接口，有更多的实现方法）；
+
+6、如果这个Bean关联了BeanPostProcessor接口，将会调用postProcessBeforeInitialization(Object obj, String s)方法，BeanPostProcessor经常被用作是Bean内容的更改，并且由于这个是在Bean初始化结束时调用那个的方法，也可以被应用于内存或缓存技术；
+
+7、如果Bean在Spring配置文件中配置了init-method属性会自动调用其配置的初始化方法。
+
+8、如果这个Bean关联了BeanPostProcessor接口，将会调用postProcessAfterInitialization(Object obj, String s)方法、；
+
+注：以上工作完成以后就可以应用这个Bean了，那这个Bean是一个Singleton的，所以一般情况下我们调用同一个id的Bean会是在内容地址相同的实例，当然在Spring配置文件中也可以配置非Singleton，这里我们不做赘述。
+
+9、当Bean不再需要时，会经过清理阶段，如果Bean实现了DisposableBean这个接口，会调用那个其实现的destroy()方法；
+
+10、最后，如果这个Bean的Spring配置中配置了destroy-method属性，会自动调用其配置的销毁方法。
+
+
+扫描xml 配置文件 获取bean的信息  然后去实例化  然后会对bean的属性进行声明
+依赖注入Autoeired注入  在这个人阶段会触发一些拓展调用的情况  比如常见的拓展类 beanpostProcessors 在bean实例化的前后拓展回调
+容器缓存：把bean保存在容器里面，spring缓存中 这个阶段开发者就可以使用了。
+销毁实例：在spring应用的上下文被关闭的时候，这个时候所有bean都会被销毁 
+
+springmvc
+   前置控制器接受请求（DisPatchService）
+   前置控制器 调用处理器映射 根据url查找Hander
+   Hander通过url找到 控制器 以后将解析后的信息传给前置控制器， 如解析控制器的映射
+   然后再经过 处理器适配器 按照特定的顺序去执行Handler
+   Handler让具体的controller执行
+   controller将执行信息返回给HandlerAdapter如modelandview
+   处理器适配器将modelandview传递给前置控制器
+   前置控制器通过视图解析器来解析modelANdView 的逻辑视图明
+
+
+ 
+CountDownLatch  CyclicBarrier  Semaphore
+
+CountDownLatch 是一个线程等待其他线程， CyclicBarrier 是多个线程互相等待。
+CountDownLatch 的计数是减 1 直到 0，CyclicBarrier 是加 1，直到指定值。
+CountDownLatch 是一次性的， CyclicBarrier  可以循环利用。
+CyclicBarrier 可以在最后一个线程达到屏障之前，选择先执行一个操作。
+Semaphore ，需要拿到许可才能执行，并可以选择公平和非公平模式。
+
+
+hashMap：
+   1.7：数组+链表 头插法 实例：Entry  
+   1.8：数组+链表+红黑树  尾插法 Node  负载因子是0.75 
+
+CorruentHashMap：
+   1.8：CAS + synchronized
+
+
+synchronized：
+   1.6以前：用户态转化为内核态
+   1.6以后：锁升级的过程
+   对象头 Mark Word
+   实现：在对象头中会关联一个monitor对象，进入方法的时候会执行 monitorenter +1，执行完会执行 monitorexit。实际上就是线程对monitor对象的争夺。
+   升级过程：
+      无锁：
+      偏向锁：对象头是由Mark Word和Klass pointer 组成，一旦有线程指向了Monitor对象，对应的标志位就回修改为1，进入偏向锁模式，同时会把线程的ID记录在Mark Word当中、
+      轻量级锁：如果这个对象是无锁的，jvm就会在当前线程的栈帧中建立一个叫锁记录（Lock Record）的空间，用来存储锁对象的Mark Word 拷贝，然后把所对象的owner指向当前对象。jvm会尝试使用cas自旋更新锁空间的状态
+         成功表示加锁成功，标志位+1，失败的话说明其他线程占有了。继续阻塞，到最后的锁升级。
+      重量级锁：切换为重量级锁，用户态转化为内核态
+   
+Volatile：
+   Volatile修饰共享变量；
+   volatile保证不同线程对共享变量操作的可见性，也就是说一个线程修改了volatile修饰的变量，当修改写回主内存时，另外一个线程立即看到最新的值；
+   禁止指令重排序：内存屏障 指令volatile写是在前面和后面分别插入内存屏障，而volatile读操作是在后面插入两个内存屏障。
+
+   总线风暴：Volatile缓存一致性协议，需要不断的从主内存嗅探和cas不断循环，无效交互会导致总线带宽达到峰值。
