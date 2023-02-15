@@ -12,7 +12,8 @@ File Encoding         : 65001
 
 Date: 2021-10-19 16:58:53
 */
-
+create database `gmall_order`;
+use `gmall_order`;
 SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------

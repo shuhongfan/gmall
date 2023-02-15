@@ -12,7 +12,8 @@ File Encoding         : 65001
 
 Date: 2021-10-19 16:59:13
 */
-
+create database `gmall_user`;
+use `gmall_user`;
 SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------
