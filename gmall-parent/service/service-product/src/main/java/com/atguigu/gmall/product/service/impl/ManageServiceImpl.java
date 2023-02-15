@@ -5,7 +5,9 @@ import com.atguigu.gmall.product.mapper.*;
 import com.atguigu.gmall.product.service.ManageService;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -31,6 +33,24 @@ public class ManageServiceImpl implements ManageService {
 
     @Autowired
     private BaseAttrValueMapper baseAttrValueMapper;
+
+    @Autowired
+    private SpuInfoMapper spuInfoMapper;
+
+    /**
+     * spu分页查询
+     * @param pageParam
+     * @param spuInfo
+     * @return
+     */
+    @Override
+    public IPage<SpuInfo> getSpuInfoPage(Page<SpuInfo> pageParam, SpuInfo spuInfo) {
+        LambdaQueryWrapper<SpuInfo> wrapper = new LambdaQueryWrapper<>();
+        wrapper.eq(SpuInfo::getCategory3Id, spuInfo.getCategory3Id());
+        wrapper.orderByDesc(SpuInfo::getId);
+
+        return spuInfoMapper.selectPage(pageParam, wrapper);
+    }
 
     /**
      * 根据attrId 查询平台属性对象

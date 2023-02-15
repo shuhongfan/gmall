@@ -1,14 +1,22 @@
 package com.atguigu.gmall.product.service;
 
-import com.atguigu.gmall.model.product.BaseAttrInfo;
-import com.atguigu.gmall.model.product.BaseCategory1;
-import com.atguigu.gmall.model.product.BaseCategory2;
-import com.atguigu.gmall.model.product.BaseCategory3;
+import com.atguigu.gmall.model.product.*;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 import java.util.List;
 
 public interface ManageService {
+    /**
+     * spu分页查询
+     * @param pageParam
+     * @param spuInfo
+     * @return
+     */
+    IPage<SpuInfo> getSpuInfoPage(Page<SpuInfo> pageParam, SpuInfo spuInfo);
+
+
     /**
      * 根据attrId 查询平台属性对象
      * @param attrId
