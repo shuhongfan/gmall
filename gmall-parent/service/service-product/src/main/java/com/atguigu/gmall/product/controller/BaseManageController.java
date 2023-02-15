@@ -1,17 +1,11 @@
 package com.atguigu.gmall.product.controller;
 
 import com.atguigu.gmall.common.result.Result;
-import com.atguigu.gmall.model.product.BaseAttrInfo;
-import com.atguigu.gmall.model.product.BaseCategory1;
-import com.atguigu.gmall.model.product.BaseCategory2;
-import com.atguigu.gmall.model.product.BaseCategory3;
+import com.atguigu.gmall.model.product.*;
 import com.atguigu.gmall.product.service.ManageService;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,6 +16,31 @@ public class BaseManageController {
 
     @Autowired
     private ManageService manageService;
+
+    /**
+     * 回显平台属性
+     * @param attrId
+     * @return
+     */
+    @GetMapping("getAttrValueList/{attrId}")
+    public Result<List<BaseAttrValue>> getAttrValueList(@PathVariable("attrId") Long attrId) {
+        BaseAttrInfo baseAttrInfo = manageService.getAttrInfo(attrId);
+        List<BaseAttrValue> baseAttrValueList = baseAttrInfo.getAttrValueList();
+        return Result.ok(baseAttrValueList);
+    }
+
+
+    /**
+     * 保存平台属性方法
+     * @param baseAttrInfo
+     * @return
+     */
+    @PostMapping("saveAttrInfo")
+    public Result saveAttrInfo(@RequestBody BaseAttrInfo baseAttrInfo) {
+        // 前台数据都被封装到该对象中baseAttrInfo
+        manageService.saveAttrInfo(baseAttrInfo);
+        return Result.ok();
+    }
 
     /**
      * 查询所有的一级分类信息

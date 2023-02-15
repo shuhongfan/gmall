@@ -1,18 +1,18 @@
 package com.atguigu.gmall.product.service.impl;
 
-import com.atguigu.gmall.model.product.BaseAttrInfo;
-import com.atguigu.gmall.model.product.BaseCategory1;
-import com.atguigu.gmall.model.product.BaseCategory2;
-import com.atguigu.gmall.model.product.BaseCategory3;
+import com.atguigu.gmall.model.product.*;
 import com.atguigu.gmall.product.mapper.*;
 import com.atguigu.gmall.product.service.ManageService;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.CollectionUtils;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class ManageServiceImpl implements ManageService {
@@ -33,13 +33,53 @@ public class ManageServiceImpl implements ManageService {
     private BaseAttrValueMapper baseAttrValueMapper;
 
     /**
+     * 根据attrId 查询平台属性对象
+     * @param attrId
+     * @return
+     */
+    @Override
+    public BaseAttrInfo getAttrInfo(Long attrId) {
+        BaseAttrInfo baseAttrInfo = baseAttrInfoMapper.selectById(attrId);
+
+//        根据属性id获取属性值
+        LambdaQueryWrapper<BaseAttrValue> wrapper = new LambdaQueryWrapper<>();
+        wrapper.eq(BaseAttrValue::getAttrId, attrId);
+        List<BaseAttrValue> attrValueList = baseAttrValueMapper.selectList(wrapper);
+
+        // 查询到最新的平台属性值集合数据放入平台属性中！
+        baseAttrInfo.setAttrValueList(attrValueList);
+        return baseAttrInfo;
+    }
+    /**
      * 保存平台属性方法
      * @param baseAttrInfo
      */
     @Override
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public void saveAttrInfo(BaseAttrInfo baseAttrInfo) {
+//        判断当前操作是保存还是修改
+        if (baseAttrInfo.getId() != null) {
+//            修改平台属性
+            baseAttrInfoMapper.updateById(baseAttrInfo);
+        } else {
+//            保存平台属性
+            baseAttrInfoMapper.insert(baseAttrInfo);
 
+        }
+
+        LambdaQueryWrapper<BaseAttrValue> wrapper = new LambdaQueryWrapper<>();
+        wrapper.eq(BaseAttrValue::getAttrId, baseAttrInfo.getId());
+        baseAttrValueMapper.delete(wrapper);
+
+        // 获取页面传递过来的所有平台属性值数据
+        List<BaseAttrValue> attrValueList = baseAttrInfo.getAttrValueList();
+        if (!CollectionUtils.isEmpty(attrValueList)) {
+//            给属性值表添加数据
+            attrValueList.stream().forEach(attrValue -> {
+                attrValue.setAttrId(baseAttrInfo.getId());
+                baseAttrValueMapper.insert(attrValue);
+            });
+        }
     }
 
     /**

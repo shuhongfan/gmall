@@ -10,6 +10,14 @@ import java.util.List;
 
 public interface ManageService {
     /**
+     * 根据attrId 查询平台属性对象
+     * @param attrId
+     * @return
+     */
+    BaseAttrInfo getAttrInfo(Long attrId);
+
+
+    /**
      * 保存平台属性方法
      * @param baseAttrInfo
      */
