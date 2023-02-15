@@ -31,13 +31,6 @@ public class BaseCategoryTrademarkController {
         return Result.ok();
     }
 
-    @GetMapping("findTrademarkList/{category3Id}")
-    public Result findTrademarkList(@PathVariable Long category3Id){
-        //  select * from base_trademark
-        List<BaseTrademark> list = baseCategoryTrademarkService.findTrademarkList(category3Id);
-        //  返回
-        return Result.ok(list);
-    }
 
     @GetMapping("findCurrentTrademarkList/{category3Id}")
     public Result findCurrentTrademarkList(@PathVariable Long category3Id){
@@ -45,5 +38,18 @@ public class BaseCategoryTrademarkController {
         //  返回
         return Result.ok(list);
     }
+
+    /**
+     * 查询全部品牌
+     * @return
+     */
+    @GetMapping("findTrademarkList/{category3Id}")
+    public Result findTrademarkList(@PathVariable Long category3Id){
+        //  调用服务层方法
+        List<BaseTrademark> baseCategoryTrademarkList = baseCategoryTrademarkService.findTrademarkList(category3Id);
+        //  返回数据
+        return Result.ok(baseCategoryTrademarkList);
+    }
+
 }
 

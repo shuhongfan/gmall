@@ -37,6 +37,30 @@ public class ManageServiceImpl implements ManageService {
     @Autowired
     private SpuInfoMapper spuInfoMapper;
 
+    @Autowired
+    private BaseSaleAttrMapper baseSaleAttrMapper;
+
+    @Autowired
+    private SpuImageMapper spuImageMapper;
+
+    @Autowired
+    private SpuSaleAttrMapper spuSaleAttrMapper;
+
+    @Autowired
+    private SpuSaleAttrValueMapper spuSaleAttrValueMapper;
+
+    @Autowired
+    private SpuPosterMapper spuPosterMapper;
+
+    /**
+     * 查询所有的销售属性数据
+     * @return
+     */
+    @Override
+    public List<BaseSaleAttr> getBaseSaleAttrList() {
+        return baseSaleAttrMapper.selectList(null);
+    }
+
     /**
      * spu分页查询
      * @param pageParam
@@ -153,5 +177,54 @@ public class ManageServiceImpl implements ManageService {
     @Override
     public List<BaseAttrInfo> getAttrInfoList(Long category1Id, Long category2Id, Long category3Id) {
         return baseAttrInfoMapper.selectBaseAttrInfoList(category1Id, category2Id, category3Id);
+    }
+
+    /**
+     * 保存商品数据
+     * @param spuInfo
+     */
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public void saveSpuInfo(SpuInfo spuInfo) {
+        spuInfoMapper.insert(spuInfo);
+
+//        获取图片
+        List<SpuImage> spuImageList = spuInfo.getSpuImageList();
+        if (!CollectionUtils.isEmpty(spuImageList)) {
+            spuImageList.forEach(spuImage -> {
+                spuImage.setSpuId(spuInfo.getId());
+//                保存spuImage
+                spuImageMapper.insert(spuImage);
+            });
+        }
+
+//        获取销售属性集合
+        List<SpuSaleAttr> spuSaleAttrList = spuInfo.getSpuSaleAttrList();
+        if (!CollectionUtils.isEmpty(spuSaleAttrList)) {
+            spuSaleAttrList.forEach(spuSaleAttr -> {
+                spuSaleAttr.setSpuId(spuInfo.getId());
+                spuSaleAttrMapper.insert(spuSaleAttr);
+
+//                获取销售属性值集合
+                List<SpuSaleAttrValue> spuSaleAttrValueList = spuSaleAttr.getSpuSaleAttrValueList();
+                if (!CollectionUtils.isEmpty(spuSaleAttrValueList)) {
+                    spuSaleAttrValueList.forEach(spuSaleAttrValue -> {
+                        spuSaleAttrValue.setSpuId(spuInfo.getId());
+                        spuSaleAttrValue.setSaleAttrName(spuSaleAttr.getSaleAttrName());
+                        spuSaleAttrValueMapper.insert(spuSaleAttrValue);
+                    });
+                }
+            });
+        }
+
+//        获取到posterList集合数据
+        List<SpuPoster> spuPosterList = spuInfo.getSpuPosterList();
+        if (!CollectionUtils.isEmpty(spuPosterList)) {
+            spuPosterList.forEach(spuPoster -> {
+                spuPoster.setSpuId(spuInfo.getId());
+                spuPosterMapper.insert(spuPoster);
+            });
+        }
+
     }
 }

@@ -9,6 +9,13 @@ import java.util.List;
 
 public interface ManageService {
     /**
+     * 查询所有的销售属性数据
+     * @return
+     */
+    List<BaseSaleAttr> getBaseSaleAttrList();
+
+
+    /**
      * spu分页查询
      * @param pageParam
      * @param spuInfo
@@ -70,4 +77,9 @@ public interface ManageService {
      */
     List<BaseAttrInfo> getAttrInfoList(Long category1Id, Long category2Id, Long category3Id);
 
+    /**
+     * 保存商品数据
+     * @param spuInfo
+     */
+    void saveSpuInfo(SpuInfo spuInfo);
 }
