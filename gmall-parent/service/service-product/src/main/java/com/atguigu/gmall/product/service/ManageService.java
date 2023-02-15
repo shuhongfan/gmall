@@ -9,6 +9,14 @@ import java.util.List;
 
 public interface ManageService {
     /**
+     * 根据spuId 查询spuImageList
+     * @param spuId
+     * @return
+     */
+    List<SpuImage> getSpuImageList(Long spuId);
+
+
+    /**
      * 查询所有的销售属性数据
      * @return
      */
@@ -82,4 +90,37 @@ public interface ManageService {
      * @param spuInfo
      */
     void saveSpuInfo(SpuInfo spuInfo);
+
+    /**
+     * 根据spuId 查询销售属性集合
+     * @param spuId
+     * @return
+     */
+    List<SpuSaleAttr> getSpuSaleAttrList(Long spuId);
+
+    /**
+     * 保存数据
+     * @param skuInfo
+     */
+    void saveSkuInfo(SkuInfo skuInfo);
+
+    /**
+     * SKU分页列表
+     * @param pageParam
+     * @return
+     */
+    IPage<SkuInfo> getPage(Page<SkuInfo> pageParam);
+
+    /**
+     * 商品上架
+     * @param skuId
+     */
+    void onSale(Long skuId);
+
+    /**
+     * 商品下架
+     * @param skuId
+     */
+    void cancelSale(Long skuId);
+
 }
