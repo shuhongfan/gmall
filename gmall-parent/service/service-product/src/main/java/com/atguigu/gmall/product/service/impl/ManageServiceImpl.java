@@ -13,7 +13,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
 
+import java.math.BigDecimal;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 @Service
@@ -63,6 +66,40 @@ public class ManageServiceImpl implements ManageService {
 
     @Autowired
     private SkuAttrValueMapper skuAttrValueMapper;
+
+    @Autowired
+    private BaseCategoryViewMapper baseCategoryViewMapper;
+
+    /**
+     * 根据spuId 查询map 集合属性
+     * @param spuId
+     * @return
+     */
+    @Override
+    public Map getSkuValueIdsMap(Long spuId) {
+        Map<Object, Object> map = new HashMap<>();
+        // key = 125|123 ,value = 37
+        List<Map> mapList = skuSaleAttrValueMapper.selectSaleAttrValuesBySpu(spuId);
+        if (mapList != null && mapList.size() > 0) {
+            // 循环遍历
+            for (Map skuMap : mapList) {
+                // key = 125|123 ,value = 37
+                map.put(skuMap.get("value_ids"), skuMap.get("sku_id"));
+            }
+        }
+        return map;
+    }
+
+    /**
+     * 根据spuId，skuId 查询销售属性集合
+     * @param skuId
+     * @param spuId
+     * @return
+     */
+    @Override
+    public List<SpuSaleAttr> getSpuSaleAttrListCheckBySku(Long skuId, Long spuId) {
+        return spuSaleAttrMapper.selectSpuSaleAttrListCheckBySku(skuId, spuId);
+    }
 
     /**
      * 根据spuId 查询spuImageList
@@ -334,4 +371,69 @@ public class ManageServiceImpl implements ManageService {
         skuInfo.setIsSale(0);
         skuInfoMapper.updateById(skuInfo);
     }
+
+    /**
+     * 根据skuId 查询skuInfo
+     * @param skuId
+     * @return
+     */
+    @Override
+    public SkuInfo getSkuInfo(Long skuId) {
+        SkuInfo skuInfo = skuInfoMapper.selectById(skuId);
+
+//        根据SKUID查询图片列表集合
+        LambdaQueryWrapper<SkuImage> wrapper = new LambdaQueryWrapper<>();
+        wrapper.eq(SkuImage::getSkuId, skuId);
+        List<SkuImage> skuImages = skuImageMapper.selectList(wrapper);
+
+        skuInfo.setSkuImageList(skuImages);
+        return skuInfo;
+    }
+
+    /**
+     * 通过三级分类id查询分类信息
+     * @param category3Id
+     * @return
+     */
+    @Override
+    public BaseCategoryView getCategoryViewByCategory3Id(Long category3Id) {
+        return baseCategoryViewMapper.selectById(category3Id);
+    }
+
+    /**
+     * 获取sku价格
+     * @param skuId
+     * @return
+     */
+    @Override
+    public BigDecimal getSkuPrice(Long skuId) {
+        SkuInfo skuInfo = skuInfoMapper.selectById(skuId);
+        if (null != skuInfo) {
+            return skuInfo.getPrice();
+        }
+        return new BigDecimal("0");
+    }
+
+    /**
+     * 根据spuid获取商品海报
+     * @param spuId
+     * @return
+     */
+    @Override
+    public List<SpuPoster> findSpuPosterBySpuId(Long spuId) {
+        LambdaQueryWrapper<SpuPoster> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.eq(SpuPoster::getSpuId, spuId);
+        return spuPosterMapper.selectList(queryWrapper);
+    }
+
+    /**
+     * 通过skuId 集合来查询数据
+     * @param skuId
+     * @return
+     */
+    @Override
+    public List<BaseAttrInfo> getAttrList(Long skuId) {
+        return baseAttrInfoMapper.selectBaseAttrInfoListBySkuId(skuId);
+    }
+
 }
