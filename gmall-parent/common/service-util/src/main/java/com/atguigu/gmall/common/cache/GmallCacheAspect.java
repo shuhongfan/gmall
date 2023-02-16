@@ -36,6 +36,7 @@ public class GmallCacheAspect {
     public Object gmallCacheAspectMethod(ProceedingJoinPoint point){
         //  定义一个对象
         Object obj = new Object();
+
         /*
          业务逻辑！
          1. 必须先知道这个注解在哪些方法 || 必须要获取到方法上的注解
@@ -47,12 +48,22 @@ public class GmallCacheAspect {
             false:
                 分布式锁业务逻辑！
          */
+
+//        获取添加注解的方法
         MethodSignature methodSignature = (MethodSignature) point.getSignature();
+
+//        获取注解
         GmallCache gmallCache = methodSignature.getMethod().getAnnotation(GmallCache.class);
+
         //   获取到注解上的前缀
         String prefix = gmallCache.prefix();
-        //  组成缓存的key！ 获取方法传递的参数
-        String key = prefix+ Arrays.asList(point.getArgs()).toString();
+
+//        获取方法传入的参数
+        Object[] args = point.getArgs();
+
+        //  组成缓存的key！
+        String key = prefix+ Arrays.asList(args).toString();
+
         try {
             //  可以通过这个key 获取缓存的数据
             obj = this.getRedisData(key,methodSignature);
@@ -68,6 +79,7 @@ public class GmallCacheAspect {
                         //  执行业务逻辑：直接从数据库获取数据
                         //  这个注解 @GmallCache 有可能在 BaseCategoryView getCategoryName , List<SpuSaleAttr> getSpuSaleAttrListById ....
                         obj = point.proceed(point.getArgs());
+
                         //  防止缓存穿透
                         if (obj==null){
                             Object object = new Object();
@@ -75,6 +87,7 @@ public class GmallCacheAspect {
                             this.redisTemplate.opsForValue().set(key, JSON.toJSONString(object),RedisConst.SKUKEY_TEMPORARY_TIMEOUT,TimeUnit.SECONDS);
                             return object;
                         }
+
                         //  将缓存的数据变为 Json 的 字符串
                         this.redisTemplate.opsForValue().set(key, JSON.toJSONString(obj),RedisConst.SKUKEY_TIMEOUT,TimeUnit.SECONDS);
                         return obj;
@@ -86,6 +99,7 @@ public class GmallCacheAspect {
                     //  没有获取到
                     try {
                         Thread.sleep(100);
+//                        自旋
                         return gmallCacheAspectMethod(point);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
@@ -111,6 +125,7 @@ public class GmallCacheAspect {
         //  在向缓存存储数据的时候，将数据变为Json 字符串了！
         //  通过这个key 获取到缓存的value
         String strJson = (String) this.redisTemplate.opsForValue().get(key);
+
         //  判断
         if(!StringUtils.isEmpty(strJson)){
             //  将字符串转换为对应的数据类型！
