@@ -9,6 +9,7 @@
     <file url="file://$PROJECT_DIR$/gmall-parent/model/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/gmall-parent/server-gateway/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/gmall-parent/service-client/service-item-client/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/gmall-parent/service-client/service-item-client/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/gmall-parent/service-client/service-list-client/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/gmall-parent/service-client/service-product-client/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/gmall-parent/service-client/src/main/java" charset="UTF-8" />
@@ -21,6 +22,8 @@
     <file url="file://$PROJECT_DIR$/gmall-parent/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/gmall-parent/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/gmall-parent/web/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/gmall-parent/web/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/gmall-parent/web/web-all/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/gmall-parent/web/web-all/src/main/resources" charset="UTF-8" />
   </component>
 </project>

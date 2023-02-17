@@ -18,6 +18,15 @@ public class Goods {
     @Id
     private Long id;
 
+    /**
+     * @Field 文档中的字段
+     *      type：字段类型
+     *      字符串内容的类型：
+     *          1. Keyword：不分词
+     *          2. Text： 分词
+     *          3. analyzer： 指定分词时使用的分词器
+     *          4. searchAnalyzer： 搜索时的分词器
+     */
     @Field(type = FieldType.Keyword, index = false)
     private String defaultImg;
 

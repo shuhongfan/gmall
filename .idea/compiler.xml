@@ -15,7 +15,6 @@
         <module name="service-util" />
         <module name="web-all" />
         <module name="service-product" />
-        <module name="web" />
         <module name="web-util" />
         <module name="service-list-client" />
         <module name="model" />
@@ -39,7 +38,7 @@
       <module name="service-product" options="-parameters" />
       <module name="service-product-client" options="-parameters" />
       <module name="service-util" options="-parameters" />
-      <module name="web" options="-parameters" />
+      <module name="web" options="" />
       <module name="web-all" options="-parameters" />
       <module name="web-util" options="-parameters" />
     </option>

@@ -1,5 +1,10 @@
 package com.atguigu.gmall.list.service;
 
+import com.atguigu.gmall.model.list.SearchParam;
+import com.atguigu.gmall.model.list.SearchResponseVo;
+
+import java.io.IOException;
+
 public interface SearchService {
     /**
      * 上架商品列表
@@ -18,5 +23,13 @@ public interface SearchService {
      * @param skuId
      */
     void incrHotScore(Long skuId);
+
+    /**
+     * 搜索列表
+     * @param searchParam
+     * @return
+     * @throws IOException
+     */
+    SearchResponseVo search(SearchParam searchParam) throws IOException;
 
 }
