@@ -1,5 +1,6 @@
 package com.atguigu.gmall.product.client;
 
+import com.atguigu.gmall.common.result.Result;
 import com.atguigu.gmall.model.product.*;
 import com.atguigu.gmall.product.client.fallback.ProductDegradeFeignClient;
 import org.springframework.cloud.openfeign.FeignClient;
@@ -12,6 +13,22 @@ import java.util.Map;
 
 @FeignClient(value ="service-product", fallback = ProductDegradeFeignClient.class)
 public interface ProductFeignClient {
+    /**
+     * 通过品牌Id 集合来查询数据
+     * @param tmId
+     * @return
+     */
+    @GetMapping("/api/product/inner/getTrademark/{tmId}")
+    BaseTrademark getTrademark(@PathVariable("tmId")Long tmId);
+
+
+    /**
+     * 获取全部分类信息
+     * @return
+     */
+    @GetMapping("/api/product/getBaseCategoryList")
+    Result getBaseCategoryList();
+
 
     /**
      * 根据skuId获取sku信息

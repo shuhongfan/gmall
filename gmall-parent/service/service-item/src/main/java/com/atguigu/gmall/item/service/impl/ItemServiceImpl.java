@@ -3,6 +3,7 @@ package com.atguigu.gmall.item.service.impl;
 import com.alibaba.fastjson.JSON;
 import com.atguigu.gmall.common.constant.RedisConst;
 import com.atguigu.gmall.item.service.ItemService;
+import com.atguigu.gmall.list.client.ListFeignClient;
 import com.atguigu.gmall.model.product.*;
 import com.atguigu.gmall.product.client.ProductFeignClient;
 import org.redisson.api.RBloomFilter;
@@ -31,6 +32,9 @@ public class ItemServiceImpl implements ItemService {
 
     @Autowired
     private RedissonClient redissonClient;
+
+    @Autowired
+    private ListFeignClient listFeignClient;
 
     /**
      * 获取sku详情信息
@@ -84,7 +88,6 @@ public class ItemServiceImpl implements ItemService {
             result.put("price", skuPrice);
         }, threadPoolExecutor);
 
-
         //获取分类信息
         CompletableFuture<Void> categoryViewCompletableFuture = skuInfoCompletableFuture.thenAcceptAsync(skuInfo -> {
             BaseCategoryView categoryView = productFeignClient.getCategoryView(skuInfo.getCategory3Id());
@@ -93,6 +96,10 @@ public class ItemServiceImpl implements ItemService {
             result.put("categoryView", categoryView);
         }, threadPoolExecutor);
 
+//        更新商品 incrHotScore
+        CompletableFuture<Void> incrHotScoreCompletableFuture = CompletableFuture.runAsync(() -> {
+            listFeignClient.incrHotScore(skuId);
+        }, threadPoolExecutor);
 
         //  获取海报数据
         CompletableFuture<Void> spuPosterListCompletableFuture = skuInfoCompletableFuture.thenAcceptAsync(skuInfo -> {
@@ -121,7 +128,8 @@ public class ItemServiceImpl implements ItemService {
                 skuPriceCompletableFuture,
                 categoryViewCompletableFuture,
                 spuPosterListCompletableFuture,
-                skuAttrListCompletableFuture
+                skuAttrListCompletableFuture,
+                incrHotScoreCompletableFuture
         ).join();
 
         return result;

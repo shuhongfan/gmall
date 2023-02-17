@@ -1,5 +1,6 @@
 package com.atguigu.gmall.product.service.impl;
 
+import com.alibaba.fastjson.JSONObject;
 import com.atguigu.gmall.common.cache.GmallCache;
 import com.atguigu.gmall.common.constant.RedisConst;
 import com.atguigu.gmall.model.product.*;
@@ -19,6 +20,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -77,6 +79,101 @@ public class ManageServiceImpl implements ManageService {
 
     @Autowired
     private RedissonClient redissonClient;
+
+    @Autowired
+    private BaseTrademarkMapper baseTrademarkMapper;
+
+    /**
+     * 通过品牌Id 来查询数据
+     * @param tmId
+     * @return
+     */
+    @Override
+    public BaseTrademark getTrademarkByTmId(Long tmId) {
+        return baseTrademarkMapper.selectById(tmId);
+    }
+
+    /**
+     * 获取全部分类信息
+     * @return
+     */
+    @GmallCache(prefix = "category")
+    @Override
+    public List<JSONObject> getBaseCategoryList() {
+        ArrayList<JSONObject> resultList = new ArrayList<>();
+
+//        查询所以三级分类
+        List<BaseCategoryView> baseCategoryViewList = baseCategoryViewMapper.selectList(null);
+
+//        分组处理
+        Map<Long, List<BaseCategoryView>> category1Map = baseCategoryViewList.stream().collect(Collectors.groupingBy(BaseCategoryView::getCategory1Id));
+
+//        定义一级分类的序号
+        int index = 1;
+
+//        分组后处理一级分类数据
+        for (Map.Entry<Long, List<BaseCategoryView>> entry : category1Map.entrySet()) {
+//            获取一级分类
+            Long category1Id = entry.getKey();
+
+//            获取一级分类名称
+            List<BaseCategoryView> category2List = entry.getValue();
+            String category1Name = category2List.get(0).getCategory1Name();
+
+//            创建对象
+            JSONObject category1Json = new JSONObject();
+            category1Json.put("index", index++);
+            category1Json.put("categoryName", category1Name);
+            category1Json.put("categoryId", category1Id);
+
+//            创建处理二级分类的的集合
+            ArrayList<JSONObject> categoryChild2 = new ArrayList<>();
+
+//            处理二级分类
+            Map<Long, List<BaseCategoryView>> category2Map = category2List.stream().collect(Collectors.groupingBy(BaseCategoryView::getCategory2Id));
+
+            for (Map.Entry<Long, List<BaseCategoryView>> category2Entry : category2Map.entrySet()) {
+//                二级分类ID
+                Long category2Id = category2Entry.getKey();
+
+//                二级分类的名称
+                List<BaseCategoryView> category3Result = category2Entry.getValue();
+                String category2Name = category3Result.get(0).getCategory2Name();
+
+//                创建二级分类对象封装
+                JSONObject category2Json = new JSONObject();
+                category2Json.put("categoryName", category2Name);
+                category2Json.put("categoryId", category2Id);
+
+//                创建集合收集三级分类
+                ArrayList<JSONObject> categoryChild3 = new ArrayList<>();
+
+//                处理三级分类
+                for (BaseCategoryView category3: category3Result) {
+//                    创建三级分类的对象
+                    JSONObject category3JSON = new JSONObject();
+
+                    category3JSON.put("categoryId", category3.getCategory3Id());
+                    category3JSON.put("categoryName", category3.getCategory3Name());
+
+//                    添加到集合
+                    categoryChild3.add(category3JSON);
+                }
+
+//                存储到二级分类的categoryChild
+                category2Json.put("categoryChild", categoryChild3);
+            }
+
+//                存储到一级分类的categoryChild
+            category1Json.put("categoryChild", categoryChild2);
+
+//            添加到总结过中
+            resultList.add(category1Json);
+        }
+
+
+        return resultList;
+    }
 
     /**
      * 根据spuId 查询map 集合属性
