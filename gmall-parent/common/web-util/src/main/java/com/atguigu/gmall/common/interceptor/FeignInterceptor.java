@@ -7,6 +7,8 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.http.HttpServletRequest;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 @Component
 public class FeignInterceptor implements RequestInterceptor {
@@ -20,5 +22,7 @@ public class FeignInterceptor implements RequestInterceptor {
             requestTemplate.header("userId", request.getHeader("userId"));
 
     }
+
+
 
 }

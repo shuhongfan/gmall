@@ -1,6 +1,7 @@
 package com.atguigu.gmall.product.controller;
 
 import com.atguigu.gmall.common.result.Result;
+import com.atguigu.gmall.model.product.BaseCategoryTrademark;
 import com.atguigu.gmall.model.product.BaseTrademark;
 import com.atguigu.gmall.model.product.CategoryTrademarkVo;
 import com.atguigu.gmall.product.service.BaseCategoryTrademarkService;
@@ -10,46 +11,81 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("admin/product/baseCategoryTrademark")
-public class BaseCategoryTrademarkController {
+@RequestMapping("/admin/product/baseCategoryTrademark")
+public class BaseCategoryTradeMarkController {
 
     @Autowired
     private BaseCategoryTrademarkService baseCategoryTrademarkService;
 
 
-    @PostMapping("save")
+
+    /**
+     * admin/product/baseCategoryTrademark/save
+     * 保存分类和品牌关联
+     * @param categoryTrademarkVo
+     * @return
+     */
+    @PostMapping("/save")
     public Result save(@RequestBody CategoryTrademarkVo categoryTrademarkVo){
-        //  保存方法
+
+
+
         baseCategoryTrademarkService.save(categoryTrademarkVo);
+
         return Result.ok();
-    }
-
-    @DeleteMapping("remove/{category3Id}/{trademarkId}")
-    public Result remove(@PathVariable Long category3Id, @PathVariable Long trademarkId){
-        //  调用服务层方法
-        baseCategoryTrademarkService.remove(category3Id, trademarkId);
-        return Result.ok();
-    }
-
-
-    @GetMapping("findCurrentTrademarkList/{category3Id}")
-    public Result findCurrentTrademarkList(@PathVariable Long category3Id){
-        List<BaseTrademark> list = baseCategoryTrademarkService.findCurrentTrademarkList(category3Id);
-        //  返回
-        return Result.ok(list);
     }
 
     /**
-     * 查询全部品牌
+     * admin/product/baseCategoryTrademark/findCurrentTrademarkList/{category3Id}
+     *根据category3Id获取可选品牌列表
+     * @param category3Id
      * @return
      */
-    @GetMapping("findTrademarkList/{category3Id}")
-    public Result findTrademarkList(@PathVariable Long category3Id){
-        //  调用服务层方法
-        List<BaseTrademark> baseCategoryTrademarkList = baseCategoryTrademarkService.findTrademarkList(category3Id);
-        //  返回数据
-        return Result.ok(baseCategoryTrademarkList);
+    @GetMapping("/findCurrentTrademarkList/{category3Id}")
+    public Result findCurrentTrademarkList(@PathVariable Long category3Id){
+
+        List<BaseTrademark> baseTrademarkList=baseCategoryTrademarkService.findCurrentTrademarkList(category3Id);
+
+
+        return Result.ok(baseTrademarkList);
+
+
     }
 
-}
 
+
+    /**
+     * admin/product/baseCategoryTrademark/findTrademarkList/{category3Id}
+     * 根据category3Id获取品牌列表
+     * @param category3Id
+     * @return
+     */
+    @GetMapping("/findTrademarkList/{category3Id}")
+    public Result findTrademarkList(@PathVariable Long category3Id){
+
+       List<BaseTrademark> baseTrademarkList= baseCategoryTrademarkService.findTrademarkList(category3Id);
+
+
+        return Result.ok(baseTrademarkList);
+
+    }
+
+    /**
+     * admin/product/baseCategoryTrademark/remove/{category3Id}/{trademarkId}
+     * 删除分类品牌关联
+     * @param category3Id
+     * @param trademarkId
+     * @return
+     */
+    @DeleteMapping("/remove/{category3Id}/{trademarkId}")
+    public Result remove(@PathVariable Long category3Id,
+                         @PathVariable Long trademarkId ){
+
+        baseCategoryTrademarkService.remove(category3Id,trademarkId);
+
+        return Result.ok();
+
+    }
+
+
+}

@@ -9,18 +9,28 @@ import java.util.concurrent.TimeUnit;
 
 @Configuration
 public class ThreadPoolConfig {
+
     @Bean
     public ThreadPoolExecutor threadPoolExecutor(){
+
+
         /**
          * 核心线程数
-         * 拥有最多线程数
-         * 表示空闲线程的存活时间
-         * 存活时间单位
-         * 用于缓存任务的阻塞队列
-         * 省略：
-         *  threadFactory：指定创建线程的工厂
-         *  handler：表示当workQueue已满，且池中的线程数达到maximumPoolSize时，线程池拒绝添加新任务时采取的策略。
+         * 最大线程数
+         * 空闲存活时间
+         * 时间单位
+         * 阻塞对象
+         * 默认:
+         * 线程工程
+         * 拒绝策略
          */
-        return new ThreadPoolExecutor(50,500,30, TimeUnit.SECONDS,new ArrayBlockingQueue<>(10000));
+        return new ThreadPoolExecutor(
+                50,
+                500,
+                30,
+                TimeUnit.SECONDS,
+                new ArrayBlockingQueue<>(10000)
+
+        );
     }
 }

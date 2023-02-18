@@ -9,7 +9,6 @@ import com.atguigu.gmall.product.client.ProductFeignClient;
 import org.redisson.api.RBloomFilter;
 import org.redisson.api.RedissonClient;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -18,120 +17,144 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ThreadPoolExecutor;
+import java.util.function.Consumer;
+import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
 @Service
+@SuppressWarnings("all")
 public class ItemServiceImpl implements ItemService {
-
 
     @Autowired
     private ProductFeignClient productFeignClient;
 
     @Autowired
-    private ThreadPoolExecutor threadPoolExecutor;
-
-    @Autowired
     private RedissonClient redissonClient;
 
     @Autowired
-    private ListFeignClient listFeignClient;
+    private ThreadPoolExecutor executor;
 
+    @Autowired
+    private ListFeignClient listFeignClient;
     /**
-     * 获取sku详情信息
+     * 获取商品详情
      * @param skuId
      * @return
      */
     @Override
-    public Map<String, Object> getBySkuId(Long skuId) {
-        HashMap<String, Object> result = new HashMap<>();
+    public HashMap<String, Object> getItem(Long skuId) {
 
-//        判断数据是否存在 布隆过滤器
-        RBloomFilter<Object> bloomFilter = redissonClient.getBloomFilter(RedisConst.SKU_BLOOM_FILTER);
-        if (!bloomFilter.contains(skuId)) {
-//            不存在的SKUID 直接返回空值
-            return result;
-        }
+        HashMap<String, Object> resultMap=new HashMap<>();
 
-        // 通过skuId 查询skuInfo
-        CompletableFuture<SkuInfo> skuInfoCompletableFuture = CompletableFuture.supplyAsync(() -> {
-            SkuInfo skuInfo = productFeignClient.getSkuInfo(skuId);
 
-            // 保存skuInfo
-            result.put("skuInfo", skuInfo);
-            return skuInfo;
-        }, threadPoolExecutor);
+        //判断数据是否存在 布隆过滤器
+//        RBloomFilter<Object> bloomFilter = redissonClient.getBloomFilter(RedisConst.SKU_BLOOM_FILTER);
+//////        if(!bloomFilter.contains(skuId)){
+//////
+//////            //不在的skuId,直接返回空值
+//////            return resultMap;
+//////
+//////        }
 
-        // 销售属性-销售属性值回显并锁定
-//        thenApply 方法：依赖其他线程执行结果，并且自己的结果也可以返回
-//        thenAccept方法：依赖其他线程结果，但是自己的结果不返回
-//        thenRun方法：依赖线程，不要结果，上个线程执行完成过后立即执行
-        CompletableFuture<Void> spuSaleAttrCompletableFuture = skuInfoCompletableFuture.thenAcceptAsync(skuInfo -> {
-            List<SpuSaleAttr> spuSaleAttrList = productFeignClient.getSpuSaleAttrListCheckBySku(skuInfo.getId(), skuInfo.getSpuId());
 
-            // 保存数据
-            result.put("spuSaleAttrList", spuSaleAttrList);
-        }, threadPoolExecutor);
+        CompletableFuture<SkuInfo> skuInfoCompletableFuture = CompletableFuture.supplyAsync(new Supplier<SkuInfo>() {
+            @Override
+            public SkuInfo get() {
+                //获取sku信息和图片列表
+                SkuInfo skuInfo = productFeignClient.getSkuInfo(skuId);
+                resultMap.put("skuInfo", skuInfo);
 
-        //根据spuId 查询map 集合属性
-        // 销售属性-销售属性值回显并锁定
-        CompletableFuture<Void> skuValueIdsMapCompletableFuture = skuInfoCompletableFuture.thenAcceptAsync(skuInfo -> {
-            Map skuValueIdsMap = productFeignClient.getSkuValueIdsMap(skuInfo.getSpuId());
+                return skuInfo;
+            }
+        }, executor);
 
-            String valuesSkuJson = JSON.toJSONString(skuValueIdsMap);
-            // 保存valuesSkuJson
-            result.put("valuesSkuJson", valuesSkuJson);
-        }, threadPoolExecutor);
 
-        //获取商品最新价格
-        CompletableFuture<Void> skuPriceCompletableFuture = CompletableFuture.runAsync(() -> {
-            BigDecimal skuPrice = productFeignClient.getSkuPrice(skuId);
-            result.put("price", skuPrice);
-        }, threadPoolExecutor);
+        CompletableFuture<Void> skuPriceCompletableFuture = CompletableFuture.runAsync(new Runnable() {
+            @Override
+            public void run() {
+                //获取实时价格
+                BigDecimal skuPrice = productFeignClient.getSkuPrice(skuId);
+                resultMap.put("price", skuPrice);
+            }
+        }, executor);
 
-        //获取分类信息
-        CompletableFuture<Void> categoryViewCompletableFuture = skuInfoCompletableFuture.thenAcceptAsync(skuInfo -> {
-            BaseCategoryView categoryView = productFeignClient.getCategoryView(skuInfo.getCategory3Id());
 
-            //分类信息
-            result.put("categoryView", categoryView);
-        }, threadPoolExecutor);
+        //判断
+        CompletableFuture<Void> categoryViewCompletableFuture = skuInfoCompletableFuture.thenAcceptAsync(new Consumer<SkuInfo>() {
+            @Override
+            public void accept(SkuInfo skuInfo) {
+                //获取三级分类
+                BaseCategoryView categoryView = productFeignClient.getCategoryView(skuInfo.getCategory3Id());
+                resultMap.put("categoryView", categoryView);
+            }
+        }, executor);
 
-//        更新商品 incrHotScore
-        CompletableFuture<Void> incrHotScoreCompletableFuture = CompletableFuture.runAsync(() -> {
-            listFeignClient.incrHotScore(skuId);
-        }, threadPoolExecutor);
 
-        //  获取海报数据
-        CompletableFuture<Void> spuPosterListCompletableFuture = skuInfoCompletableFuture.thenAcceptAsync(skuInfo -> {
-            //  spu海报数据
-            List<SpuPoster> spuPosterList = productFeignClient.getSpuPosterBySpuId(skuInfo.getSpuId());
-            result.put("spuPosterList", spuPosterList);
-        },threadPoolExecutor);
+        CompletableFuture<Void> spuSaleAttrListCheckBySkuCompletableFuture = skuInfoCompletableFuture.thenAcceptAsync(new Consumer<SkuInfo>() {
+            @Override
+            public void accept(SkuInfo skuInfo) {
+                //获取销售属性和选中状态
+                List<SpuSaleAttr> spuSaleAttrListCheckBySku = productFeignClient.getSpuSaleAttrListCheckBySku(skuId, skuInfo.getSpuId());
+                resultMap.put("spuSaleAttrList", spuSaleAttrListCheckBySku);
+            }
+        }, executor);
 
-        //  获取sku平台属性，即规格数据
-        CompletableFuture<Void> skuAttrListCompletableFuture = CompletableFuture.runAsync(() -> {
-            List<BaseAttrInfo> attrList = productFeignClient.getAttrList(skuId);
-            //  使用拉姆达表示
-            List<Map<String, String>> skuAttrList = attrList.stream().map((baseAttrInfo) -> {
-                Map<String, String> attrMap = new HashMap<>();
-                attrMap.put("attrName", baseAttrInfo.getAttrName());
-                attrMap.put("attrValue", baseAttrInfo.getAttrValueList().get(0).getValueName());
-                return attrMap;
-            }).collect(Collectors.toList());
-            result.put("skuAttrList", skuAttrList);
-        },threadPoolExecutor);
+        CompletableFuture<Void> skuValueIdsMapCompletableFuture = skuInfoCompletableFuture.thenAcceptAsync(new Consumer<SkuInfo>() {
+            @Override
+            public void accept(SkuInfo skuInfo) {
+                //获取商品切换数据
+                Map skuValueIdsMap = productFeignClient.getSkuValueIdsMap(skuInfo.getSpuId());
+                resultMap.put("valuesSkuJson", JSON.toJSONString(skuValueIdsMap));
+            }
+        },executor);
 
-        CompletableFuture.allOf(
-                skuInfoCompletableFuture,
-                spuSaleAttrCompletableFuture,
-                skuValueIdsMapCompletableFuture,
-                skuPriceCompletableFuture,
-                categoryViewCompletableFuture,
-                spuPosterListCompletableFuture,
-                skuAttrListCompletableFuture,
-                incrHotScoreCompletableFuture
-        ).join();
 
-        return result;
+        CompletableFuture<Void> findSpuPosterBySpuIdCompletableFuture = skuInfoCompletableFuture.thenAcceptAsync(new Consumer<SkuInfo>() {
+            @Override
+            public void accept(SkuInfo skuInfo) {
+                //获取海报信息
+                List<SpuPoster> spuPosterBySpuId = productFeignClient.findSpuPosterBySpuId(skuInfo.getSpuId());
+                resultMap.put("spuPosterList", spuPosterBySpuId);
+            }
+        },executor);
+
+
+        CompletableFuture<Void> attrListCompletableFuture = CompletableFuture.runAsync(new Runnable() {
+            @Override
+            public void run() {
+                //获取平台信息
+                List<BaseAttrInfo> attrList = productFeignClient.getAttrList(skuId);
+
+                //处理符合要求 List  Obj  key attrName   key attrValue
+                List<Map<String, String>> spuAttrList = attrList.stream().map(baseAttrInfo -> {
+
+                    Map<String, String> map = new HashMap<>();
+                    map.put("attrName", baseAttrInfo.getAttrName());
+                    map.put("attrValue", baseAttrInfo.getAttrValueList().get(0).getValueName());
+
+
+                    return map;
+                }).collect(Collectors.toList());
+
+                resultMap.put("skuAttrList", spuAttrList);
+            }
+        }, executor);
+
+        //更新商品热度
+        CompletableFuture<Void> incrHotScoreCompletableFuture = CompletableFuture.runAsync(new Runnable() {
+            @Override
+            public void run() {
+                listFeignClient.incrHotScore(skuId);
+            }
+        }, executor);
+
+
+        //多任务组合 --所以的异步任务执行完成才是完成
+        CompletableFuture.allOf(skuInfoCompletableFuture,skuPriceCompletableFuture,
+                                categoryViewCompletableFuture,findSpuPosterBySpuIdCompletableFuture,
+                                 attrListCompletableFuture,skuValueIdsMapCompletableFuture,
+                spuSaleAttrListCheckBySkuCompletableFuture,incrHotScoreCompletableFuture).join();
+
+        return resultMap;
     }
 }

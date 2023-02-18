@@ -1,13 +1,12 @@
 package com.atguigu.gmall.item.service;
 
-import java.util.Map;
+import java.util.HashMap;
 
 public interface ItemService {
     /**
-     * 获取sku详情信息
+     * 获取商品详情
      * @param skuId
      * @return
      */
-    Map<String, Object> getBySkuId(Long skuId);
-
+    HashMap<String, Object> getItem(Long skuId);
 }

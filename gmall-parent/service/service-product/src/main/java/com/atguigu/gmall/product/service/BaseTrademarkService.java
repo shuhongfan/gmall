@@ -7,10 +7,9 @@ import com.baomidou.mybatisplus.extension.service.IService;
 
 public interface BaseTrademarkService extends IService<BaseTrademark> {
     /**
-     * Banner分页列表
-     * @param pageParam
+     * 品牌分页列表查询
+     * @param baseTrademarkPage
      * @return
      */
-    IPage<BaseTrademark> getPage(Page<BaseTrademark> pageParam);
-
+    IPage<BaseTrademark> getBaseTrademakrPage(Page<BaseTrademark> baseTrademarkPage);
 }

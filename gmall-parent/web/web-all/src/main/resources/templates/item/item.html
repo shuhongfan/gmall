@@ -1007,6 +1007,7 @@ var item = new Vue({
             console.log('spuSaleAttrValueId:' + spuSaleAttrValueId)
             this.isAddCart = true
             //  JSON.parse() : Json 字符串转换为对象！ {"115|117":"44","114|117":"45"}
+            console.log(this.valuesSkuJson);
             var valuesSkuJson = JSON.parse(this.valuesSkuJson);
 
             //根据索引替换已选中的spuSaleAttrValueId

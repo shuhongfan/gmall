@@ -8,12 +8,14 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication(exclude = DataSourceAutoConfiguration.class)
-@ComponentScan({"com.atguigu.gmall"})
 @EnableDiscoveryClient
-@EnableFeignClients(basePackages= {"com.atguigu.gmall"})
-
+@ComponentScan(basePackages = "com.atguigu.gmall")
+@EnableFeignClients(basePackages = "com.atguigu.gmall")
 public class ServiceListApplication {
+
     public static void main(String[] args) {
-        SpringApplication.run(ServiceListApplication.class, args);
+
+        SpringApplication.run(ServiceListApplication.class,args);
     }
+
 }

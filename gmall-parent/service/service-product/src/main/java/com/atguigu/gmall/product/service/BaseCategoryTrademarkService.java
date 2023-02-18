@@ -8,31 +8,31 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import java.util.List;
 
 public interface BaseCategoryTrademarkService extends IService<BaseCategoryTrademark> {
-
     /**
-     * 根据三级分类获取品牌
+     * 根据category3Id获取品牌列表
      * @param category3Id
      * @return
      */
     List<BaseTrademark> findTrademarkList(Long category3Id);
 
     /**
-     * 保存分类与品牌关联
-     * @param categoryTrademarkVo
+     * 删除分类品牌关联
+     * @param category3Id
+     * @param trademarkId
      */
-    void save(CategoryTrademarkVo categoryTrademarkVo);
+    void remove(Long category3Id, Long trademarkId);
 
     /**
-     * 获取当前未被三级分类关联的所有品牌
+     * 根据category3Id获取可选品牌列表
      * @param category3Id
      * @return
      */
     List<BaseTrademark> findCurrentTrademarkList(Long category3Id);
 
     /**
-     * 删除关联
-     * @param category3Id
-     * @param trademarkId
+     * 保存分类和品牌关联
+     * @param categoryTrademarkVo
      */
-    void remove(Long category3Id, Long trademarkId);
+    void save(CategoryTrademarkVo categoryTrademarkVo);
+
 }

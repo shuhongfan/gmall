@@ -15,7 +15,7 @@ public class SearchParam {
 
     private String keyword;//检索的关键字
 
-    // 排序规则
+    // 排序规则  1:desc
     // 1:hotScore 2:price
     private String order = ""; // 1：综合排序/热度  2：价格
 

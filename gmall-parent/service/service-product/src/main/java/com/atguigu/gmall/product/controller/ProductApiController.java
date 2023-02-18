@@ -3,7 +3,9 @@ package com.atguigu.gmall.product.controller;
 import com.alibaba.fastjson.JSONObject;
 import com.atguigu.gmall.common.result.Result;
 import com.atguigu.gmall.model.product.*;
-import com.atguigu.gmall.product.service.ManageService;
+import com.atguigu.gmall.product.service.BaseTrademarkService;
+import com.atguigu.gmall.product.service.ManagerService;
+import org.simpleframework.xml.Path;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,105 +17,154 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping("api/product")
+@RequestMapping("/api/product/inner")
 public class ProductApiController {
 
     @Autowired
-    private ManageService manageService;
+    private ManagerService managerService;
+
+
+    @Autowired
+    private BaseTrademarkService trademarkService;
+
+
 
     /**
-     * 通过品牌Id 集合来查询数据
+     * 根据品牌Id 获取品牌数据
+     * api/product/inner/getTrademark/{tmId}
      * @param tmId
      * @return
      */
-    @GetMapping("inner/getTrademark/{tmId}")
-    public BaseTrademark getTrademark(@PathVariable("tmId")Long tmId){
-        return manageService.getTrademarkByTmId(tmId);
+    @GetMapping("/getTrademark/{tmId}")
+    public BaseTrademark getTrademark(@PathVariable Long tmId){
+
+
+        return trademarkService.getById(tmId);
+
     }
 
-
     /**
-     * 获取全部分类信息
+     * 首页数据查询三级分类数
+     * api/product/inner/getBaseCategoryList
+     *
      * @return
      */
-    @GetMapping("getBaseCategoryList")
+    @GetMapping("/getBaseCategoryList")
     public Result getBaseCategoryList(){
-        List<JSONObject> list = manageService.getBaseCategoryList();
-        return Result.ok(list);
+
+        List<JSONObject> result=managerService.getBaseCategoryList();
+
+
+        return Result.ok(result);
     }
 
 
     /**
-     * 根据skuId获取sku信息
      *
+     * 根据skuId 获取平台属性数据
+     * api/product/inner/getAttrList/{skuId}
      * @param skuId
      * @return
      */
-    @GetMapping("inner/getSkuInfo/{skuId}")
-    public SkuInfo getAttrValueList(@PathVariable("skuId") Long skuId) {
-        SkuInfo skuInfo = manageService.getSkuInfo(skuId);
-        return skuInfo;
+    @GetMapping("/getAttrList/{skuId}")
+    public List<BaseAttrInfo> getAttrList(@PathVariable Long skuId){
+
+
+        return managerService.getAttrList(skuId);
+
+    }
+
+
+    /**
+     * 根据spuid查询海报集合数据
+     * api/product/inner/findSpuPosterBySpuId/{spuId}
+     * @param spuId
+     * @return
+     */
+    @GetMapping("/findSpuPosterBySpuId/{spuId}")
+    public List<SpuPoster> findSpuPosterBySpuId(@PathVariable Long spuId){
+
+
+        return managerService.findSpuPosterBySpuId(spuId);
+
+    }
+
+
+    /**
+     * api/product/inner/getSkuValueIdsMap/{spuId}
+     * 根据spuId 获取到销售属性值Id 与skuId 组成的数据集
+     * @param spuId
+     */
+    @GetMapping("/getSkuValueIdsMap/{spuId}")
+    public Map getSkuValueIdsMap(@PathVariable Long spuId){
+
+
+       return managerService.getSkuValueIdsMap(spuId);
+
+
     }
 
     /**
-     * 通过三级分类id查询分类信息
+     * 根据spuId,skuId 获取销售属性数据
+     * api/product/inner/getSpuSaleAttrListCheckBySku/{skuId}/{spuId}
+     *
+     * @param skuId
+     * @param spuId
+     * @return
+     */
+    @GetMapping("/getSpuSaleAttrListCheckBySku/{skuId}/{spuId}")
+    public List<SpuSaleAttr> getSpuSaleAttrListCheckBySku(@PathVariable Long skuId,
+                                                          @PathVariable Long spuId){
+
+
+        return managerService.getSpuSaleAttrListCheckBySku(skuId,spuId);
+
+
+    }
+
+
+    /**
+     * api/product/inner/getSkuPrice/{skuId}
+     * 根据skuId查询sku实时价格
+     * @param skuId
+     * @return
+     */
+    @GetMapping("/getSkuPrice/{skuId}")
+    public BigDecimal getSkuPrice(@PathVariable Long skuId){
+
+
+       return  managerService.getSkuPrice(skuId);
+    }
+
+
+
+    /**
+     *根据三级分类id获取分类信息
+     * api/product/inner/getCategoryView/{category3Id}
+     *
      * @param category3Id
      * @return
      */
-    @GetMapping("inner/getCategoryView/{category3Id}")
-    public BaseCategoryView getCategoryView(@PathVariable("category3Id")Long category3Id){
-        return manageService.getCategoryViewByCategory3Id(category3Id);
+    @GetMapping("/getCategoryView/{category3Id}")
+    public BaseCategoryView getCategoryView(@PathVariable Long category3Id){
+
+
+        return managerService.getCategoryView(category3Id);
+
     }
 
+
+
     /**
-     * 获取sku最新价格
+     * /api/product/inner/getSkuInfo/{skuId}
+     * 根据skuId查询skuInfo信息和图片列表
      * @param skuId
      * @return
      */
-    @GetMapping("inner/getSkuPrice/{skuId}")
-    public BigDecimal getSkuPrice(@PathVariable Long skuId){
-        return manageService.getSkuPrice(skuId);
-    }
+    @GetMapping("/getSkuInfo/{skuId}")
+    public SkuInfo getSkuInfo(@PathVariable Long skuId){
 
-    /**
-     * 根据spuId，skuId 查询销售属性集合
-     * @param skuId
-     * @param spuId
-     * @return
-     */
-    @GetMapping("inner/getSpuSaleAttrListCheckBySku/{skuId}/{spuId}")
-    public List<SpuSaleAttr> getSpuSaleAttrListCheckBySku(@PathVariable("skuId") Long skuId, @PathVariable("spuId") Long spuId){
-        return manageService.getSpuSaleAttrListCheckBySku(skuId, spuId);
+         SkuInfo skuInfo=managerService.getSkuInfo(skuId);
+        return skuInfo;
     }
-
-    /**
-     * 根据spuId 查询map 集合属性
-     * @param spuId
-     * @return
-     */
-    @GetMapping("inner/getSkuValueIdsMap/{spuId}")
-    public Map getSkuValueIdsMap(@PathVariable("spuId") Long spuId){
-        return manageService.getSkuValueIdsMap(spuId);
-    }
-
-    /**
-     * 根据spuId 获取海报数据
-     * @param spuId
-     * @return
-     */
-    @GetMapping("inner/findSpuPosterBySpuId/{spuId}")
-    public List<SpuPoster> findSpuPosterBySpuId(@PathVariable Long spuId){
-        return manageService.findSpuPosterBySpuId(spuId);
-    }
-
-    /**
-     * 通过skuId 集合来查询数据
-     * @param skuId
-     * @return
-     */
-    @GetMapping("inner/getAttrList/{skuId}")
-    public List<BaseAttrInfo> getAttrList(@PathVariable("skuId") Long skuId){
-        return manageService.getAttrList(skuId);
-    }
-
 }
